@@ -1,0 +1,27 @@
+/**
+ * Bio Design System - Global Styles
+ * 
+ * This file imports all necessary styles for the design system.
+ */
+
+/* Design Tokens (CSS Variables) */
+@import '../tokens/generated/variables.css';
+
+/* Bootstrap (if using Bootstrap utilities) */
+/* Uncomment if you want to use Bootstrap's utility classes */
+/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  line-height: var(--typography-line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+

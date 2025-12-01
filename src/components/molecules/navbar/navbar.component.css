@@ -1,0 +1,47 @@
+/**
+ * Navbar Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Color schemes (default, light, dark)
+ * - Responsive layout
+ * - Brand and toggler positioning
+ */
+
+/* Navbar Container */
+.bio-navbar {
+  background: var(--color-background-default);
+  border-bottom: var(--border-width-thin) solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  min-height: 56px;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+/* Color Schemes */
+.bio-navbar--light {
+  background: var(--color-background-secondary);
+}
+
+.bio-navbar--dark {
+  background: var(--color-background-dark);
+  color: var(--color-base-white);
+}
+
+/* Navbar Inner Container */
+.bio-navbar__container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 var(--spacing-md);
+  width: 100%;
+}
+
+/* Responsive Layout */
+@media (max-width: 991px) {
+  .bio-navbar__container {
+    flex-wrap: wrap;
+  }
+}
+

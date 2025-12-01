@@ -1,0 +1,9 @@
+<div [class]="affixClasses">
+  @if (type === 'text' && content) {
+    <span class="bio-input-affix__text">{{ content }}</span>
+  }
+  @if (type === 'icon' && content) {
+    <span class="bio-input-affix__icon" [innerHTML]="content"></span>
+  }
+</div>
+

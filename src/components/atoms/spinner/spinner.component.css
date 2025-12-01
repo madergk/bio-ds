@@ -1,0 +1,141 @@
+/**
+ * Spinner Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Border spinner (rotating border)
+ * - Growing spinner (pulsing circles)
+ * - Color variants
+ * - Animations
+ */
+
+/* Spinner Container */
+.bio-spinner {
+  display: inline-block;
+  height: 32px;
+  position: relative;
+  width: 32px;
+}
+
+/* Border Spinner */
+.bio-spinner--border {
+  border: 3px solid currentColor;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+/* Color Variants for Border */
+.bio-spinner--border.bio-spinner--dark {
+  color: var(--color-text-primary);
+}
+
+.bio-spinner--border.bio-spinner--primary {
+  color: var(--color-primary-500);
+}
+
+.bio-spinner--border.bio-spinner--secondary {
+  color: var(--color-text-secondary);
+}
+
+.bio-spinner--border.bio-spinner--success {
+  color: var(--color-semantic-success-base);
+}
+
+.bio-spinner--border.bio-spinner--danger {
+  color: var(--color-semantic-error-base);
+}
+
+.bio-spinner--border.bio-spinner--warning {
+  color: var(--color-semantic-warning-base);
+}
+
+.bio-spinner--border.bio-spinner--info {
+  color: var(--color-semantic-info-base);
+}
+
+.bio-spinner--border.bio-spinner--light {
+  color: var(--color-background-secondary);
+}
+
+/* Growing Spinner */
+.bio-spinner--growing {
+  animation: spinner-grow 0.75s linear infinite;
+}
+
+.bio-spinner--growing::before {
+  background: currentColor;
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* Color Variants for Growing */
+.bio-spinner--growing.bio-spinner--dark {
+  color: var(--color-text-primary);
+}
+
+.bio-spinner--growing.bio-spinner--primary {
+  color: var(--color-primary-500);
+}
+
+.bio-spinner--growing.bio-spinner--secondary {
+  color: var(--color-text-secondary);
+}
+
+.bio-spinner--growing.bio-spinner--success {
+  color: var(--color-semantic-success-base);
+}
+
+.bio-spinner--growing.bio-spinner--danger {
+  color: var(--color-semantic-error-base);
+}
+
+.bio-spinner--growing.bio-spinner--warning {
+  color: var(--color-semantic-warning-base);
+}
+
+.bio-spinner--growing.bio-spinner--info {
+  color: var(--color-semantic-info-base);
+}
+
+.bio-spinner--growing.bio-spinner--light {
+  color: var(--color-background-secondary);
+}
+
+/* Animations */
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+/* Visually Hidden */
+.visually-hidden {
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+

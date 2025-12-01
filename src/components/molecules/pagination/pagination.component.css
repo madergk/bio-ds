@@ -1,0 +1,265 @@
+/**
+ * Pagination Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Connected page items (no gaps)
+ * - Active page highlighting
+ * - Disabled states
+ * - Size variants
+ * - Ellipsis for large page counts
+ */
+
+/* Pagination Container */
+.bio-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.bio-pagination--small {
+  gap: var(--spacing-sm);
+}
+
+/* Content */
+.bio-pagination__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.bio-pagination--small .bio-pagination__content {
+  gap: var(--spacing-sm);
+}
+
+/* Total Text */
+.bio-pagination__total {
+  flex-shrink: 0;
+}
+
+.bio-pagination__total p {
+  color: var(--color-text-secondary);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.bio-pagination--small .bio-pagination__total p {
+  font-size: var(--typography-font-size-sm);
+}
+
+.bio-pagination--large .bio-pagination__total p {
+  font-size: var(--typography-font-size-xl);
+}
+
+/* Page Items Container */
+.bio-pagination__items {
+  background: var(--color-background-default);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* Pagination Item */
+.bio-pagination__item,
+.bio-pagination__prev,
+.bio-pagination__next {
+  background: var(--color-background-default);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-left: none;
+  color: var(--color-primary-500);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  margin-left: -1px;
+  padding: var(--spacing-2) var(--spacing-3);
+  transition: all var(--transition-duration-fast) var(--transition-timing-ease);
+}
+
+.bio-pagination__prev {
+  border-left: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+  margin-left: 0;
+}
+
+.bio-pagination__next {
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+}
+
+.bio-pagination__item:hover:not(.bio-pagination__item--disabled):not(.bio-pagination__item--active) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bio-pagination__item--active {
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  color: var(--color-base-white);
+}
+
+.bio-pagination__item--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Size Variants */
+.bio-pagination--small .bio-pagination__item,
+.bio-pagination--small .bio-pagination__prev,
+.bio-pagination--small .bio-pagination__next {
+  font-size: var(--typography-font-size-sm);
+  height: 31px;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--border-radius-sm);
+}
+
+.bio-pagination--small .bio-pagination__prev {
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+}
+
+.bio-pagination--small .bio-pagination__next {
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+}
+
+.bio-pagination--large .bio-pagination__item,
+.bio-pagination--large .bio-pagination__prev,
+.bio-pagination--large .bio-pagination__next {
+  font-size: var(--typography-font-size-xl);
+  height: 56px;
+  padding: var(--spacing-3) var(--spacing-5);
+  border-radius: var(--border-radius-md);
+}
+
+.bio-pagination--large .bio-pagination__prev {
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+.bio-pagination--large .bio-pagination__next {
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+/* Ellipsis */
+.bio-pagination__ellipsis {
+  align-items: center;
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-left: none;
+  color: var(--color-text-secondary);
+  display: flex;
+  justify-content: center;
+  margin-left: -1px;
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+.bio-pagination--small .bio-pagination__ellipsis {
+  height: 31px;
+  padding: var(--spacing-1) var(--spacing-2);
+  width: 31px;
+}
+
+.bio-pagination--large .bio-pagination__ellipsis {
+  height: 56px;
+  padding: var(--spacing-3) var(--spacing-5);
+  width: 56px;
+}
+
+.bio-pagination__ellipsis svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Options */
+.bio-pagination__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  align-items: center;
+}
+
+.bio-pagination--small .bio-pagination__options {
+  gap: var(--spacing-sm);
+}
+
+/* Page Size Selector */
+.bio-pagination__page-size {
+  flex-shrink: 0;
+}
+
+.bio-pagination__select {
+  background: var(--color-background-default);
+  border: var(--border-width-thin) solid var(--color-border-light);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+.bio-pagination--small .bio-pagination__select {
+  font-size: var(--typography-font-size-sm);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--border-radius-sm);
+}
+
+.bio-pagination--large .bio-pagination__select {
+  font-size: var(--typography-font-size-xl);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--border-radius-md);
+}
+
+/* Quick Jumper */
+.bio-pagination__jumper {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.bio-pagination__jumper-label {
+  color: var(--color-text-secondary);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  white-space: nowrap;
+}
+
+.bio-pagination--small .bio-pagination__jumper-label {
+  font-size: var(--typography-font-size-sm);
+}
+
+.bio-pagination--large .bio-pagination__jumper-label {
+  font-size: var(--typography-font-size-xl);
+}
+
+.bio-pagination__jumper-input {
+  background: var(--color-background-default);
+  border: var(--border-width-thin) solid var(--color-border-light);
+  border-radius: var(--border-radius-sm);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  padding: var(--spacing-2) var(--spacing-3);
+  width: 65px;
+}
+
+.bio-pagination--small .bio-pagination__jumper-input {
+  font-size: var(--typography-font-size-sm);
+  padding: var(--spacing-1) var(--spacing-2);
+  width: 50px;
+  border-radius: var(--border-radius-sm);
+}
+
+.bio-pagination--large .bio-pagination__jumper-input {
+  font-size: var(--typography-font-size-xl);
+  padding: var(--spacing-2) var(--spacing-4);
+  width: 80px;
+  border-radius: var(--border-radius-md);
+}
+

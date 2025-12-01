@@ -1,0 +1,78 @@
+<!--
+  Breadcrumb Component Template
+  
+  Displays a navigation breadcrumb trail with items and separators.
+  
+  Structure:
+  - Container with breadcrumb class
+  - Each item with optional icon and text
+  - Separators between items
+  - Last item is marked as current
+-->
+
+<nav aria-label="Breadcrumb" class="bio-breadcrumb">
+  <ol class="bio-breadcrumb-list">
+    @for (item of items; track $index) {
+      <li class="bio-breadcrumb-list-item">
+        <div [class]="getItemClasses($index)">
+          <!-- Optional Icon -->
+          @if (item.icon) {
+            <div class="bio-breadcrumb-icon">
+              @if (item.icon === 'home') {
+                <svg 
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 16 16" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <path 
+                    d="M8 0L0 8H2V16H6V10H10V16H14V8H16L8 0Z" 
+                    fill="currentColor"/>
+                </svg>
+              }
+            </div>
+          }
+
+          <!-- Item Content -->
+          @if (isLink($index)) {
+            <a 
+              [href]="item.url"
+              class="bio-breadcrumb-link">
+              {{ item.label }}
+            </a>
+          } @else {
+            <span class="bio-breadcrumb-text">
+              {{ item.label }}
+            </span>
+          }
+        </div>
+
+        <!-- Separator (not shown after last item) -->
+        @if (!$last) {
+          <div class="bio-breadcrumb-separator">
+            @if (separator === 'icon') {
+              <svg 
+                width="8" 
+                height="16" 
+                viewBox="0 0 8 16" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path 
+                  d="M2 0L8 8L2 16" 
+                  stroke="currentColor" 
+                  stroke-width="2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"/>
+              </svg>
+            } @else {
+              <span class="bio-breadcrumb-separator-text">{{ separatorText }}</span>
+            }
+          </div>
+        }
+      </li>
+    }
+  </ol>
+</nav>
+

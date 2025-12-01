@@ -1,0 +1,37 @@
+/**
+ * Navbar Collapse Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Expand/collapse animation
+ * - Responsive behavior
+ * - Fixed height option
+ */
+
+/* Collapse Container */
+.bio-navbar-collapse {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.bio-navbar-collapse--expanded {
+  display: block;
+}
+
+/* Responsive Mode */
+.bio-navbar-collapse--responsive {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+}
+
+/* Fixed Height */
+.bio-navbar-collapse--fixed-height {
+  max-height: 246px;
+  overflow-y: auto;
+}
+
+.bio-navbar-collapse--responsive.bio-navbar-collapse--expanded {
+  display: flex;
+}
+

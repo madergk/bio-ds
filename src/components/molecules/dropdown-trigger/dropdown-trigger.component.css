@@ -1,0 +1,122 @@
+/**
+ * Dropdown Trigger Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Split button support
+ * - Connected buttons (no gap)
+ * - Chevron icon rotation
+ * - Size variants
+ */
+
+/* Trigger Container */
+.bio-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.bio-dropdown-trigger--split {
+  display: flex;
+}
+
+/* Main Button (in split button) */
+.bio-dropdown-trigger__main {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  margin-right: -1px;
+}
+
+/* Toggle Button (split button) */
+.bio-dropdown-trigger__toggle {
+  border: var(--border-width-thin) solid;
+  border-left: none;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all var(--transition-duration-fast) var(--transition-timing-ease);
+  margin-left: -1px;
+}
+
+/* Toggle Button - Primary Variant */
+.bio-dropdown-trigger__toggle--primary {
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  color: var(--color-base-white);
+}
+
+.bio-dropdown-trigger__toggle--primary:hover {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+}
+
+.bio-dropdown-trigger__toggle--primary:active {
+  background: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+}
+
+/* Toggle Button - Secondary Variant */
+.bio-dropdown-trigger__toggle--secondary {
+  background: transparent;
+  border-color: var(--color-border-default);
+  color: var(--color-text-primary);
+}
+
+.bio-dropdown-trigger__toggle--secondary:hover {
+  background: var(--color-background-hover, rgba(0, 0, 0, 0.05));
+}
+
+.bio-dropdown-trigger__toggle--secondary:active {
+  background: var(--color-background-active, rgba(0, 0, 0, 0.1));
+}
+
+/* Toggle Button Sizes */
+.bio-dropdown-trigger__toggle--sm {
+  width: 31px;
+  height: 31px;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.bio-dropdown-trigger__toggle--md {
+  width: 38px;
+  height: 38px;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.bio-dropdown-trigger__toggle--lg {
+  width: 42px;
+  height: 42px;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+/* Chevron Icon */
+.bio-dropdown-trigger__chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-duration-normal) var(--transition-timing-ease);
+}
+
+.bio-dropdown-trigger__toggle--open .bio-dropdown-trigger__chevron {
+  transform: rotate(180deg);
+}
+
+/* Simple Button with Chevron */
+.bio-dropdown-trigger__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.bio-dropdown-trigger__button .bio-dropdown-trigger__chevron {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+

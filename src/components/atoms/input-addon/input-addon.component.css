@@ -1,0 +1,39 @@
+/**
+ * Input Addon Component Styles
+ */
+
+.bio-input-addon {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-background-tertiary);
+  border: var(--border-width-thin) solid var(--color-border-light);
+  padding: var(--spacing-2) var(--spacing-3);
+  flex-shrink: 0;
+}
+
+.bio-input-addon__text {
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--color-text-secondary);
+}
+
+.bio-input-addon__select {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.bio-input-addon__select-text {
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--color-text-secondary);
+}
+
+.bio-input-addon__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+

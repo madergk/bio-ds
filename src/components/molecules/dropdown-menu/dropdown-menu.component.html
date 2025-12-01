@@ -1,0 +1,26 @@
+<!--
+  Dropdown Menu Component Template
+  
+  Displays a list of menu items in a dropdown container.
+  
+  Structure:
+  - Container with arrow positioning
+  - List of menu items
+  - Each item can be clicked or disabled
+-->
+
+<div [class]="menuClasses" role="menu" [attr.aria-label]="'Dropdown menu'">
+  <div 
+    *ngFor="let item of items; let i = index"
+    [class]="getItemClasses(item)"
+    role="menuitem"
+    [attr.aria-disabled]="item.disabled"
+    (click)="onItemClick(item, $event)">
+    <div class="bio-dropdown-menu-item__wrapper">
+      <div class="bio-dropdown-menu-item__content">
+        <span class="bio-dropdown-menu-item__label">{{ item.label }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+

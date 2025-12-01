@@ -1,0 +1,87 @@
+{
+  "name": "@madergk/bio-ds",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "Bio Design System - Angular component library with Bootstrap styling and CSS Modules",
+  "keywords": [
+    "angular",
+    "design-system",
+    "component-library",
+    "bootstrap",
+    "css-modules",
+    "design-tokens",
+    "ui-components"
+  ],
+  "author": "mgomez <mgomez@wigou.co>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madergk/bio-ds.git"
+  },
+  "bugs": {
+    "url": "https://github.com/madergk/bio-ds/issues"
+  },
+  "homepage": "https://github.com/madergk/bio-ds#readme",
+  "scripts": {
+    "build": "npm run tokens:build && ng build",
+    "build:library": "npm run tokens:build && ng build --configuration production",
+    "build:clean": "rm -rf dist && npm run build:library",
+    "prepublishOnly": "npm run build:clean",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "test": "ng test",
+    "lint": "ng lint",
+    "tokens:build": "style-dictionary build --config style-dictionary.config.js",
+    "tokens:watch": "style-dictionary build --config style-dictionary.config.js --watch",
+    "tokens:validate": "node scripts/validate-tokens.js",
+    "tokens:sync": "node scripts/sync-figma-tokens.js",
+    "storybook": "ng run bio-ds:storybook",
+    "build-storybook": "ng run bio-ds:build-storybook",
+    "docs:build": "npm run tokens:build && npm run build-storybook"
+  },
+  "dependencies": {
+    "tslib": "^2.6.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^21.0.1",
+    "@angular-devkit/core": "^21.0.1",
+    "@angular/cli": "^21.0.1",
+    "@angular/compiler-cli": "^17.0.0",
+    "@storybook/addon-docs": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/angular": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "storybook": "^8.6.14",
+    "@types/node": "^20.10.0",
+    "ng-packagr": "^21.0.0",
+    "style-dictionary": "^4.0.0",
+    "typescript": "~5.2.2",
+    "@storybook/addon-onboarding": "8.6.14",
+    "@compodoc/compodoc": "^1.1.32"
+  },
+  "peerDependencies": {
+    "@angular/animations": "^17.0.0",
+    "@angular/common": "^17.0.0",
+    "@angular/compiler": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@angular/forms": "^17.0.0",
+    "@angular/platform-browser": "^17.0.0",
+    "@angular/platform-browser-dynamic": "^17.0.0",
+    "@angular/router": "^17.0.0",
+    "rxjs": "~7.8.0",
+    "zone.js": "~0.14.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "main": "dist/bio-ds/fesm2022/bio-ds.mjs",
+  "types": "dist/bio-ds/index.d.ts"
+}

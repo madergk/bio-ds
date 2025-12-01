@@ -1,0 +1,136 @@
+/**
+ * Placeholder Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Image placeholder
+ * - Text line placeholders
+ * - Multi-line placeholders
+ * - Size variants
+ * - Glow animation
+ */
+
+/* Placeholder Container */
+.bio-placeholder {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.bio-placeholder--image {
+  display: block;
+}
+
+.bio-placeholder--multi-line {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) 0 var(--spacing-md);
+}
+
+.bio-placeholder--text {
+  display: block;
+}
+
+/* Image Placeholder */
+.bio-placeholder__image {
+  background: var(--color-text-disabled);
+  border-radius: var(--border-radius-sm);
+  flex-shrink: 0;
+  height: 96px;
+  width: 96px;
+}
+
+/* Content Container */
+.bio-placeholder__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  padding: 0 var(--spacing-md) var(--spacing-md) 0;
+}
+
+/* Title Placeholder */
+.bio-placeholder__title {
+  background: var(--color-text-secondary);
+  border-radius: var(--border-radius-sm);
+  height: 32px;
+  margin-bottom: var(--spacing-xs);
+  opacity: 0.5;
+  width: 100%;
+}
+
+/* Lines Container */
+.bio-placeholder__lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) 0;
+}
+
+/* Line Placeholder */
+.bio-placeholder__line {
+  background: var(--color-text-secondary);
+  border-radius: var(--border-radius-sm);
+  height: var(--spacing-md);
+  opacity: 0.5;
+  position: relative;
+  width: 100%;
+}
+
+.bio-placeholder__line:nth-child(1) {
+  width: 66.37%;
+}
+
+.bio-placeholder__line:nth-child(2) {
+  width: 100%;
+}
+
+.bio-placeholder__line:nth-child(3) {
+  width: 57.87%;
+}
+
+/* Button Placeholder */
+.bio-placeholder__button {
+  background: var(--color-primary-500);
+  border: var(--border-width-thin) solid var(--color-primary-500);
+  border-radius: var(--border-radius-md);
+  height: 38px;
+  margin-top: var(--spacing-md);
+  opacity: 0.65;
+  width: 123px;
+}
+
+/* Size Variants */
+.bio-placeholder--small .bio-placeholder__line {
+  height: 12px;
+  padding: 6.4px 0;
+}
+
+.bio-placeholder--large .bio-placeholder__line {
+  height: 20px;
+  padding: 9.6px 0;
+}
+
+.bio-placeholder--extra-small .bio-placeholder__line {
+  height: 10px;
+  padding: 4.8px 0;
+}
+
+/* Glow State */
+.bio-placeholder--glow .bio-placeholder__line,
+.bio-placeholder--glow .bio-placeholder__title,
+.bio-placeholder--glow .bio-placeholder__image,
+.bio-placeholder--glow .bio-placeholder__button {
+  animation: placeholder-glow 1.5s ease-in-out infinite;
+  opacity: 0.2;
+}
+
+@keyframes placeholder-glow {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+

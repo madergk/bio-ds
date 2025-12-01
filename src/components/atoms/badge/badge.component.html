@@ -1,0 +1,19 @@
+<!--
+  Badge Component Template
+  
+  Displays a badge with text or as a dot.
+  
+  Structure:
+  - Container with variant classes
+  - Text content (for normal and pill types)
+  - Dot (for dot type)
+-->
+
+@if (type === 'dot') {
+  <div [class]="badgeClasses" aria-label="Badge indicator"></div>
+} @else {
+  <div [class]="badgeClasses">
+    <span class="bio-badge-text">{{ text }}</span>
+  </div>
+}
+

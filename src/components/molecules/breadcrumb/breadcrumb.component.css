@@ -1,0 +1,119 @@
+/**
+ * Breadcrumb Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Optional icons for items
+ * - Different separator types (text or icon)
+ * - Link styling for non-current items
+ * - Current item styling
+ * - Uses design tokens where possible
+ */
+
+/* Breadcrumb Container */
+.bio-breadcrumb {
+  padding-bottom: var(--spacing-md);
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Breadcrumb List */
+.bio-breadcrumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Breadcrumb List Item */
+.bio-breadcrumb-list-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Breadcrumb Item */
+.bio-breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* Breadcrumb Icon */
+.bio-breadcrumb-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-secondary);
+}
+
+.bio-breadcrumb-item--current .bio-breadcrumb-icon {
+  color: var(--color-text-secondary);
+}
+
+/* Breadcrumb Link */
+.bio-breadcrumb-link {
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  color: var(--color-primary-500);
+  text-decoration: underline;
+  text-underline-position: from-font;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+  
+  &:hover {
+    color: var(--color-primary-600);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+}
+
+/* Breadcrumb Text (current item) */
+.bio-breadcrumb-text {
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* Breadcrumb Separator */
+.bio-breadcrumb-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-xs);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+/* Separator Text */
+.bio-breadcrumb-separator-text {
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* Separator Icon */
+.bio-breadcrumb-separator svg {
+  width: 8px;
+  height: var(--spacing-md);
+  color: var(--color-text-secondary);
+}
+

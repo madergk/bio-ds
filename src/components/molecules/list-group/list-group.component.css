@@ -1,0 +1,102 @@
+/**
+ * List Group Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Bordered container (unless flush)
+ * - List items with separators
+ * - Action support (clickable items)
+ * - Active and disabled states
+ */
+
+/* List Group Container */
+.bio-list-group {
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Flush Variant */
+.bio-list-group--flush {
+  border: none;
+  border-radius: 0;
+}
+
+/* List Group Item */
+.bio-list-group-item {
+  background: var(--color-background-default);
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  position: relative;
+  width: 100%;
+}
+
+.bio-list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* Flush Item */
+.bio-list-group-item--flush {
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+}
+
+.bio-list-group-item--flush:last-child {
+  border-bottom: none;
+}
+
+/* Action Item (Clickable) */
+.bio-list-group-item--action {
+  cursor: pointer;
+  transition: background-color var(--transition-duration-fast) var(--transition-timing-ease);
+}
+
+.bio-list-group-item--action:hover:not(.bio-list-group-item--disabled) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bio-list-group-item--action:active:not(.bio-list-group-item--disabled) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Active State */
+.bio-list-group-item--active {
+  background-color: var(--color-primary-500);
+  color: var(--color-base-white);
+}
+
+.bio-list-group-item--active .bio-list-group-item__label {
+  color: var(--color-base-white);
+}
+
+/* Disabled State */
+.bio-list-group-item--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Item Content */
+.bio-list-group-item__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Item Label */
+.bio-list-group-item__label {
+  color: rgba(33, 37, 41, 0.75);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  margin: 0;
+}
+
+.bio-list-group-item--active .bio-list-group-item__label {
+  color: var(--color-base-white);
+}
+

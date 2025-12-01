@@ -1,0 +1,48 @@
+<!--
+  Offcanvas Component Template
+  
+  Displays an offcanvas/sidebar panel.
+  
+  Structure:
+  - Backdrop (when open)
+  - Offcanvas panel
+  - Header with title and close button
+  - Body content (projected)
+-->
+
+<!-- Backdrop -->
+<div 
+  *ngIf="isOpen"
+  class="bio-offcanvas-backdrop"
+  (click)="onClose()">
+</div>
+
+<!-- Offcanvas Panel -->
+<div 
+  [class]="offcanvasClasses"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-labelledby]="'offcanvas-title-' + title">
+  <!-- Header -->
+  <div class="bio-offcanvas__header">
+    <div class="bio-offcanvas__title">
+      <h2 [id]="'offcanvas-title-' + title">{{ title }}</h2>
+    </div>
+    <button 
+      *ngIf="showClose"
+      type="button"
+      class="bio-offcanvas__close"
+      (click)="onClose()"
+      aria-label="Close offcanvas">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Body -->
+  <div class="bio-offcanvas__body">
+    <ng-content></ng-content>
+  </div>
+</div>
+

@@ -1,0 +1,32 @@
+<!--
+  Popover Component Template
+  
+  Displays a popover with optional title and content.
+  
+  Structure:
+  - Arrow (positioned based on direction)
+  - Popover container
+  - Header with title (optional)
+  - Body content (projected)
+-->
+
+<div 
+  *ngIf="isOpen"
+  [class]="popoverClasses">
+  <!-- Arrow -->
+  <div class="bio-popover__arrow"></div>
+
+  <!-- Popover Container -->
+  <div class="bio-popover__wrapper">
+    <!-- Header (if title provided) -->
+    <div *ngIf="title" class="bio-popover__header">
+      <h3 class="bio-popover__title">{{ title }}</h3>
+    </div>
+
+    <!-- Body -->
+    <div class="bio-popover__body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+

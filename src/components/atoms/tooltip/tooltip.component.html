@@ -1,0 +1,22 @@
+<!--
+  Tooltip Component Template
+  
+  Displays a tooltip following the Figma design.
+  
+  Structure:
+  - Arrow (positioned based on direction)
+  - Tooltip body with text
+-->
+
+<div [class]="tooltipClasses" role="tooltip">
+  <!-- Arrow -->
+  <div class="bio-tooltip__arrow"></div>
+
+  <!-- Body -->
+  <div class="bio-tooltip__body">
+    <div class="bio-tooltip__content">
+      <p class="bio-tooltip__text">{{ text }}</p>
+    </div>
+  </div>
+</div>
+

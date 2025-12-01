@@ -1,0 +1,116 @@
+/**
+ * Badge Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Multiple sizes (H6 to H1)
+ * - Color variants matching the design system
+ * - Three types (normal, pill, dot)
+ * - Uses design tokens where possible
+ */
+
+/* Badge Base Styles */
+.bio-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--typography-font-family-primary);
+  font-weight: var(--typography-font-weight-bold);
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* Badge Text */
+.bio-badge-text {
+  line-height: 1;
+  display: inline-block;
+}
+
+/* Size Variants */
+.bio-badge--H6 {
+  font-size: var(--typography-font-size-xs);
+  padding: 4.2px 7.8px;
+}
+
+.bio-badge--H5 {
+  font-size: 15px;
+  padding: 5.25px 9.75px;
+}
+
+.bio-badge--H4 {
+  font-size: var(--typography-font-size-lg);
+  padding: 6.3px 11.7px;
+}
+
+.bio-badge--H3 {
+  font-size: 21px;
+  padding: 7.35px 13.65px;
+}
+
+.bio-badge--H2 {
+  font-size: var(--typography-font-size-2xl);
+  padding: 8.4px 15.6px;
+}
+
+.bio-badge--H1 {
+  font-size: var(--typography-font-size-3xl);
+  padding: 10.5px 19.5px;
+}
+
+/* Type Variants */
+.bio-badge--normal {
+  border-radius: var(--border-radius-md);
+}
+
+.bio-badge--pill {
+  border-radius: var(--border-radius-full);
+}
+
+.bio-badge--dot {
+  width: var(--spacing-md);
+  height: var(--spacing-md);
+  border-radius: var(--border-radius-full);
+  padding: 0;
+}
+
+/* Color Variants */
+.bio-badge--primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-base-white);
+}
+
+.bio-badge--secondary {
+  background-color: var(--color-text-secondary);
+  color: var(--color-base-white);
+}
+
+.bio-badge--success {
+  background-color: var(--color-semantic-success-base);
+  color: var(--color-base-white);
+}
+
+.bio-badge--danger {
+  background-color: var(--color-semantic-error-base);
+  color: var(--color-base-white);
+}
+
+.bio-badge--warning {
+  background-color: var(--color-semantic-warning-base);
+  color: var(--color-text-secondary);
+}
+
+.bio-badge--info {
+  background-color: var(--color-semantic-info-base);
+  color: var(--color-text-secondary);
+}
+
+.bio-badge--light {
+  background-color: var(--color-background-secondary);
+  color: var(--color-text-secondary);
+}
+
+.bio-badge--dark {
+  background-color: var(--color-background-darkest);
+  color: var(--color-base-white);
+}
+

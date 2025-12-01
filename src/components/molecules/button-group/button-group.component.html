@@ -1,0 +1,15 @@
+<!--
+  Button Group Component Template
+  
+  Groups multiple buttons together with connected borders.
+  
+  Structure:
+  - Container with direction and outline classes
+  - Content projection for buttons
+  - Buttons are styled to connect seamlessly
+-->
+
+<div [class]="groupClasses" role="group" [attr.aria-label]="'Button group'">
+  <ng-content></ng-content>
+</div>
+

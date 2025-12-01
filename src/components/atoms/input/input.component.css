@@ -1,0 +1,341 @@
+/**
+ * Input Component Styles
+ * 
+ * Uses CSS Modules (Angular's ViewEncapsulation) and Design Tokens
+ * All values come from design tokens for consistency
+ */
+
+/* Base Input Wrapper */
+.bio-input-wrapper {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  position: relative;
+}
+
+/* Input Container */
+.bio-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Base Input Styles */
+.bio-input {
+  width: 100%;
+  border: var(--border-width-thin) solid var(--color-border-light);
+  background-color: var(--color-background-default);
+  color: var(--color-text-secondary);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  line-height: var(--typography-line-height-normal);
+  outline: none;
+  transition: all var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+  box-sizing: border-box;
+}
+
+.bio-input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+.bio-input:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+.bio-input:disabled {
+  background-color: var(--color-background-tertiary);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.bio-input[readonly] {
+  background-color: var(--color-background-tertiary);
+  cursor: default;
+}
+
+/* Size Variants */
+.bio-input--sm {
+  padding: 5px 9px;
+  font-size: var(--typography-font-size-sm);
+  height: 31px;
+  border-radius: var(--border-radius-sm);
+}
+
+.bio-input-wrapper--sm .bio-input-container {
+  min-height: 31px;
+}
+
+.bio-input--md {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--typography-font-size-base);
+  height: 38px;
+  border-radius: var(--border-radius-md);
+}
+
+.bio-input-wrapper--md .bio-input-container {
+  min-height: 38px;
+}
+
+.bio-input--lg {
+  padding: 9px 17px;
+  font-size: var(--typography-font-size-xl);
+  height: 48px;
+  border-radius: var(--border-radius-md);
+}
+
+.bio-input-wrapper--lg .bio-input-container {
+  min-height: 48px;
+}
+
+/* Prefix Styles */
+.bio-input-prefix {
+  display: flex;
+  align-items: center;
+  padding-left: var(--spacing-3);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.bio-input-wrapper--sm .bio-input-prefix {
+  padding-left: var(--spacing-2);
+}
+
+.bio-input-wrapper--lg .bio-input-prefix {
+  padding-left: var(--spacing-4);
+}
+
+.bio-input-prefix__text {
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--color-text-secondary);
+}
+
+.bio-input-prefix__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.bio-input-wrapper--lg .bio-input-prefix__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Suffix Styles */
+.bio-input-suffix {
+  display: flex;
+  align-items: center;
+  padding-right: var(--spacing-3);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.bio-input-wrapper--sm .bio-input-suffix {
+  padding-right: var(--spacing-2);
+}
+
+.bio-input-wrapper--lg .bio-input-suffix {
+  padding-right: var(--spacing-4);
+}
+
+.bio-input-suffix__text {
+  font-size: var(--typography-font-size-base);
+  color: var(--color-text-secondary);
+}
+
+.bio-input-suffix__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.bio-input-wrapper--lg .bio-input-suffix__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Addon Styles */
+.bio-input-addon {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-background-tertiary);
+  border: var(--border-width-thin) solid var(--color-border-light);
+  padding: var(--spacing-2) var(--spacing-3);
+  flex-shrink: 0;
+}
+
+.bio-input-wrapper--sm .bio-input-addon {
+  padding: var(--spacing-1) var(--spacing-2);
+}
+
+.bio-input-wrapper--lg .bio-input-addon {
+  padding: var(--spacing-2) var(--spacing-4);
+}
+
+.bio-input-addon--before {
+  border-right: none;
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+}
+
+.bio-input-wrapper--md .bio-input-addon--before {
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+.bio-input-wrapper--lg .bio-input-addon--before {
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+.bio-input-addon--after {
+  border-left: none;
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+}
+
+.bio-input-wrapper--md .bio-input-addon--after {
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.bio-input-wrapper--lg .bio-input-addon--after {
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.bio-input-addon__text {
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--color-text-secondary);
+}
+
+/* Adjust input border radius when addons are present */
+.bio-input-wrapper--addon-before .bio-input {
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+}
+
+.bio-input-wrapper--addon-before.bio-input-wrapper--md .bio-input {
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.bio-input-wrapper--addon-before.bio-input-wrapper--lg .bio-input {
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.bio-input-wrapper--addon-after .bio-input {
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+}
+
+.bio-input-wrapper--addon-after.bio-input-wrapper--md .bio-input {
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+.bio-input-wrapper--addon-after.bio-input-wrapper--lg .bio-input {
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+.bio-input-wrapper--addon-before.bio-input-wrapper--addon-after .bio-input {
+  border-radius: 0;
+}
+
+/* Validation States */
+.bio-input--valid {
+  border-color: var(--color-semantic-success-base);
+}
+
+.bio-input-wrapper--focused .bio-input--valid {
+  border-color: var(--color-semantic-success-base);
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+}
+
+.bio-input--invalid {
+  border-color: var(--color-semantic-error-base);
+}
+
+.bio-input-wrapper--focused .bio-input--invalid {
+  border-color: var(--color-semantic-error-base);
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Validation Icons */
+.bio-input-validation {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.bio-input-wrapper--sm .bio-input-validation {
+  right: 9px;
+}
+
+.bio-input-wrapper--lg .bio-input-validation {
+  right: 17px;
+}
+
+.bio-input-validation--valid svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bio-input-validation--invalid svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Adjust padding when validation icons are present */
+.bio-input-wrapper--valid:not(.bio-input-wrapper--suffix) .bio-input,
+.bio-input-wrapper--invalid:not(.bio-input-wrapper--suffix) .bio-input {
+  padding-right: 37px;
+}
+
+.bio-input-wrapper--sm.bio-input-wrapper--valid:not(.bio-input-wrapper--suffix) .bio-input,
+.bio-input-wrapper--sm.bio-input-wrapper--invalid:not(.bio-input-wrapper--suffix) .bio-input {
+  padding-right: 35px;
+}
+
+.bio-input-wrapper--lg.bio-input-wrapper--valid:not(.bio-input-wrapper--suffix) .bio-input,
+.bio-input-wrapper--lg.bio-input-wrapper--invalid:not(.bio-input-wrapper--suffix) .bio-input {
+  padding-right: 45px;
+}
+
+/* Focused State */
+.bio-input-wrapper--focused .bio-input {
+  border-color: var(--color-border-focus);
+}
+
+.bio-input-wrapper--focused:not(.bio-input-wrapper--valid):not(.bio-input-wrapper--invalid) .bio-input {
+  box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+/* Disabled State */
+.bio-input-wrapper--disabled .bio-input {
+  background-color: var(--color-background-tertiary);
+  border-color: var(--color-border-light);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.bio-input-wrapper--disabled .bio-input-addon {
+  background-color: var(--color-background-tertiary);
+  border-color: var(--color-border-light);
+}
+
+/* Spacing between prefix/suffix and input */
+.bio-input-wrapper--prefix .bio-input {
+  padding-left: 0;
+}
+
+.bio-input-wrapper--suffix .bio-input {
+  padding-right: 0;
+}
+

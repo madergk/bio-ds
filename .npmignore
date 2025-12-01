@@ -1,0 +1,49 @@
+# Files and directories to exclude from npm package
+
+# Source files (only dist should be published)
+src/
+tokens/
+node_modules/
+
+# Configuration files (not needed in published package)
+angular.json
+tsconfig*.json
+ng-package.json
+style-dictionary.config.js
+.editorconfig
+.gitignore
+
+# Development files
+*.spec.ts
+*.test.ts
+.cursor/
+
+# Documentation (keep only essential)
+# Keep: README.md, CHANGELOG.md
+DEPLOYMENT.md
+BUILD_SCRIPTS.md
+INSTALLATION.md
+
+# Build artifacts (temporary)
+out-tsc/
+.angular/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.local
+

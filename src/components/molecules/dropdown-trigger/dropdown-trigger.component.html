@@ -1,0 +1,50 @@
+<!--
+  Dropdown Trigger Component Template
+  
+  Displays a button that triggers a dropdown menu.
+  Can be a simple button or a split button.
+  
+  Structure:
+  - Main button (with label)
+  - Optional toggle button (for split button)
+-->
+
+<div [class]="triggerClasses">
+  <!-- Simple Button -->
+  <bio-button
+    *ngIf="!splitButton"
+    [label]="label"
+    [variant]="variant"
+    [size]="size"
+    [class]="'bio-dropdown-trigger__button'"
+    (click)="onButtonClick($event)">
+    <span class="bio-dropdown-trigger__chevron" [style.transform]="chevronRotation">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </bio-button>
+
+  <!-- Split Button -->
+  <ng-container *ngIf="splitButton">
+    <bio-button
+      [label]="label"
+      [variant]="variant"
+      [size]="size"
+      [class]="'bio-dropdown-trigger__main'"
+      (click)="onButtonClick($event)">
+    </bio-button>
+    <button
+      type="button"
+      [class]="toggleClasses"
+      (click)="onToggleClick($event)"
+      [attr.aria-expanded]="isOpen">
+      <span class="bio-dropdown-trigger__chevron" [style.transform]="chevronRotation">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+  </ng-container>
+</div>
+

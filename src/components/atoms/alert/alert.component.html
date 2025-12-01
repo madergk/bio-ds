@@ -1,0 +1,107 @@
+<!--
+  Alert Component Template
+  
+  Displays an alert message with optional icon, heading, and dismiss button.
+  
+  Structure:
+  - Container with variant class
+  - Optional icon on the left
+  - Content area (simple message or heading + message + divider + additional text)
+  - Optional close button on the right
+-->
+
+@if (visible) {
+  <div [class]="alertClasses" role="alert" [attr.aria-live]="variant === 'danger' || variant === 'warning' ? 'assertive' : 'polite'">
+    <div class="bio-alert-wrapper">
+      <!-- Optional Icon -->
+      @if (showIcon) {
+        <div class="bio-alert-icon">
+          <svg 
+            width="16" 
+            height="16" 
+            viewBox="0 0 16 16" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <!-- Icon content will be determined by variant -->
+            @switch (variant) {
+              @case ('success') {
+                <path d="M8 0L10.5 5.5L16 6L10.5 10.5L8 16L5.5 10.5L0 6L5.5 5.5L8 0Z" fill="currentColor"/>
+              }
+              @case ('danger') {
+                <path d="M8 0C3.58 0 0 3.58 0 8C0 12.42 3.58 16 8 16C12.42 16 16 12.42 16 8C16 3.58 12.42 0 8 0ZM9 11H7V9H9V11ZM9 7H7V5H9V7Z" fill="currentColor"/>
+              }
+              @case ('warning') {
+                <path d="M8 0L10.5 5.5L16 6L10.5 10.5L8 16L5.5 10.5L0 6L5.5 5.5L8 0Z" fill="currentColor"/>
+              }
+              @case ('info') {
+                <path d="M8 0C3.58 0 0 3.58 0 8C0 12.42 3.58 16 8 16C12.42 16 16 12.42 16 8C16 3.58 12.42 0 8 0ZM9 12H7V7H9V12ZM8 5C7.45 5 7 4.55 7 4C7 3.45 7.45 3 8 3C8.55 3 9 3.45 9 4C9 4.55 8.55 5 8 5Z" fill="currentColor"/>
+              }
+              @default {
+                <path d="M8 0C3.58 0 0 3.58 0 8C0 12.42 3.58 16 8 16C12.42 16 16 12.42 16 8C16 3.58 12.42 0 8 0ZM9 12H7V7H9V12ZM8 5C7.45 5 7 4.55 7 4C7 3.45 7.45 3 8 3C8.55 3 9 3.45 9 4C9 4.55 8.55 5 8 5Z" fill="currentColor"/>
+              }
+            }
+          </svg>
+        </div>
+      }
+
+      <!-- Content Area -->
+      <div class="bio-alert-content">
+        @if (hasAdditionalContent) {
+          <!-- Additional Content Layout (with heading) -->
+          <div class="bio-alert-header">
+            @if (heading) {
+              <h4 class="bio-alert-heading">{{ heading }}</h4>
+            }
+          </div>
+
+          @if (message) {
+            <div class="bio-alert-text">
+              <p>{{ message }}</p>
+            </div>
+          }
+
+          @if (additionalText) {
+            <div class="bio-alert-divider"></div>
+            <div class="bio-alert-text">
+              <p>{{ additionalText }}</p>
+            </div>
+          }
+        } @else {
+          <!-- Simple Content Layout (just message) -->
+          @if (message) {
+            <div class="bio-alert-text">
+              <p>{{ message }}</p>
+            </div>
+          }
+          <ng-content></ng-content>
+        }
+      </div>
+    </div>
+
+    <!-- Dismiss Button -->
+    @if (dismissible) {
+      <button
+        type="button"
+        class="bio-alert-close"
+        [attr.aria-label]="'Close alert'"
+        (click)="onDismiss()">
+        <svg 
+          width="16" 
+          height="16" 
+          viewBox="0 0 16 16" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path 
+            d="M12 4L4 12M4 4L12 12" 
+            stroke="currentColor" 
+            stroke-width="2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+        </svg>
+      </button>
+    }
+  </div>
+}
+

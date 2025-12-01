@@ -1,0 +1,185 @@
+/**
+ * Accordion Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Light blue header background when expanded (#cfe2ff)
+ * - Gray border between items (#dee2e6)
+ * - Rounded corners on first/last items
+ * - Smooth expand/collapse animations
+ * - Uses design tokens where possible
+ */
+
+/* Accordion Container */
+.bio-accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Accordion Item */
+.bio-accordion-item {
+  /* Reset button styles */
+  background: var(--color-background-default);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-bottom: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  
+  /* Smooth transitions */
+  transition: all var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+  
+  /* Focus styles for accessibility */
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+    z-index: 1;
+  }
+  
+  /* Hover effect */
+  &:hover:not(:disabled) {
+    z-index: 1;
+  }
+}
+
+/* First item - rounded top corners */
+.bio-accordion-item--first {
+  border-top-left-radius: var(--border-radius-md);
+  border-top-right-radius: var(--border-radius-md);
+  border-top: var(--border-width-thin) solid var(--color-border-default);
+}
+
+/* Last item - rounded bottom corners and bottom border */
+.bio-accordion-item--last {
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+  border-bottom-left-radius: var(--border-radius-md);
+  border-bottom-right-radius: var(--border-radius-md);
+}
+
+/* Flush variant - no borders between items */
+.bio-accordion-item--flush {
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+  
+  &.bio-accordion-item--first {
+    border-top-left-radius: var(--border-radius-md);
+    border-top-right-radius: var(--border-radius-md);
+  }
+  
+  &.bio-accordion-item--last {
+    border-bottom-left-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
+  }
+  
+  &:not(:first-child) {
+    margin-top: -1px;
+  }
+}
+
+/* Item Inner Container */
+.bio-accordion-item-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Accordion Header */
+.bio-accordion-header {
+  background: var(--color-background-default);
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+  transition: background-color var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+  width: 100%;
+}
+
+/* Expanded Header - light blue background */
+.bio-accordion-header--expanded {
+  background: var(--color-alert-primary-background);
+  border-bottom-color: var(--color-border-default);
+}
+
+/* Header Content */
+.bio-accordion-header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md) var(--spacing-md);
+  width: 100%;
+}
+
+/* Accordion Title */
+.bio-accordion-title {
+  flex: 1;
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+}
+
+/* Title color when expanded */
+.bio-accordion-header--expanded .bio-accordion-title {
+  color: var(--color-alert-primary-text);
+}
+
+/* Chevron Icon */
+.bio-accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--spacing-md);
+  height: var(--spacing-md);
+  color: var(--color-text-secondary);
+  transition: transform var(--transition-duration-normal) var(--transition-timing-ease-in-out), color var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+  transform: rotate(0deg);
+}
+
+/* Rotate chevron when expanded */
+.bio-accordion-icon--expanded {
+  transform: rotate(180deg);
+  color: var(--color-alert-primary-text);
+}
+
+/* Accordion Body */
+.bio-accordion-body {
+  background: var(--color-background-default);
+  width: 100%;
+  overflow: hidden;
+  animation: slideDown var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+/* Body Content */
+.bio-accordion-body-content {
+  padding: var(--spacing-md) var(--spacing-md);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  color: var(--color-text-secondary);
+}
+
+/* Remove border from expanded header when not flush */
+.bio-accordion-item:not(.bio-accordion-item--flush) .bio-accordion-header--expanded {
+  border-bottom: none;
+}
+
+/* Ensure proper spacing between items when not flush */
+.bio-accordion-item:not(.bio-accordion-item--flush):not(:last-child) {
+  margin-bottom: -1px;
+}
+

@@ -1,0 +1,61 @@
+<!--
+  Modal Component Template
+  
+  Displays a modal dialog with header, body, and footer.
+  
+  Structure:
+  - Backdrop
+  - Modal container
+  - Header with title and close button
+  - Body content (projected)
+  - Footer with buttons
+-->
+
+<div 
+  *ngIf="isOpen"
+  class="bio-modal-backdrop"
+  (click)="onBackdropClick($event)">
+  <div 
+    [class]="modalClasses"
+    [style.width]="modalWidth"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-labelledby]="'modal-title-' + title">
+    <div class="bio-modal__container">
+      <!-- Header -->
+      <div class="bio-modal__header">
+        <div class="bio-modal__title">
+          <h2 [id]="'modal-title-' + title">{{ title }}</h2>
+        </div>
+        <button 
+          *ngIf="showClose"
+          type="button"
+          class="bio-modal__close"
+          (click)="onClose()"
+          aria-label="Close modal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="bio-modal__body">
+        <ng-content></ng-content>
+      </div>
+
+      <!-- Footer -->
+      <div class="bio-modal__footer" *ngIf="footerTemplate || type === 'text'">
+        <ng-container *ngIf="footerTemplate; else defaultFooter">
+          <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
+        </ng-container>
+        <ng-template #defaultFooter>
+          <div class="bio-modal__footer-content">
+            <bio-button variant="primary" (click)="onClose()">Button Title</bio-button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+

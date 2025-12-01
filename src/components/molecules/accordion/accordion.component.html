@@ -1,0 +1,69 @@
+<!--
+  Accordion Component Template
+  
+  Renders a list of accordion items with expand/collapse functionality.
+  Each item has a header (clickable) and a collapsible body.
+  
+  Structure:
+  - Container with accordion class
+  - Each item is a button (for accessibility) containing:
+    - Header with title and chevron icon
+    - Body with content (shown when expanded)
+-->
+
+<div [class]="accordionClasses" role="region" aria-label="Accordion">
+  @for (item of items; track $index) {
+    <button
+      type="button"
+      [class]="getItemClasses($index)"
+      [attr.aria-expanded]="isExpanded($index)"
+      [attr.aria-controls]="'accordion-content-' + $index"
+      [id]="'accordion-header-' + $index"
+      (click)="toggleItem($index)">
+      
+      <div class="bio-accordion-item-inner">
+        <!-- Header Section -->
+        <div [class]="getHeaderClasses($index)">
+          <div class="bio-accordion-header-content">
+            <!-- Title -->
+            <div class="bio-accordion-title">
+              {{ item.title }}
+            </div>
+            
+            <!-- Chevron Icon -->
+            <div class="bio-accordion-icon" [class.bio-accordion-icon--expanded]="isExpanded($index)">
+              <svg 
+                width="16" 
+                height="16" 
+                viewBox="0 0 16 16" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path 
+                  d="M4 6L8 10L12 6" 
+                  stroke="currentColor" 
+                  stroke-width="2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Body Section (shown when expanded) -->
+        @if (isExpanded($index)) {
+          <div 
+            class="bio-accordion-body"
+            [id]="'accordion-content-' + $index"
+            [attr.aria-labelledby]="'accordion-header-' + $index"
+            role="region">
+            <div class="bio-accordion-body-content">
+              {{ item.content }}
+            </div>
+          </div>
+        }
+      </div>
+    </button>
+  }
+</div>
+

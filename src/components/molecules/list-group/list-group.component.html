@@ -1,0 +1,25 @@
+<!--
+  List Group Component Template
+  
+  Displays a list of items in a group.
+  
+  Structure:
+  - Container with flush variant support
+  - List of items
+  - Each item can be clickable (action) or static
+-->
+
+<div [class]="listGroupClasses" role="list">
+  <div 
+    *ngFor="let item of items; let i = index; let isLast = last"
+    [class]="getItemClasses(item, isLast)"
+    role="listitem"
+    [attr.aria-disabled]="item.disabled"
+    [attr.aria-current]="item.active ? 'true' : null"
+    (click)="onItemClick(item, $event)">
+    <div class="bio-list-group-item__content">
+      <p class="bio-list-group-item__label">{{ item.label }}</p>
+    </div>
+  </div>
+</div>
+

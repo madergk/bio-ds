@@ -1,0 +1,125 @@
+/**
+ * Modal Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Backdrop overlay
+ * - Centered modal
+ * - Header with title and close button
+ * - Scrollable body
+ * - Footer with buttons
+ * - Multiple sizes
+ */
+
+/* Backdrop */
+.bio-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-index-modal-backdrop);
+  padding: var(--spacing-7) 0;
+}
+
+/* Modal Container */
+.bio-modal {
+  background: var(--color-background-default);
+  border: var(--border-width-thin) solid rgba(0, 0, 0, 0.17);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 56px);
+  overflow: hidden;
+  z-index: var(--z-index-modal);
+}
+
+/* Modal Inner Container */
+.bio-modal__container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Header */
+.bio-modal__header {
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  position: relative;
+  width: 100%;
+}
+
+.bio-modal__title {
+  flex: 1;
+  min-width: 0;
+}
+
+.bio-modal__title h2 {
+  color: var(--color-text-secondary);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-xl);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  margin: 0;
+}
+
+/* Close Button */
+.bio-modal__close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  padding: var(--spacing-sm);
+  position: absolute;
+  right: calc(-1 * var(--spacing-sm));
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity var(--transition-duration-fast) var(--transition-timing-ease);
+}
+
+.bio-modal__close:hover {
+  opacity: 0.75;
+}
+
+.bio-modal__close svg {
+  color: currentColor;
+  width: 16px;
+  height: 16px;
+}
+
+/* Body */
+.bio-modal__body {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+}
+
+/* Footer */
+.bio-modal__footer {
+  border-top: var(--border-width-thin) solid var(--color-border-default);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-3) var(--spacing-3);
+  width: 100%;
+}
+
+.bio-modal__footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+

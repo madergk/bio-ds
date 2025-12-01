@@ -1,0 +1,24 @@
+<!--
+  Navbar Toggler Component Template
+  
+  Displays a hamburger menu button.
+  
+  Structure:
+  - Button with icon
+-->
+
+<button
+  type="button"
+  [class]="togglerClasses"
+  (click)="onClick($event)"
+  [attr.aria-expanded]="false"
+  aria-label="Toggle navigation">
+  <div class="bio-navbar-toggler__icon">
+    <svg width="30" height="16" viewBox="0 0 30 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="2" width="22" height="2" fill="currentColor"/>
+      <rect x="4" y="7" width="22" height="2" fill="currentColor"/>
+      <rect x="4" y="12" width="22" height="2" fill="currentColor"/>
+    </svg>
+  </div>
+</button>
+

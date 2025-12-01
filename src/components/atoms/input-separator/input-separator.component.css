@@ -1,0 +1,33 @@
+/**
+ * Input Separator Component Styles
+ */
+
+.bio-input-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  opacity: 0.87;
+  padding: 0 var(--spacing-sm);
+}
+
+.bio-input-separator--input-split {
+  padding: 0 var(--spacing-xs);
+}
+
+.bio-input-separator__text {
+  font-size: var(--typography-font-size-sm);
+  color: var(--color-border-light);
+  line-height: var(--typography-line-height-normal);
+  width: 10px;
+  height: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bio-input-separator svg {
+  width: 16px;
+  height: 16px;
+}
+

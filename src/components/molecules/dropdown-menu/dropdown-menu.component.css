@@ -1,0 +1,100 @@
+/**
+ * Dropdown Menu Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - White background with border
+ * - Menu items with padding
+ * - Hover states
+ * - Arrow positioning support
+ * - Dark variant
+ */
+
+/* Menu Container */
+.bio-dropdown-menu {
+  background: var(--color-background-default);
+  border: var(--border-width-thin) solid rgba(0, 0, 0, 0.15);
+  border-radius: var(--border-radius-sm);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-2) var(--spacing-xs);
+  position: relative;
+  min-width: 160px;
+}
+
+/* Dark Variant */
+.bio-dropdown-menu--dark {
+  background: var(--color-background-darker);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-base-white);
+}
+
+/* Menu Item */
+.bio-dropdown-menu-item {
+  background: transparent;
+  border: 0;
+  border-radius: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-xs) var(--spacing-md);
+  position: relative;
+  width: 100%;
+  transition: background-color var(--transition-duration-fast) var(--transition-timing-ease);
+}
+
+.bio-dropdown-menu-item:hover:not(.bio-dropdown-menu-item--disabled) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bio-dropdown-menu--dark .bio-dropdown-menu-item:hover:not(.bio-dropdown-menu-item--disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bio-dropdown-menu-item--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Menu Item Wrapper */
+.bio-dropdown-menu-item__wrapper {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: var(--spacing-sm);
+  min-height: 1px;
+  min-width: 1px;
+}
+
+/* Menu Item Content */
+.bio-dropdown-menu-item__content {
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* Menu Item Label */
+.bio-dropdown-menu-item__label {
+  color: var(--color-text-secondary);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  white-space: nowrap;
+}
+
+.bio-dropdown-menu--dark .bio-dropdown-menu-item__label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Arrow Positioning (placeholder for future implementation) */
+.bio-dropdown-menu--arrow-top-left,
+.bio-dropdown-menu--arrow-top-center,
+.bio-dropdown-menu--arrow-top-right,
+.bio-dropdown-menu--arrow-bottom-left,
+.bio-dropdown-menu--arrow-bottom-center,
+.bio-dropdown-menu--arrow-bottom-right {
+  /* Arrow styling can be added here if needed */
+}
+

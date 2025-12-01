@@ -1,0 +1,184 @@
+/**
+ * Alert Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Color variants matching the design system
+ * - Optional icon and dismiss button
+ * - Simple and additional content layouts
+ * - Uses design tokens where possible
+ */
+
+/* Alert Container */
+.bio-alert {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: var(--border-width-thin) solid;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  line-height: var(--typography-line-height-normal);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Alert Wrapper (icon + content) */
+.bio-alert-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  flex: 1;
+  min-width: 0;
+}
+
+/* Alert Icon */
+.bio-alert-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: currentColor;
+}
+
+/* Alert Content */
+.bio-alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Alert Header (for additional content) */
+.bio-alert-header {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Alert Heading */
+.bio-alert-heading {
+  margin: 0;
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-2xl);
+  font-weight: var(--typography-font-weight-bold);
+  line-height: 1.2;
+  color: currentColor;
+}
+
+/* Alert Text */
+.bio-alert-text {
+  margin: 0;
+  
+  p {
+    margin: 0;
+    font-family: var(--typography-font-family-primary);
+    font-size: var(--typography-font-size-base);
+    font-weight: var(--typography-font-weight-normal);
+    line-height: var(--typography-line-height-normal);
+    color: currentColor;
+  }
+  
+  &:not(:last-child) {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* Alert Divider */
+.bio-alert-divider {
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.25;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+/* Dismiss Button */
+.bio-alert-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  opacity: 0.5;
+  color: currentColor;
+  transition: opacity var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+  flex-shrink: 0;
+  
+  &:hover {
+    opacity: 1;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: var(--border-radius-md);
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Primary Variant */
+.bio-alert--primary {
+  background-color: var(--color-alert-primary-background);
+  border-color: var(--color-alert-primary-border);
+  color: var(--color-alert-primary-text);
+}
+
+/* Secondary Variant */
+.bio-alert--secondary {
+  background-color: var(--color-alert-secondary-background);
+  border-color: var(--color-alert-secondary-border);
+  color: var(--color-alert-secondary-text);
+}
+
+/* Success Variant */
+.bio-alert--success {
+  background-color: var(--color-semantic-success-light);
+  border-color: var(--color-semantic-success-border);
+  color: var(--color-semantic-success-text);
+}
+
+/* Danger Variant */
+.bio-alert--danger {
+  background-color: var(--color-semantic-error-light);
+  border-color: var(--color-semantic-error-border);
+  color: var(--color-semantic-error-text);
+}
+
+/* Warning Variant */
+.bio-alert--warning {
+  background-color: var(--color-semantic-warning-light);
+  border-color: var(--color-semantic-warning-border);
+  color: var(--color-semantic-warning-text);
+}
+
+/* Info Variant */
+.bio-alert--info {
+  background-color: var(--color-semantic-info-light);
+  border-color: var(--color-semantic-info-border);
+  color: var(--color-semantic-info-text);
+}
+
+/* Light Variant */
+.bio-alert--light {
+  background-color: var(--color-background-default);
+  border-color: var(--color-border-lighter);
+  color: var(--color-text-muted);
+}
+
+/* Dark Variant */
+.bio-alert--dark {
+  background-color: var(--color-alert-dark-background);
+  border-color: var(--color-alert-dark-border);
+  color: var(--color-alert-dark-text);
+}
+

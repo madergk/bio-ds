@@ -1,0 +1,25 @@
+<!--
+  Button Component Template
+  
+  Uses content projection (<ng-content>) to allow flexible content:
+  - Can use label input: <bio-button label="Click me">
+  - Can use content projection: <bio-button>Click me</bio-button>
+  - Can include icons or other elements: <bio-button><icon>Click</icon></bio-button>
+  
+  Note: If both label and content are provided, content takes precedence
+-->
+<button
+  [type]="type"
+  [class]="buttonClasses"
+  [disabled]="disabled"
+  [attr.aria-disabled]="disabled"
+  (click)="onClick($event)">
+  <!-- Content projection: allows flexible button content -->
+  <ng-content></ng-content>
+  
+  <!-- Fallback to label if no content projected -->
+  @if (label) {
+    {{ label }}
+  }
+</button>
+

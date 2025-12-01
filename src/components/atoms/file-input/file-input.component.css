@@ -1,0 +1,171 @@
+/**
+ * File Input Component Styles
+ * 
+ * Uses CSS Modules (Angular's ViewEncapsulation) and Design Tokens
+ */
+
+/* Base File Input Wrapper */
+.bio-file-input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+/* File Input Label */
+.bio-file-input-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+}
+
+.bio-file-input-wrapper--disabled .bio-file-input-label {
+  cursor: not-allowed;
+}
+
+/* Hidden File Input */
+.bio-file-input {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* File Input Text */
+.bio-file-input-text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: var(--border-width-thin) solid var(--color-border-light);
+  background-color: var(--color-background-default);
+  color: var(--color-text-secondary);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  line-height: var(--typography-line-height-normal);
+  outline: none;
+  transition: all var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--border-radius-sm);
+  min-height: 38px;
+}
+
+.bio-file-input-text:hover {
+  border-color: var(--color-border-focus);
+}
+
+/* Size Variants */
+.bio-file-input--sm + .bio-file-input-text {
+  padding: 5px 9px;
+  font-size: var(--typography-font-size-sm);
+  min-height: 31px;
+  border-radius: var(--border-radius-sm);
+}
+
+.bio-file-input--md + .bio-file-input-text {
+  padding: 7px 13px;
+  font-size: var(--typography-font-size-base);
+  min-height: 38px;
+  border-radius: var(--border-radius-sm);
+}
+
+.bio-file-input--lg + .bio-file-input-text {
+  padding: 9px 17px;
+  font-size: var(--typography-font-size-xl);
+  min-height: 48px;
+  border-radius: var(--border-radius-md);
+}
+
+/* Validation States */
+.bio-file-input--valid + .bio-file-input-text {
+  border-color: var(--color-semantic-success-base);
+}
+
+.bio-file-input-wrapper--focused .bio-file-input--valid + .bio-file-input-text {
+  border-color: var(--color-semantic-success-base);
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+}
+
+.bio-file-input--invalid + .bio-file-input-text {
+  border-color: var(--color-semantic-error-base);
+}
+
+.bio-file-input-wrapper--focused .bio-file-input--invalid + .bio-file-input-text {
+  border-color: var(--color-semantic-error-base);
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Validation Icons */
+.bio-file-input-validation {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.bio-file-input-wrapper--sm .bio-file-input-validation {
+  right: 9px;
+}
+
+.bio-file-input-wrapper--lg .bio-file-input-validation {
+  right: 17px;
+}
+
+.bio-file-input-validation--valid svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bio-file-input-validation--invalid svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Adjust padding when validation icons are present */
+.bio-file-input-wrapper--valid .bio-file-input-text,
+.bio-file-input-wrapper--invalid .bio-file-input-text {
+  padding-right: 37px;
+}
+
+.bio-file-input-wrapper--sm.bio-file-input-wrapper--valid .bio-file-input-text,
+.bio-file-input-wrapper--sm.bio-file-input-wrapper--invalid .bio-file-input-text {
+  padding-right: 35px;
+}
+
+.bio-file-input-wrapper--lg.bio-file-input-wrapper--valid .bio-file-input-text,
+.bio-file-input-wrapper--lg.bio-file-input-wrapper--invalid .bio-file-input-text {
+  padding-right: 45px;
+}
+
+/* Focused State */
+.bio-file-input-wrapper--focused .bio-file-input-text {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+/* Hovered State */
+.bio-file-input-wrapper--hovered:not(.bio-file-input-wrapper--focused) .bio-file-input-text {
+  border-color: var(--color-border-focus);
+}
+
+/* Disabled State */
+.bio-file-input-wrapper--disabled .bio-file-input-text {
+  background-color: var(--color-background-tertiary);
+  border-color: var(--color-border-light);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.bio-file-input-wrapper--disabled .bio-file-input-label {
+  cursor: not-allowed;
+}
+

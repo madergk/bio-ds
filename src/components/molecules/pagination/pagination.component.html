@@ -1,0 +1,93 @@
+<!--
+  Pagination Component Template
+  
+  Displays pagination controls with page numbers, prev/next buttons,
+  and optional options (page size selector, quick jumper).
+  
+  Structure:
+  - Total text (optional)
+  - Page items (prev, numbers, ellipsis, next)
+  - Options (page size selector, quick jumper) (optional)
+-->
+
+<div [class]="paginationClasses">
+  <div class="bio-pagination__content">
+    <!-- Total Text -->
+    <div *ngIf="totalText && totalItems" class="bio-pagination__total">
+      <p>Total {{ totalItems }} items</p>
+    </div>
+
+    <!-- Page Items -->
+    <div class="bio-pagination__items">
+      <!-- Previous Button -->
+      <button
+        type="button"
+        class="bio-pagination__prev"
+        [class.bio-pagination__item--disabled]="isPreviousDisabled"
+        [disabled]="isPreviousDisabled"
+        (click)="onPrevious()"
+        aria-label="Previous page">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 9L4.5 6L7.5 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Page Numbers -->
+      <ng-container *ngFor="let page of visiblePages">
+        <button
+          *ngIf="page !== 'ellipsis'"
+          type="button"
+          class="bio-pagination__item"
+          [class.bio-pagination__item--active]="page === currentPage"
+          (click)="onPageClick(page)">
+          {{ page }}
+        </button>
+        <span
+          *ngIf="page === 'ellipsis'"
+          class="bio-pagination__ellipsis">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="4" cy="8" r="1.5" fill="currentColor"/>
+            <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
+            <circle cx="12" cy="8" r="1.5" fill="currentColor"/>
+          </svg>
+        </span>
+      </ng-container>
+
+      <!-- Next Button -->
+      <button
+        type="button"
+        class="bio-pagination__next"
+        [class.bio-pagination__item--disabled]="isNextDisabled"
+        [disabled]="isNextDisabled"
+        (click)="onNext()"
+        aria-label="Next page">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.5 3L7.5 6L4.5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Options (Page Size Selector and Quick Jumper) -->
+  <div *ngIf="options" class="bio-pagination__options">
+    <!-- Placeholder for page size selector -->
+    <div class="bio-pagination__page-size">
+      <select class="bio-pagination__select">
+        <option>Please select</option>
+      </select>
+    </div>
+
+    <!-- Quick Jumper -->
+    <div class="bio-pagination__jumper">
+      <span class="bio-pagination__jumper-label">Go to</span>
+      <input
+        type="number"
+        class="bio-pagination__jumper-input"
+        [min]="1"
+        [max]="totalPages"
+        placeholder="example"
+        (keyup.enter)="onPageClick(+$any($event.target).value)">
+    </div>
+  </div>
+</div>
+

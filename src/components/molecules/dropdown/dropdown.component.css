@@ -1,0 +1,64 @@
+/**
+ * Dropdown Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Positioned menu
+ * - Open/close animations
+ * - Menu positioning based on direction
+ */
+
+/* Dropdown Container */
+.bio-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Menu Wrapper */
+.bio-dropdown__menu-wrapper {
+  position: absolute;
+  z-index: var(--z-index-dropdown);
+  margin-top: var(--spacing-xs);
+}
+
+/* Direction-based positioning */
+.bio-dropdown--open .bio-dropdown__menu-wrapper {
+  animation: fadeIn var(--transition-duration-fast) var(--transition-timing-ease);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--spacing-xs)));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Position menu based on direction */
+.bio-dropdown[data-direction="up"] .bio-dropdown__menu-wrapper {
+  bottom: 100%;
+  top: auto;
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
+}
+
+.bio-dropdown[data-direction="down"] .bio-dropdown__menu-wrapper {
+  top: 100%;
+  bottom: auto;
+}
+
+.bio-dropdown[data-direction="left"] .bio-dropdown__menu-wrapper {
+  right: 0;
+  left: auto;
+  margin-top: 0;
+}
+
+.bio-dropdown[data-direction="right"] .bio-dropdown__menu-wrapper {
+  left: 100%;
+  right: auto;
+  margin-top: 0;
+  margin-left: var(--spacing-xs);
+}
+

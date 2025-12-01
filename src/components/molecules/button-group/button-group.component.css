@@ -1,0 +1,122 @@
+/**
+ * Button Group Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Connected buttons (no gaps)
+ * - Rounded corners only on outer edges
+ * - Horizontal and vertical layouts
+ * - Outline variant support
+ */
+
+/* Button Group Container */
+.bio-button-group {
+  display: inline-flex;
+  position: relative;
+}
+
+/* Horizontal Direction */
+.bio-button-group--horizontal {
+  flex-direction: row;
+}
+
+/* Vertical Direction */
+.bio-button-group--vertical {
+  flex-direction: column;
+}
+
+/* Button Group Item (applied to child buttons) */
+.bio-button-group-item {
+  position: relative;
+  z-index: 1;
+}
+
+/* Horizontal Layout - Remove right border and margin */
+.bio-button-group-item--horizontal {
+  margin-right: -1px;
+}
+
+.bio-button-group-item--horizontal:not(.bio-button-group-item--last) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.bio-button-group-item--horizontal:not(.bio-button-group-item--first) {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+/* Vertical Layout - Remove bottom border and margin */
+.bio-button-group-item--vertical {
+  margin-bottom: -1px;
+}
+
+.bio-button-group-item--vertical:not(.bio-button-group-item--last) {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.bio-button-group-item--vertical:not(.bio-button-group-item--first) {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+/* Hover and Active States - Bring to front */
+.bio-button-group-item:hover {
+  z-index: 2;
+}
+
+.bio-button-group-item:active,
+.bio-button-group-item:focus {
+  z-index: 3;
+}
+
+/* Ensure buttons maintain their border radius on outer edges */
+.bio-button-group-item--horizontal.bio-button-group-item--first {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.bio-button-group-item--horizontal.bio-button-group-item--last {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.bio-button-group-item--vertical.bio-button-group-item--first {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.bio-button-group-item--vertical.bio-button-group-item--last {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+/* Override for first/last to maintain outer rounded corners */
+.bio-button-group--horizontal .bio-button-group-item--first {
+  border-top-left-radius: var(--border-radius-md) !important;
+  border-bottom-left-radius: var(--border-radius-md) !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.bio-button-group--horizontal .bio-button-group-item--last {
+  border-top-right-radius: var(--border-radius-md) !important;
+  border-bottom-right-radius: var(--border-radius-md) !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.bio-button-group--vertical .bio-button-group-item--first {
+  border-top-left-radius: var(--border-radius-md) !important;
+  border-top-right-radius: var(--border-radius-md) !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.bio-button-group--vertical .bio-button-group-item--last {
+  border-bottom-left-radius: var(--border-radius-md) !important;
+  border-bottom-right-radius: var(--border-radius-md) !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+

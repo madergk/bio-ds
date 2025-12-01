@@ -1,0 +1,22 @@
+<!--
+  Navbar Brand Component Template
+  
+  Displays the navbar brand (logo/text).
+  
+  Structure:
+  - Image (if type includes image)
+  - Text (if type includes text)
+-->
+
+<div class="bio-navbar-brand">
+  <!-- Image -->
+  <div *ngIf="type === 'image' || type === 'image + text'" class="bio-navbar-brand__image">
+    <img *ngIf="imageSrc" [src]="imageSrc" [alt]="imageAlt">
+  </div>
+
+  <!-- Text -->
+  <div *ngIf="type === 'text' || type === 'image + text'" class="bio-navbar-brand__text">
+    <p>{{ text }}</p>
+  </div>
+</div>
+

@@ -1,0 +1,182 @@
+/**
+ * Search Box Component Styles
+ * 
+ * Uses CSS Modules (Angular's ViewEncapsulation) and Design Tokens
+ */
+
+/* Base Search Box Wrapper */
+.bio-search-box-wrapper {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  position: relative;
+}
+
+/* Search Box Container */
+.bio-search-box-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Base Search Box Input Styles */
+.bio-search-box-input {
+  width: 100%;
+  border: var(--border-width-thin) solid var(--color-border-light);
+  background-color: var(--color-background-default);
+  color: var(--color-text-secondary);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-base);
+  line-height: var(--typography-line-height-normal);
+  outline: none;
+  transition: all var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+  box-sizing: border-box;
+  padding-right: 40px;
+}
+
+.bio-search-box-input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+.bio-search-box-input:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+.bio-search-box-input:disabled {
+  background-color: var(--color-background-tertiary);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* Size Variants */
+.bio-search-box-input--sm {
+  padding: 5px 40px 5px 9px;
+  font-size: var(--typography-font-size-sm);
+  height: 34px;
+  border-radius: var(--border-radius-sm);
+}
+
+.bio-search-box-wrapper--sm .bio-search-box-container {
+  min-height: 34px;
+}
+
+.bio-search-box-wrapper--sm .bio-search-box-input {
+  padding-right: 35px;
+}
+
+.bio-search-box-input--md {
+  padding: 7px 40px 7px 13px;
+  font-size: var(--typography-font-size-base);
+  height: 38px;
+  border-radius: var(--border-radius-sm);
+}
+
+.bio-search-box-wrapper--md .bio-search-box-container {
+  min-height: 38px;
+}
+
+.bio-search-box-input--lg {
+  padding: 9px 40px 9px 17px;
+  font-size: var(--typography-font-size-xl);
+  height: 48px;
+  border-radius: var(--border-radius-md);
+}
+
+.bio-search-box-wrapper--lg .bio-search-box-container {
+  min-height: 48px;
+}
+
+.bio-search-box-wrapper--lg .bio-search-box-input {
+  padding-right: 45px;
+}
+
+/* Suffix Styles */
+.bio-search-box-suffix {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 13px;
+}
+
+.bio-search-box-wrapper--sm .bio-search-box-suffix {
+  padding-right: 9px;
+}
+
+.bio-search-box-wrapper--lg .bio-search-box-suffix {
+  padding-right: 17px;
+}
+
+/* Search Icon Button */
+.bio-search-box-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+}
+
+.bio-search-box-icon:hover:not(:disabled) {
+  color: var(--color-primary-500);
+}
+
+.bio-search-box-icon:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.bio-search-box-icon svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* Clear Button */
+.bio-search-box-clear {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+}
+
+.bio-search-box-clear:hover {
+  color: var(--color-primary-500);
+}
+
+.bio-search-box-clear svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* Focused State */
+.bio-search-box-wrapper--focused .bio-search-box-input {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+/* Disabled State */
+.bio-search-box-wrapper--disabled .bio-search-box-input {
+  background-color: var(--color-background-tertiary);
+  border-color: var(--color-border-light);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+

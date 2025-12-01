@@ -1,0 +1,66 @@
+Category,Element,Path/Token,Design Status,Development Status,Documentation Status,Notes
+Styles/Tokens,Base Colors,color.base.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Primary Scale,color.primary.50-900,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Semantic Success,color.semantic.success.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Semantic Warning,color.semantic.warning.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Semantic Error,color.semantic.error.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Semantic Info,color.semantic.info.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Text Colors,color.text.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Background Colors,color.background.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Border Colors,color.border.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Neutral Scale,color.neutral.50-900,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Alert Colors,color.alert.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Base Spacing,spacing.base,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Numeric Scale,spacing.0-8,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Semantic Scale,spacing.xs-xxxl,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Font Families,typography.fontFamily.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Font Sizes,typography.fontSize.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Font Weights,typography.fontWeight.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Line Heights,typography.lineHeight.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Border Radius,border.radius.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Border Width,border.width.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Box Shadows,shadow.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Transition Durations,transition.duration.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Transition Timing,transition.timing.*,🔄 Synced,✅ Complete,✅ Complete,
+Styles/Tokens,Z-Index Scale,zIndex.*,🔄 Synced,✅ Complete,✅ Complete,
+Components,Alert,atoms/alert,🔄 Synced,✅ Complete,✅ Complete,Has README and stories
+Components,Badge,atoms/badge,🔄 Synced,✅ Complete,✅ Complete,Has README and stories
+Components,Button,atoms/button,🔄 Synced,✅ Complete,✅ Complete,Has README and stories
+Components,File Input,atoms/file-input,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Input,atoms/input,🔄 Synced,✅ Complete,❌ Not Started,Has stories but no README
+Components,Input Addon,atoms/input-addon,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Input Affix,atoms/input-affix,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Input Separator,atoms/input-separator,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Password Input,atoms/password-input,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Placeholder,atoms/placeholder,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Progress,atoms/progress,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Search Box,atoms/search-box,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Spinner,atoms/spinner,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Textarea,atoms/textarea,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Tooltip,atoms/tooltip,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Accordion,molecules/accordion,🔄 Synced,✅ Complete,✅ Complete,Has README
+Components,Breadcrumb,molecules/breadcrumb,🔄 Synced,✅ Complete,✅ Complete,Has README
+Components,Button Group,molecules/button-group,🔄 Synced,✅ Complete,✅ Complete,Has README
+Components,Dropdown,molecules/dropdown,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Dropdown Menu,molecules/dropdown-menu,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Dropdown Trigger,molecules/dropdown-trigger,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,List Group,molecules/list-group,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Modal,molecules/modal,🔄 Synced,✅ Complete,❌ Not Started,Has stories but no README
+Components,Navbar,molecules/navbar,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Navbar Brand,molecules/navbar/navbar-brand,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Navbar Collapse,molecules/navbar/navbar-collapse,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Navbar Toggler,molecules/navbar/navbar-toggler,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Offcanvas,molecules/offcanvas,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Pagination,molecules/pagination,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Popover,molecules/popover,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Toast,molecules/toast,🔄 Synced,✅ Complete,❌ Not Started,Needs README and stories
+Components,Organisms,organisms/,❌ Not Started,❌ Not Started,❌ Not Started,No organisms defined yet
+Utilities,Token Sync Script,scripts/sync-figma-tokens.js,N/A,✅ Complete,✅ Complete,
+Utilities,Token Validation Script,scripts/validate-tokens.js,N/A,✅ Complete,✅ Complete,
+Utilities,Token Helper Function,src/tokens/index.ts (getToken),N/A,✅ Complete,✅ Complete,
+Utilities,Style Dictionary Config,style-dictionary.config.js,N/A,✅ Complete,✅ Complete,
+Assets,Icons,(Por definir),❌ Not Started,❌ Not Started,❌ Not Started,
+Assets,Illustrations,(Por definir),❌ Not Started,❌ Not Started,❌ Not Started,
+Assets,Images,(Por definir),❌ Not Started,❌ Not Started,❌ Not Started,
+Assets,Fonts,(Por definir),❌ Not Started,❌ Not Started,❌ Not Started,
+

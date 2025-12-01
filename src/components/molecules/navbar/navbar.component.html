@@ -1,0 +1,38 @@
+<!--
+  Navbar Component Template
+  
+  Displays a navigation bar with brand, toggler, and collapsible content.
+  
+  Structure:
+  - Navbar container
+  - Brand
+  - Toggler (responsive)
+  - Collapse (collapsible content)
+-->
+
+<nav [class]="navbarClasses" role="navigation">
+  <div class="bio-navbar__container">
+    <!-- Brand -->
+    <bio-navbar-brand
+      [type]="brandType"
+      [text]="brandText"
+      [imageSrc]="brandImage">
+    </bio-navbar-brand>
+
+    <!-- Toggler (Responsive) -->
+    <bio-navbar-toggler
+      [dark]="colorScheme === 'dark'"
+      [focused]="false"
+      (click)="onToggle()">
+    </bio-navbar-toggler>
+
+    <!-- Collapse -->
+    <bio-navbar-collapse
+      [isExpanded]="isExpanded"
+      [responsive]="true"
+      [fixedHeight]="false">
+      <ng-content></ng-content>
+    </bio-navbar-collapse>
+  </div>
+</nav>
+

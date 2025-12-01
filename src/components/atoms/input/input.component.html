@@ -1,0 +1,80 @@
+<div [class]="inputWrapperClasses">
+  <!-- Addon Before -->
+  @if (addonBefore && addonBeforeContent) {
+    <div class="bio-input-addon bio-input-addon--before">
+      @if (addonBeforeContent) {
+        <span class="bio-input-addon__text">{{ addonBeforeContent }}</span>
+      }
+    </div>
+  }
+
+  <!-- Input Container -->
+  <div class="bio-input-container">
+    <!-- Prefix -->
+    @if (prefix && prefixContent) {
+      <div class="bio-input-prefix">
+        @if (prefixIcon) {
+          <span class="bio-input-prefix__icon" [innerHTML]="prefixContent"></span>
+        } @else {
+          <span class="bio-input-prefix__text">{{ prefixContent }}</span>
+        }
+      </div>
+    }
+
+    <!-- Input Element -->
+    <input
+      [id]="id"
+      [name]="name"
+      [type]="type"
+      [value]="currentValue"
+      [placeholder]="placeholder"
+      [disabled]="state === 'disabled'"
+      [readonly]="readonly"
+      [required]="required"
+      [attr.maxlength]="maxlength"
+      [class]="inputClasses"
+      [attr.aria-invalid]="validation === 'invalid'"
+      [attr.aria-required]="required"
+      (input)="onInput($event)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+    />
+
+    <!-- Suffix -->
+    @if (suffix && suffixContent) {
+      <div class="bio-input-suffix">
+        @if (suffixIcon) {
+          <span class="bio-input-suffix__icon" [innerHTML]="suffixContent"></span>
+        } @else {
+          <span class="bio-input-suffix__text">{{ suffixContent }}</span>
+        }
+      </div>
+    }
+
+    <!-- Validation Icons -->
+    @if (validation === 'valid' && state !== 'disabled') {
+      <div class="bio-input-validation bio-input-validation--valid">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.5 4.5L6 12L2.5 8.5" stroke="#198754" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    }
+    @if (validation === 'invalid' && state !== 'disabled') {
+      <div class="bio-input-validation bio-input-validation--invalid">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4L4 12M4 4L12 12" stroke="#dc3545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    }
+  </div>
+
+  <!-- Addon After -->
+  @if (addonAfter && addonAfterContent) {
+    <div class="bio-input-addon bio-input-addon--after">
+      @if (addonAfterContent) {
+        <span class="bio-input-addon__text">{{ addonAfterContent }}</span>
+      }
+    </div>
+  }
+</div>
+

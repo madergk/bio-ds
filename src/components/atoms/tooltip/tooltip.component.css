@@ -1,0 +1,175 @@
+/**
+ * Tooltip Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Dark background (black)
+ * - White text
+ * - Arrow positioning with 14px padding range
+ * - Multiple directions (top, bottom, left, right)
+ * - Auto width support
+ * - Opacity 0.9
+ * - Border radius 4px
+ * - Font: Sora Regular, 14px, line-height 1.5
+ */
+
+/* Tooltip Container */
+.bio-tooltip {
+  opacity: 0.9;
+  position: relative;
+  z-index: var(--z-index-tooltip);
+  display: flex;
+  align-items: center;
+}
+
+/* Tooltip Body */
+.bio-tooltip__body {
+  background: var(--color-base-black);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-items: flex-start;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bio-tooltip--auto-width .bio-tooltip__body {
+  width: auto;
+}
+
+.bio-tooltip:not(.bio-tooltip--auto-width) .bio-tooltip__body {
+  min-width: 200px;
+  width: min-content;
+}
+
+/* Tooltip Content Wrapper */
+.bio-tooltip__content {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Tooltip Text */
+.bio-tooltip__text {
+  color: var(--color-base-white);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-sm);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  margin: 0;
+  position: relative;
+  white-space: nowrap;
+}
+
+.bio-tooltip--auto-width .bio-tooltip__text {
+  white-space: pre;
+}
+
+.bio-tooltip:not(.bio-tooltip--auto-width) .bio-tooltip__text {
+  text-align: center;
+  white-space: normal;
+  min-width: 100%;
+  width: min-content;
+}
+
+/* Arrow */
+.bio-tooltip__arrow {
+  height: 7px;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+}
+
+.bio-tooltip__arrow::before {
+  border: 7px solid transparent;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* Arrow Positioning by Direction */
+.bio-tooltip--top {
+  flex-direction: column;
+  align-items: center;
+}
+
+.bio-tooltip--top .bio-tooltip__arrow {
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 7px;
+  width: 14px;
+}
+
+.bio-tooltip--top .bio-tooltip__arrow::before {
+  border-top-color: var(--color-base-black);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bio-tooltip--bottom {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.bio-tooltip--bottom .bio-tooltip__arrow {
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 7px;
+  width: 14px;
+}
+
+.bio-tooltip--bottom .bio-tooltip__arrow::before {
+  border-bottom-color: var(--color-base-black);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bio-tooltip--left {
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.bio-tooltip--left .bio-tooltip__arrow {
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 14px;
+}
+
+.bio-tooltip--left .bio-tooltip__arrow::before {
+  border-left-color: var(--color-base-black);
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bio-tooltip--right {
+  flex-direction: row;
+  align-items: center;
+}
+
+.bio-tooltip--right .bio-tooltip__arrow {
+  left: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 14px;
+}
+
+.bio-tooltip--right .bio-tooltip__arrow::before {
+  border-right-color: var(--color-base-black);
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}

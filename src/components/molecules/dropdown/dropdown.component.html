@@ -1,0 +1,32 @@
+<!--
+  Dropdown Component Template
+  
+  Combines dropdown trigger and menu.
+  
+  Structure:
+  - Trigger button
+  - Menu (shown when open)
+-->
+
+<div class="bio-dropdown" [class.bio-dropdown--open]="isOpen">
+  <bio-dropdown-trigger
+    [label]="label"
+    [variant]="variant"
+    [size]="size"
+    [splitButton]="splitButton"
+    [direction]="direction"
+    [isOpen]="isOpen"
+    (click)="toggleDropdown($event)"
+    (toggleClick)="toggleDropdown($event)">
+  </bio-dropdown-trigger>
+
+  <div class="bio-dropdown__menu-wrapper" *ngIf="isOpen">
+    <bio-dropdown-menu
+      [items]="items"
+      [arrow]="menuArrow"
+      [dark]="dark"
+      (itemClick)="onItemClick($event)">
+    </bio-dropdown-menu>
+  </div>
+</div>
+

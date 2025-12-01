@@ -1,0 +1,100 @@
+/**
+ * Progress Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Background container
+ * - Progress bar with width based on value
+ * - Color variants
+ * - Striped pattern
+ * - Label positioning
+ */
+
+/* Progress Container */
+.bio-progress {
+  background: var(--color-background-tertiary);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  height: var(--spacing-md);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Progress Bar */
+.bio-progress__bar {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  transition: width var(--transition-duration-slow) var(--transition-timing-ease);
+}
+
+/* Color Variants */
+.bio-progress__bar--default {
+  background: var(--color-primary-500);
+}
+
+.bio-progress__bar--success {
+  background: var(--color-semantic-success-base);
+}
+
+.bio-progress__bar--info {
+  background: var(--color-semantic-info-base);
+}
+
+.bio-progress__bar--warning {
+  background: var(--color-semantic-warning-base);
+}
+
+.bio-progress__bar--danger {
+  background: var(--color-semantic-error-base);
+}
+
+/* Striped Pattern */
+.bio-progress--striped .bio-progress__bar,
+.bio-progress__bar--striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+.bio-progress--striped .bio-progress__bar--default {
+  background-color: var(--color-primary-500);
+}
+
+.bio-progress--striped .bio-progress__bar--success {
+  background-color: var(--color-semantic-success-base);
+}
+
+.bio-progress--striped .bio-progress__bar--info {
+  background-color: var(--color-semantic-info-base);
+}
+
+.bio-progress--striped .bio-progress__bar--warning {
+  background-color: var(--color-semantic-warning-base);
+}
+
+.bio-progress--striped .bio-progress__bar--danger {
+  background-color: var(--color-semantic-error-base);
+}
+
+/* Label */
+.bio-progress__label {
+  color: var(--color-base-white);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-xs);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+

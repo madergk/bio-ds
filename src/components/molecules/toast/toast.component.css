@@ -1,0 +1,205 @@
+/**
+ * Toast Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Header with image, title, and timestamp
+ * - Body with message
+ * - Close button
+ * - Color variants
+ */
+
+/* Toast Container */
+.bio-toast {
+  background: rgba(255, 255, 255, 0.85);
+  border: var(--border-width-thin) solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  position: relative;
+  width: 100%;
+}
+
+/* Color Variants */
+.bio-toast--primary {
+  background: var(--color-primary-500);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.bio-toast--secondary {
+  background: var(--color-text-secondary);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.bio-toast--success {
+  background: var(--color-semantic-success-base);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.bio-toast--danger {
+  background: var(--color-semantic-error-base);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.bio-toast--warning {
+  background: var(--color-semantic-warning-base);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.bio-toast--info {
+  background: var(--color-semantic-info-base);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.bio-toast--dark {
+  background: var(--color-background-darkest);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.bio-toast__header {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: var(--border-width-thin) solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-2) var(--spacing-2) var(--spacing-3);
+  width: 100%;
+}
+
+.bio-toast--primary .bio-toast__header,
+.bio-toast--secondary .bio-toast__header,
+.bio-toast--success .bio-toast__header,
+.bio-toast--danger .bio-toast__header,
+.bio-toast--warning .bio-toast__header,
+.bio-toast--info .bio-toast__header,
+.bio-toast--dark .bio-toast__header {
+  background: transparent;
+  border-bottom: none;
+}
+
+/* Image */
+.bio-toast__image {
+  border-radius: var(--border-radius-sm);
+  flex-shrink: 0;
+  height: 20px;
+  overflow: hidden;
+  width: 20px;
+}
+
+.bio-toast__image img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Title */
+.bio-toast__title {
+  flex: 1;
+  min-width: 0;
+}
+
+.bio-toast__title p {
+  color: var(--color-text-muted);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-sm);
+  font-weight: var(--typography-font-weight-bold);
+  line-height: var(--typography-line-height-normal);
+  margin: 0;
+}
+
+.bio-toast--primary .bio-toast__title p,
+.bio-toast--secondary .bio-toast__title p,
+.bio-toast--success .bio-toast__title p,
+.bio-toast--danger .bio-toast__title p,
+.bio-toast--warning .bio-toast__title p,
+.bio-toast--info .bio-toast__title p,
+.bio-toast--dark .bio-toast__title p {
+  color: white;
+}
+
+/* Timestamp */
+.bio-toast__timestamp {
+  flex-shrink: 0;
+}
+
+.bio-toast__timestamp p {
+  color: var(--color-text-muted);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-xs);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.bio-toast--primary .bio-toast__timestamp p,
+.bio-toast--secondary .bio-toast__timestamp p,
+.bio-toast--success .bio-toast__timestamp p,
+.bio-toast--danger .bio-toast__timestamp p,
+.bio-toast--warning .bio-toast__timestamp p,
+.bio-toast--info .bio-toast__timestamp p,
+.bio-toast--dark .bio-toast__timestamp p {
+  color: white;
+}
+
+/* Body */
+.bio-toast__body {
+  padding: var(--spacing-3);
+}
+
+.bio-toast__message {
+  color: var(--color-text-secondary);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-sm);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  margin: 0;
+}
+
+.bio-toast--primary .bio-toast__message,
+.bio-toast--secondary .bio-toast__message,
+.bio-toast--success .bio-toast__message,
+.bio-toast--danger .bio-toast__message,
+.bio-toast--warning .bio-toast__message,
+.bio-toast--info .bio-toast__message,
+.bio-toast--dark .bio-toast__message {
+  color: white;
+}
+
+/* Close Button */
+.bio-toast__close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  padding: 3.5px;
+  position: absolute;
+  right: 6px;
+  top: 7.5px;
+  transition: opacity var(--transition-duration-fast) var(--transition-timing-ease);
+}
+
+.bio-toast__close:hover {
+  opacity: 0.75;
+}
+
+.bio-toast__close svg {
+  color: currentColor;
+  height: 14px;
+  width: 14px;
+}
+
+.bio-toast--primary .bio-toast__close,
+.bio-toast--secondary .bio-toast__close,
+.bio-toast--success .bio-toast__close,
+.bio-toast--danger .bio-toast__close,
+.bio-toast--warning .bio-toast__close,
+.bio-toast--info .bio-toast__close,
+.bio-toast--dark .bio-toast__close {
+  color: white;
+}
+

@@ -1,0 +1,141 @@
+/**
+ * Offcanvas Component Styles
+ * 
+ * Implements the design from Figma with:
+ * - Backdrop overlay
+ * - Slide-in panel
+ * - Multiple positions (left, right, top, bottom)
+ * - Header with title and close button
+ * - Scrollable body
+ */
+
+/* Backdrop */
+.bio-offcanvas-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-index-modal-backdrop);
+}
+
+/* Offcanvas Container */
+.bio-offcanvas {
+  background: var(--color-background-default);
+  border: var(--border-width-thin) solid rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  position: fixed;
+  transition: transform var(--transition-duration-slow) var(--transition-timing-ease);
+  width: 400px;
+  z-index: var(--z-index-modal);
+}
+
+/* Position Variants */
+.bio-offcanvas--left {
+  border-right: var(--border-width-thin) solid rgba(0, 0, 0, 0.18);
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(-100%);
+}
+
+.bio-offcanvas--left.bio-offcanvas--open {
+  transform: translateY(-50%) translateX(0);
+}
+
+.bio-offcanvas--right {
+  border-left: var(--border-width-thin) solid rgba(0, 0, 0, 0.18);
+  height: 900px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(100%);
+}
+
+.bio-offcanvas--right.bio-offcanvas--open {
+  transform: translateY(-50%) translateX(0);
+}
+
+.bio-offcanvas--top {
+  border-bottom: var(--border-width-thin) solid rgba(0, 0, 0, 0.18);
+  height: 300px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) translateY(-100%);
+  width: 1280px;
+}
+
+.bio-offcanvas--top.bio-offcanvas--open {
+  transform: translateX(-50%) translateY(0);
+}
+
+.bio-offcanvas--bottom {
+  border-top: var(--border-width-thin) solid rgba(0, 0, 0, 0.18);
+  bottom: 0;
+  height: 300px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 1280px;
+}
+
+.bio-offcanvas--bottom.bio-offcanvas--open {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Header */
+.bio-offcanvas__header {
+  border-bottom: var(--border-width-thin) solid rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  position: relative;
+  width: 100%;
+}
+
+.bio-offcanvas__title {
+  flex: 1;
+  min-width: 0;
+}
+
+.bio-offcanvas__title h2 {
+  color: var(--color-text-secondary);
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-xl);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-normal);
+  margin: 0;
+}
+
+/* Close Button */
+.bio-offcanvas__close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  padding: var(--spacing-sm);
+  transition: opacity var(--transition-duration-fast) var(--transition-timing-ease);
+}
+
+.bio-offcanvas__close:hover {
+  opacity: 0.75;
+}
+
+.bio-offcanvas__close svg {
+  color: currentColor;
+  width: var(--spacing-md);
+  height: var(--spacing-md);
+}
+
+/* Body */
+.bio-offcanvas__body {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+}
+

@@ -1,0 +1,40 @@
+<!--
+  Progress Component Template
+  
+  Displays a progress bar.
+  
+  Structure:
+  - Progress container
+  - Progress bar(s)
+  - Optional label
+-->
+
+<div [class]="progressClasses" role="progressbar" [attr.aria-valuenow]="value" aria-valuemin="0" aria-valuemax="100">
+  <!-- Multiple Bars -->
+  <ng-container *ngIf="isMultiple">
+    <div
+      *ngFor="let bar of multipleBars"
+      [class]="getBarClasses(bar.color || 'default')"
+      [style]="getBarStyle(bar.value)"
+      role="progressbar"
+      [attr.aria-valuenow]="bar.value"
+      aria-valuemin="0"
+      aria-valuemax="100">
+      <span *ngIf="showLabel && bar.label" class="bio-progress__label">{{ bar.label }}</span>
+    </div>
+  </ng-container>
+
+  <!-- Single Bar -->
+  <ng-container *ngIf="!isMultiple">
+    <div
+      [class]="getBarClasses()"
+      [style]="getBarStyle(value)"
+      role="progressbar"
+      [attr.aria-valuenow]="value"
+      aria-valuemin="0"
+      aria-valuemax="100">
+      <span *ngIf="showLabel" class="bio-progress__label">{{ value }}%</span>
+    </div>
+  </ng-container>
+</div>
+

@@ -1,0 +1,43 @@
+<div [class]="fileInputWrapperClasses" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <label [for]="id" class="bio-file-input-label">
+    <input
+      [id]="id"
+      [name]="name"
+      type="file"
+      [accept]="accept"
+      [multiple]="multiple"
+      [disabled]="state === 'disabled'"
+      [required]="required"
+      [class]="fileInputClasses"
+      [attr.aria-invalid]="validation === 'invalid'"
+      [attr.aria-required]="required"
+      (change)="onFileChange($event)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+    />
+    <span class="bio-file-input-text">
+      @if (filled && fileNames) {
+        {{ fileNames }}
+      } @else {
+        Choose file
+      }
+    </span>
+  </label>
+
+  <!-- Validation Icons -->
+  @if (validation === 'valid' && state !== 'disabled') {
+    <div class="bio-file-input-validation bio-file-input-validation--valid">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5 4.5L6 12L2.5 8.5" stroke="#198754" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  }
+  @if (validation === 'invalid' && state !== 'disabled') {
+    <div class="bio-file-input-validation bio-file-input-validation--invalid">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4L4 12M4 4L12 12" stroke="#dc3545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  }
+</div>
+

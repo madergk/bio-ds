@@ -1,0 +1,40 @@
+<!--
+  Placeholder Component Template
+  
+  Displays a placeholder/skeleton loading state.
+  
+  Structure:
+  - Image placeholder (if type includes image)
+  - Text lines (if type includes text)
+  - Multi-line text (if type is multi-line)
+-->
+
+<div [class]="placeholderClasses">
+  <!-- Image Type -->
+  <div *ngIf="type === 'image'" class="bio-placeholder__image"></div>
+
+  <!-- Image + Text Type -->
+  <ng-container *ngIf="type === 'image + text'">
+    <div class="bio-placeholder__image"></div>
+    <div class="bio-placeholder__content">
+      <div class="bio-placeholder__title"></div>
+      <div class="bio-placeholder__lines">
+        <div class="bio-placeholder__line"></div>
+        <div class="bio-placeholder__line"></div>
+        <div class="bio-placeholder__line"></div>
+      </div>
+      <div class="bio-placeholder__button"></div>
+    </div>
+  </ng-container>
+
+  <!-- Multi-line Type -->
+  <div *ngIf="type === 'multi-line'" class="bio-placeholder__lines">
+    <div class="bio-placeholder__line"></div>
+    <div class="bio-placeholder__line"></div>
+    <div class="bio-placeholder__line"></div>
+  </div>
+
+  <!-- Text Type (default) -->
+  <div *ngIf="type === 'text'" class="bio-placeholder__line"></div>
+</div>
+

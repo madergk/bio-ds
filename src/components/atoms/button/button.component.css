@@ -1,0 +1,146 @@
+/**
+ * Button Component Styles
+ * 
+ * Uses CSS Modules (Angular's ViewEncapsulation) and Design Tokens
+ * All values come from design tokens for consistency
+ */
+
+/* Base Button Styles */
+.bio-button {
+  /* Reset default button styles */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--typography-font-family-primary);
+  font-weight: var(--typography-font-weight-medium);
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  
+  /* Use design tokens for spacing and typography */
+  font-size: var(--typography-font-size-base);
+  line-height: var(--typography-line-height-normal);
+  border-radius: var(--border-radius-md);
+  
+  /* Focus styles for accessibility */
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+  }
+}
+
+/* Size Variants */
+.bio-button--sm {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--typography-font-size-sm);
+  min-height: 32px;
+}
+
+.bio-button--md {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--typography-font-size-base);
+  min-height: 40px;
+}
+
+.bio-button--lg {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--typography-font-size-lg);
+  min-height: 48px;
+}
+
+/* Primary Variant */
+.bio-button--primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-base-white);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--color-primary-600);
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--color-primary-700);
+  }
+}
+
+/* Secondary Variant */
+.bio-button--secondary {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-700);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--color-primary-200);
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--color-primary-300);
+  }
+}
+
+/* Outline Variant */
+.bio-button--outline {
+  background-color: transparent;
+  color: var(--color-primary-500);
+  border: var(--border-width-thin) solid var(--color-primary-500);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--color-primary-50);
+    border-color: var(--color-primary-600);
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--color-primary-100);
+    border-color: var(--color-primary-700);
+  }
+}
+
+/* Text Variant */
+.bio-button--text {
+  background-color: transparent;
+  color: var(--color-primary-500);
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--color-primary-50);
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--color-primary-100);
+  }
+}
+
+/* Danger Variant */
+.bio-button--danger {
+  background-color: var(--color-semantic-error-base);
+  color: var(--color-base-white);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--color-semantic-error-hover);
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--color-semantic-error-active);
+  }
+}
+
+/* Disabled State */
+.bio-button--disabled,
+.bio-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Ensure disabled state works for all variants */
+.bio-button--disabled.bio-button--primary,
+.bio-button--disabled.bio-button--secondary,
+.bio-button--disabled.bio-button--outline,
+.bio-button--disabled.bio-button--text,
+.bio-button--disabled.bio-button--danger {
+  opacity: 0.6;
+}
+

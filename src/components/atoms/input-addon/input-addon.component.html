@@ -1,0 +1,17 @@
+<div [class]="addonClasses">
+  @if (type === 'text' && content) {
+    <span class="bio-input-addon__text">{{ content }}</span>
+  }
+  @if (type === 'select-single' && content) {
+    <div class="bio-input-addon__select">
+      <span class="bio-input-addon__select-text">{{ content }}</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 4.5L6 7.5L9 4.5" stroke="#4b5763" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  }
+  @if (type === 'icon' && content) {
+    <span class="bio-input-addon__icon" [innerHTML]="content"></span>
+  }
+</div>
+
