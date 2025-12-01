@@ -92,9 +92,11 @@ Components are organized following atomic design principles:
 
 ## 📚 Documentation
 
+### Core Documentation
 - **[Installation Guide](./INSTALLATION.md)** - Complete setup instructions
 - **[Deployment Guide](./DEPLOYMENT.md)** - How to publish the design system
 - **[Build Scripts](./BUILD_SCRIPTS.md)** - Explanation of all build commands
+- **[Testing Guide](./TESTING.md)** - How to write and run tests
 - **[CHANGELOG](./CHANGELOG.md)** - Version history and changes
 
 ### 🎨 Figma Integration
@@ -103,6 +105,10 @@ Components are organized following atomic design principles:
 - **[Figma GitHub Sync](./FIGMA_GITHUB_SYNC.md)** - Automatic sync with GitHub ⭐
 - **[Figma Naming Guide](./FIGMA_NAMING_GUIDE.md)** - Naming conventions for Figma ↔ Code
 - **[Figma Handoff Process](./FIGMA_HANDOFF.md)** - Step-by-step handoff process
+
+### ⚠️ Known Issues
+
+- **[Build Issues](./BUILD_ISSUES.md)** - Current build problems and solutions
 
 ## 🛠️ Development
 
@@ -119,6 +125,13 @@ npm run build:clean
 ### Run tests
 ```bash
 npm test
+```
+
+**📖 For testing guide, see [TESTING.md](./TESTING.md)**
+
+### Run tests with coverage
+```bash
+npm test -- --code-coverage
 ```
 
 ### Lint
@@ -143,6 +156,21 @@ npm run tokens:sync
 
 **📖 For detailed build script explanations, see [BUILD_SCRIPTS.md](./BUILD_SCRIPTS.md)**  
 **🎨 For Figma integration, see [FIGMA_WORKFLOW.md](./FIGMA_WORKFLOW.md)**
+
+## 🔄 CI/CD
+
+The project uses GitHub Actions for continuous integration:
+
+- **CI Pipeline** (`.github/workflows/ci.yml`): Runs on every push and PR
+  - Lints code
+  - Builds library
+  - Runs tests
+  - Generates coverage reports
+
+- **Release Pipeline** (`.github/workflows/release.yml`): Publishes to npm on release
+
+**Status**: ✅ CI/CD configured  
+**Note**: Build step currently has `continue-on-error: true` due to version compatibility issue (see [BUILD_ISSUES.md](./BUILD_ISSUES.md))
 
 ## 📦 Publishing
 
