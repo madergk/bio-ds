@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm run build:library:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []
