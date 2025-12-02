@@ -1,0 +1,1548 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [],
+    "modules": [],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "AllVariants",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <bio-alert variant=\"primary\">\n          <p>This is a primary alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"secondary\">\n          <p>This is a secondary alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"success\">\n          <p>This is a success alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"danger\">\n          <p>This is a danger alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"warning\">\n          <p>This is a warning alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"info\">\n          <p>This is an info alert.</p>\n        </bio-alert>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "AllVariants",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\">Primary</bio-badge>\n        <bio-badge variant=\"secondary\">Secondary</bio-badge>\n        <bio-badge variant=\"success\">Success</bio-badge>\n        <bio-badge variant=\"danger\">Danger</bio-badge>\n        <bio-badge variant=\"warning\">Warning</bio-badge>\n        <bio-badge variant=\"info\">Info</bio-badge>\n        <bio-badge variant=\"light\">Light</bio-badge>\n        <bio-badge variant=\"dark\">Dark</bio-badge>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "AllVariants",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\">Primary</bio-button>\n        <bio-button variant=\"secondary\">Secondary</bio-button>\n        <bio-button variant=\"outline\">Outline</bio-button>\n        <bio-button variant=\"text\">Text</bio-button>\n        <bio-button variant=\"danger\">Danger</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'All available button variants displayed together for easy comparison.',\n      },\n    },\n  },\n}",
+                "rawdescription": "All variants - see all button variants side by side.",
+                "description": "<p>All variants - see all button variants side by side.</p>\n"
+            },
+            {
+                "name": "Danger",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'danger',\n    dismissible: false,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>Error: Something went wrong. Please try again.</p>\n      </bio-alert>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Danger",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'danger',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                "rawdescription": "Danger button - use for destructive actions like delete or remove.\nThe red color signals caution to users.",
+                "description": "<p>Danger button - use for destructive actions like delete or remove.\nThe red color signals caution to users.</p>\n"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/molecules/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div class=\"bio-modal-backdrop\">\n        <div class=\"bio-modal\" style=\"width: 500px;\">\n          <div class=\"bio-modal__container\">\n            <div class=\"bio-modal__header\">\n              <div class=\"bio-modal__title\">\n                <h2>Modal Title</h2>\n              </div>\n            </div>\n            <div class=\"bio-modal__body\">\n              <p>This is the modal body content. You can put any content here.</p>\n            </div>\n            <div class=\"bio-modal__footer\">\n              <div class=\"bio-modal__footer-content\">\n                <bio-button variant=\"secondary\">Cancel</bio-button>\n                <bio-button variant=\"primary\">Save</bio-button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'md',\n    placeholder: 'Enter text...',\n    disabled: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-input-wrapper [size]=\"size\">\n        <bio-input-container>\n          <input \n            bio-input \n            [class]=\"'bio-input--' + size\"\n            [placeholder]=\"placeholder\"\n            [disabled]=\"disabled\"\n            type=\"text\"\n          />\n        </bio-input-container>\n      </bio-input-wrapper>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\" [disabled]=\"true\">Disabled Primary</bio-button>\n        <bio-button variant=\"secondary\" [disabled]=\"true\">Disabled Secondary</bio-button>\n        <bio-button variant=\"outline\" [disabled]=\"true\">Disabled Outline</bio-button>\n        <bio-button variant=\"text\" [disabled]=\"true\">Disabled Text</bio-button>\n        <bio-button variant=\"danger\" [disabled]=\"true\">Disabled Danger</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'All button variants support a disabled state. Disabled buttons are visually distinct and cannot be interacted with.',\n      },\n    },\n  },\n}",
+                "rawdescription": "Disabled state - buttons can be disabled to prevent interaction.\nDisabled buttons have reduced opacity and cannot be clicked.",
+                "description": "<p>Disabled state - buttons can be disabled to prevent interaction.\nDisabled buttons have reduced opacity and cannot be clicked.</p>\n"
+            },
+            {
+                "name": "Dismissible",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'info',\n    dismissible: true,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>This alert can be dismissed by clicking the close button.</p>\n      </bio-alert>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "LoggedIn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
+            },
+            {
+                "name": "LoggedIn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
+            },
+            {
+                "name": "LoggedOut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "LoggedOut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<HeaderComponent>",
+                "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<PageComponent>",
+                "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/molecules/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ModalComponent>",
+                "defaultValue": "{\n  title: 'Molecules/Modal',\n  component: ModalComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Modals are dialog boxes that overlay the main content. They require user interaction before the user can return to the main content. Use modals sparingly for important information or actions.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n}",
+                "rawdescription": "Modal Component\n\nDialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.",
+                "description": "<p>Modal Component</p>\n<p>Dialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.</p>\n"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AlertComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Alert',\n  component: AlertComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Alert component provides contextual feedback messages. Use alerts to inform users about important information, success states, warnings, or errors.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],\n      description: 'Visual variant of the alert',\n    },\n    dismissible: {\n      control: 'boolean',\n      description: 'Whether the alert can be dismissed',\n    },\n    showIcon: {\n      control: 'boolean',\n      description: 'Whether to show an icon',\n    },\n  },\n}",
+                "rawdescription": "Alert Component\n\nDisplays contextual feedback messages for user actions.\nAlerts can be dismissible and support multiple variants.",
+                "description": "<p>Alert Component</p>\n<p>Displays contextual feedback messages for user actions.\nAlerts can be dismissible and support multiple variants.</p>\n"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BadgeComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Badge',\n  component: BadgeComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Badges are small status descriptors that can be attached to other components or used standalone to indicate counts, status, or new items.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],\n      description: 'Color variant of the badge',\n    },\n    size: {\n      control: 'select',\n      options: ['H6', 'H5', 'H4', 'H3', 'H2', 'H1'],\n      description: 'Size of the badge (matches heading sizes)',\n    },\n    type: {\n      control: 'select',\n      options: ['normal', 'pill', 'dot'],\n      description: 'Shape type of the badge',\n    },\n  },\n}",
+                "rawdescription": "Badge Component\n\nSmall status descriptors for UI elements.\nBadges can be used to highlight new items, counts, or status indicators.",
+                "description": "<p>Badge Component</p>\n<p>Small status descriptors for UI elements.\nBadges can be used to highlight new items, counts, or status indicators.</p>\n"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Button component is a fundamental building block of the Bio Design System. It provides consistent styling and behavior across all applications.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'outline', 'text', 'danger'],\n      description: 'Visual variant of the button',\n      table: {\n        type: { summary: 'ButtonVariant' },\n        defaultValue: { summary: 'primary' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n      table: {\n        type: { summary: 'ButtonSize' },\n        defaultValue: { summary: 'md' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n      table: {\n        type: { summary: 'boolean' },\n        defaultValue: { summary: 'false' },\n      },\n    },\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'HTML button type attribute',\n      table: {\n        type: { summary: 'string' },\n        defaultValue: { summary: 'button' },\n      },\n    },\n    label: {\n      control: 'text',\n      description: 'Button text content',\n      table: {\n        type: { summary: 'string' },\n      },\n    },\n    click: {\n      action: 'clicked',\n      description: 'Click event emitter',\n    },\n  },\n}",
+                "rawdescription": "Button Component\n\nA reusable button component following atomic design principles.\nThis is an \"atom\" - a basic building block of the design system.\n\n## Features\n- Multiple variants (primary, secondary, outline, text, danger)\n- Three sizes (sm, md, lg)\n- Disabled state\n- Type safety with TypeScript\n- Uses design tokens for consistent styling",
+                "description": "<p>Button Component</p>\n<p>A reusable button component following atomic design principles.\nThis is an &quot;atom&quot; - a basic building block of the design system.</p>\n<h2>Features</h2>\n<ul>\n<li>Multiple variants (primary, secondary, outline, text, danger)</li>\n<li>Three sizes (sm, md, lg)</li>\n<li>Disabled state</li>\n<li>Type safety with TypeScript</li>\n<li>Uses design tokens for consistent styling</li>\n</ul>\n"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Input',\n  component: InputComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Input component provides a text input field with consistent styling and validation states. It supports prefixes, suffixes, and addons for enhanced functionality.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the input',\n    },\n    placeholder: {\n      control: 'text',\n      description: 'Placeholder text',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the input is disabled',\n    },\n  },\n}",
+                "rawdescription": "Input Component\n\nText input field for user data entry.\nSupports various sizes, validation states, and addons.",
+                "description": "<p>Input Component</p>\n<p>Text input field for user data entry.\nSupports various sizes, validation states, and addons.</p>\n"
+            },
+            {
+                "name": "Outline",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'outline',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                "rawdescription": "Outline button - use when you want a button with a border but no background.\nGood for less prominent actions or when you want to reduce visual weight.",
+                "description": "<p>Outline button - use when you want a button with a border but no background.\nGood for less prominent actions or when you want to reduce visual weight.</p>\n"
+            },
+            {
+                "name": "preview",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": ".storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Preview",
+                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      toc: true,\n    },\n    backgrounds: {\n      default: 'light',\n      values: [\n        {\n          name: 'light',\n          value: '#ffffff',\n        },\n        {\n          name: 'dark',\n          value: '#212529',\n        },\n        {\n          name: 'gray',\n          value: '#f8f9fa',\n        },\n      ],\n    },\n  },\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'primary',\n    dismissible: false,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>This is a primary alert with an important message.</p>\n      </bio-alert>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'H6',\n    type: 'normal',\n  },\n  render: (args) => ({\n    props: args,\n    template: `<bio-badge [variant]=\"variant\" [size]=\"size\" [type]=\"type\">Badge</bio-badge>`,\n  }),\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                "rawdescription": "Primary button - the default and most commonly used variant.\nUse for primary actions in your application.",
+                "description": "<p>Primary button - the default and most commonly used variant.\nUse for primary actions in your application.</p>\n"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'secondary',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                "rawdescription": "Secondary button - use for secondary actions.\nProvides a less prominent alternative to primary buttons.",
+                "description": "<p>Secondary button - use for secondary actions.\nProvides a less prominent alternative to primary buttons.</p>\n"
+            },
+            {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\" size=\"H6\">H6</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H5\">H5</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H4\">H4</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H3\">H3</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H2\">H2</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H1\">H1</bio-badge>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\" size=\"sm\">Small</bio-button>\n        <bio-button variant=\"primary\" size=\"md\">Medium</bio-button>\n        <bio-button variant=\"primary\" size=\"lg\">Large</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Buttons come in three sizes: small (sm), medium (md), and large (lg). Medium is the default size.',\n      },\n    },\n  },\n}",
+                "rawdescription": "Size variants - buttons come in three sizes.\nChoose the size that best fits your layout and hierarchy.",
+                "description": "<p>Size variants - buttons come in three sizes.\nChoose the size that best fits your layout and hierarchy.</p>\n"
+            },
+            {
+                "name": "Sizes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input-wrapper size=\"sm\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--sm\" placeholder=\"Small input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper size=\"md\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Medium input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper size=\"lg\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--lg\" placeholder=\"Large input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "States",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input-wrapper>\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Normal state\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper class=\"bio-input-wrapper--focused\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Focused state\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper class=\"bio-input-wrapper--disabled\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Disabled state\" type=\"text\" disabled />\n          </bio-input-container>\n        </bio-input-wrapper>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Success",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'success',\n    dismissible: false,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>Operation completed successfully!</p>\n      </bio-alert>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Text",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'text',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                "rawdescription": "Text button - the most minimal button style.\nUse for tertiary actions or when space is limited.",
+                "description": "<p>Text button - the most minimal button style.\nUse for tertiary actions or when space is limited.</p>\n"
+            },
+            {
+                "name": "Types",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\" type=\"normal\">Normal</bio-badge>\n        <bio-badge variant=\"primary\" type=\"pill\">Pill</bio-badge>\n        <bio-badge variant=\"primary\" type=\"dot\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Warning",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'warning',\n    dismissible: false,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>Warning: Please review this information carefully.</p>\n      </bio-alert>\n    `,\n  }),\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<HeaderComponent>",
+                "file": "src/stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<PageComponent>",
+                "file": "src/stories/page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ModalComponent>",
+                "file": "src/components/molecules/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<AlertComponent>",
+                "file": "src/components/atoms/alert/alert.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<BadgeComponent>",
+                "file": "src/components/atoms/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "src/components/atoms/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/components/atoms/alert/alert.stories.ts": [
+                {
+                    "name": "AllVariants",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <bio-alert variant=\"primary\">\n          <p>This is a primary alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"secondary\">\n          <p>This is a secondary alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"success\">\n          <p>This is a success alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"danger\">\n          <p>This is a danger alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"warning\">\n          <p>This is a warning alert.</p>\n        </bio-alert>\n        <bio-alert variant=\"info\">\n          <p>This is an info alert.</p>\n        </bio-alert>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Danger",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'danger',\n    dismissible: false,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>Error: Something went wrong. Please try again.</p>\n      </bio-alert>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Dismissible",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'info',\n    dismissible: true,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>This alert can be dismissed by clicking the close button.</p>\n      </bio-alert>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AlertComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Alert',\n  component: AlertComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Alert component provides contextual feedback messages. Use alerts to inform users about important information, success states, warnings, or errors.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],\n      description: 'Visual variant of the alert',\n    },\n    dismissible: {\n      control: 'boolean',\n      description: 'Whether the alert can be dismissed',\n    },\n    showIcon: {\n      control: 'boolean',\n      description: 'Whether to show an icon',\n    },\n  },\n}",
+                    "rawdescription": "Alert Component\n\nDisplays contextual feedback messages for user actions.\nAlerts can be dismissible and support multiple variants.",
+                    "description": "<p>Alert Component</p>\n<p>Displays contextual feedback messages for user actions.\nAlerts can be dismissible and support multiple variants.</p>\n"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'primary',\n    dismissible: false,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>This is a primary alert with an important message.</p>\n      </bio-alert>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Success",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'success',\n    dismissible: false,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>Operation completed successfully!</p>\n      </bio-alert>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Warning",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'warning',\n    dismissible: false,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>Warning: Please review this information carefully.</p>\n      </bio-alert>\n    `,\n  }),\n}"
+                }
+            ],
+            "src/components/atoms/badge/badge.stories.ts": [
+                {
+                    "name": "AllVariants",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\">Primary</bio-badge>\n        <bio-badge variant=\"secondary\">Secondary</bio-badge>\n        <bio-badge variant=\"success\">Success</bio-badge>\n        <bio-badge variant=\"danger\">Danger</bio-badge>\n        <bio-badge variant=\"warning\">Warning</bio-badge>\n        <bio-badge variant=\"info\">Info</bio-badge>\n        <bio-badge variant=\"light\">Light</bio-badge>\n        <bio-badge variant=\"dark\">Dark</bio-badge>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BadgeComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Badge',\n  component: BadgeComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Badges are small status descriptors that can be attached to other components or used standalone to indicate counts, status, or new items.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],\n      description: 'Color variant of the badge',\n    },\n    size: {\n      control: 'select',\n      options: ['H6', 'H5', 'H4', 'H3', 'H2', 'H1'],\n      description: 'Size of the badge (matches heading sizes)',\n    },\n    type: {\n      control: 'select',\n      options: ['normal', 'pill', 'dot'],\n      description: 'Shape type of the badge',\n    },\n  },\n}",
+                    "rawdescription": "Badge Component\n\nSmall status descriptors for UI elements.\nBadges can be used to highlight new items, counts, or status indicators.",
+                    "description": "<p>Badge Component</p>\n<p>Small status descriptors for UI elements.\nBadges can be used to highlight new items, counts, or status indicators.</p>\n"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'H6',\n    type: 'normal',\n  },\n  render: (args) => ({\n    props: args,\n    template: `<bio-badge [variant]=\"variant\" [size]=\"size\" [type]=\"type\">Badge</bio-badge>`,\n  }),\n}"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\" size=\"H6\">H6</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H5\">H5</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H4\">H4</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H3\">H3</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H2\">H2</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H1\">H1</bio-badge>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Types",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\" type=\"normal\">Normal</bio-badge>\n        <bio-badge variant=\"primary\" type=\"pill\">Pill</bio-badge>\n        <bio-badge variant=\"primary\" type=\"dot\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
+                }
+            ],
+            "src/components/atoms/button/button.stories.ts": [
+                {
+                    "name": "AllVariants",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\">Primary</bio-button>\n        <bio-button variant=\"secondary\">Secondary</bio-button>\n        <bio-button variant=\"outline\">Outline</bio-button>\n        <bio-button variant=\"text\">Text</bio-button>\n        <bio-button variant=\"danger\">Danger</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'All available button variants displayed together for easy comparison.',\n      },\n    },\n  },\n}",
+                    "rawdescription": "All variants - see all button variants side by side.",
+                    "description": "<p>All variants - see all button variants side by side.</p>\n"
+                },
+                {
+                    "name": "Danger",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'danger',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                    "rawdescription": "Danger button - use for destructive actions like delete or remove.\nThe red color signals caution to users.",
+                    "description": "<p>Danger button - use for destructive actions like delete or remove.\nThe red color signals caution to users.</p>\n"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\" [disabled]=\"true\">Disabled Primary</bio-button>\n        <bio-button variant=\"secondary\" [disabled]=\"true\">Disabled Secondary</bio-button>\n        <bio-button variant=\"outline\" [disabled]=\"true\">Disabled Outline</bio-button>\n        <bio-button variant=\"text\" [disabled]=\"true\">Disabled Text</bio-button>\n        <bio-button variant=\"danger\" [disabled]=\"true\">Disabled Danger</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'All button variants support a disabled state. Disabled buttons are visually distinct and cannot be interacted with.',\n      },\n    },\n  },\n}",
+                    "rawdescription": "Disabled state - buttons can be disabled to prevent interaction.\nDisabled buttons have reduced opacity and cannot be clicked.",
+                    "description": "<p>Disabled state - buttons can be disabled to prevent interaction.\nDisabled buttons have reduced opacity and cannot be clicked.</p>\n"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Button component is a fundamental building block of the Bio Design System. It provides consistent styling and behavior across all applications.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'outline', 'text', 'danger'],\n      description: 'Visual variant of the button',\n      table: {\n        type: { summary: 'ButtonVariant' },\n        defaultValue: { summary: 'primary' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n      table: {\n        type: { summary: 'ButtonSize' },\n        defaultValue: { summary: 'md' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n      table: {\n        type: { summary: 'boolean' },\n        defaultValue: { summary: 'false' },\n      },\n    },\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'HTML button type attribute',\n      table: {\n        type: { summary: 'string' },\n        defaultValue: { summary: 'button' },\n      },\n    },\n    label: {\n      control: 'text',\n      description: 'Button text content',\n      table: {\n        type: { summary: 'string' },\n      },\n    },\n    click: {\n      action: 'clicked',\n      description: 'Click event emitter',\n    },\n  },\n}",
+                    "rawdescription": "Button Component\n\nA reusable button component following atomic design principles.\nThis is an \"atom\" - a basic building block of the design system.\n\n## Features\n- Multiple variants (primary, secondary, outline, text, danger)\n- Three sizes (sm, md, lg)\n- Disabled state\n- Type safety with TypeScript\n- Uses design tokens for consistent styling",
+                    "description": "<p>Button Component</p>\n<p>A reusable button component following atomic design principles.\nThis is an &quot;atom&quot; - a basic building block of the design system.</p>\n<h2>Features</h2>\n<ul>\n<li>Multiple variants (primary, secondary, outline, text, danger)</li>\n<li>Three sizes (sm, md, lg)</li>\n<li>Disabled state</li>\n<li>Type safety with TypeScript</li>\n<li>Uses design tokens for consistent styling</li>\n</ul>\n"
+                },
+                {
+                    "name": "Outline",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'outline',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                    "rawdescription": "Outline button - use when you want a button with a border but no background.\nGood for less prominent actions or when you want to reduce visual weight.",
+                    "description": "<p>Outline button - use when you want a button with a border but no background.\nGood for less prominent actions or when you want to reduce visual weight.</p>\n"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                    "rawdescription": "Primary button - the default and most commonly used variant.\nUse for primary actions in your application.",
+                    "description": "<p>Primary button - the default and most commonly used variant.\nUse for primary actions in your application.</p>\n"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'secondary',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                    "rawdescription": "Secondary button - use for secondary actions.\nProvides a less prominent alternative to primary buttons.",
+                    "description": "<p>Secondary button - use for secondary actions.\nProvides a less prominent alternative to primary buttons.</p>\n"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\" size=\"sm\">Small</bio-button>\n        <bio-button variant=\"primary\" size=\"md\">Medium</bio-button>\n        <bio-button variant=\"primary\" size=\"lg\">Large</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Buttons come in three sizes: small (sm), medium (md), and large (lg). Medium is the default size.',\n      },\n    },\n  },\n}",
+                    "rawdescription": "Size variants - buttons come in three sizes.\nChoose the size that best fits your layout and hierarchy.",
+                    "description": "<p>Size variants - buttons come in three sizes.\nChoose the size that best fits your layout and hierarchy.</p>\n"
+                },
+                {
+                    "name": "Text",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'text',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                    "rawdescription": "Text button - the most minimal button style.\nUse for tertiary actions or when space is limited.",
+                    "description": "<p>Text button - the most minimal button style.\nUse for tertiary actions or when space is limited.</p>\n"
+                }
+            ],
+            "src/components/molecules/modal/modal.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/molecules/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div class=\"bio-modal-backdrop\">\n        <div class=\"bio-modal\" style=\"width: 500px;\">\n          <div class=\"bio-modal__container\">\n            <div class=\"bio-modal__header\">\n              <div class=\"bio-modal__title\">\n                <h2>Modal Title</h2>\n              </div>\n            </div>\n            <div class=\"bio-modal__body\">\n              <p>This is the modal body content. You can put any content here.</p>\n            </div>\n            <div class=\"bio-modal__footer\">\n              <div class=\"bio-modal__footer-content\">\n                <bio-button variant=\"secondary\">Cancel</bio-button>\n                <bio-button variant=\"primary\">Save</bio-button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/molecules/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ModalComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/Modal',\n  component: ModalComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Modals are dialog boxes that overlay the main content. They require user interaction before the user can return to the main content. Use modals sparingly for important information or actions.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n}",
+                    "rawdescription": "Modal Component\n\nDialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.",
+                    "description": "<p>Modal Component</p>\n<p>Dialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.</p>\n"
+                }
+            ],
+            "src/components/atoms/input/input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'md',\n    placeholder: 'Enter text...',\n    disabled: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-input-wrapper [size]=\"size\">\n        <bio-input-container>\n          <input \n            bio-input \n            [class]=\"'bio-input--' + size\"\n            [placeholder]=\"placeholder\"\n            [disabled]=\"disabled\"\n            type=\"text\"\n          />\n        </bio-input-container>\n      </bio-input-wrapper>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Input',\n  component: InputComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Input component provides a text input field with consistent styling and validation states. It supports prefixes, suffixes, and addons for enhanced functionality.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the input',\n    },\n    placeholder: {\n      control: 'text',\n      description: 'Placeholder text',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the input is disabled',\n    },\n  },\n}",
+                    "rawdescription": "Input Component\n\nText input field for user data entry.\nSupports various sizes, validation states, and addons.",
+                    "description": "<p>Input Component</p>\n<p>Text input field for user data entry.\nSupports various sizes, validation states, and addons.</p>\n"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input-wrapper size=\"sm\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--sm\" placeholder=\"Small input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper size=\"md\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Medium input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper size=\"lg\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--lg\" placeholder=\"Large input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "States",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input-wrapper>\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Normal state\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper class=\"bio-input-wrapper--focused\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Focused state\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper class=\"bio-input-wrapper--disabled\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Disabled state\" type=\"text\" disabled />\n          </bio-input-container>\n        </bio-input-wrapper>\n      </div>\n    `,\n  }),\n}"
+                }
+            ],
+            "src/stories/button.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonComponent>",
+                    "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                }
+            ],
+            "src/stories/header.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<HeaderComponent>",
+                    "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
+                }
+            ],
+            "src/stories/page.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<PageComponent>",
+                    "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+                }
+            ],
+            ".storybook/preview.ts": [
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": ".storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      toc: true,\n    },\n    backgrounds: {\n      default: 'light',\n      values: [\n        {\n          name: 'light',\n          value: '#ffffff',\n        },\n        {\n          name: 'dark',\n          value: '#212529',\n        },\n        {\n          name: 'gray',\n          value: '#f8f9fa',\n        },\n      ],\n    },\n  },\n  tags: ['autodocs'],\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/stories/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "src/stories/header.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<HeaderComponent>",
+                    "file": "src/stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "src/stories/page.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<PageComponent>",
+                    "file": "src/stories/page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "src/components/molecules/modal/modal.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ModalComponent>",
+                    "file": "src/components/molecules/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "src/components/atoms/alert/alert.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AlertComponent>",
+                    "file": "src/components/atoms/alert/alert.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "src/components/atoms/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BadgeComponent>",
+                    "file": "src/components/atoms/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "src/components/atoms/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "src/components/atoms/input/input.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "src/components/atoms/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ]
+        }
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "children": []
+    },
+    "coverage": {
+        "count": 27,
+        "status": "medium",
+        "files": [
+            {
+                "filePath": ".storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AllVariants",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Danger",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Dismissible",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Success",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/alert/alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Warning",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/alert/alert.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/badge/badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AllVariants",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/badge/badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/badge/badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/badge/badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Sizes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/badge/badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Types",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/badge/badge.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AllVariants",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Danger",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Outline",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Sizes",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Text",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Sizes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "States",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/atoms/input/input.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/molecules/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/molecules/modal/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/molecules/modal/modal.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedIn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedOut",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/header.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedIn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedOut",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/page.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

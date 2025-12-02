@@ -1,7 +1,8 @@
 import type { Preview } from '@storybook/angular';
 
 // Import design tokens CSS
-import '../src/styles/index.css';
+// TEMPORARILY DISABLED - May be causing webpack compilation error
+// import '../src/styles/index.css';
 
 // Set Compodoc JSON for Angular component documentation (optional)
 // Uncomment and run "npm run compodoc" to generate documentation.json

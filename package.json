@@ -50,7 +50,9 @@
     "tokens:sync": "node scripts/sync-figma-tokens.js",
     "storybook": "ng run bio-ds:storybook",
     "build-storybook": "ng run bio-ds:build-storybook",
-    "docs:build": "npm run tokens:build && npm run build-storybook"
+    "docs:build": "npm run tokens:build && npm run build-storybook",
+    "stories:generate": "node scripts/generate-stories.js",
+    "stories:check": "node scripts/generate-stories.js --dry-run"
   },
   "dependencies": {
     "tslib": "^2.6.0"
