@@ -53,6 +53,7 @@
     "docs:build": "npm run tokens:build && npm run build-storybook"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "tslib": "^2.6.0"
   },
   "devDependencies": {
