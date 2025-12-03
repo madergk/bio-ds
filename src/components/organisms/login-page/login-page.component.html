@@ -1,0 +1,145 @@
+<div class="login-page-container">
+  <!-- Background gradient decoration -->
+  <div class="login-page-background"></div>
+  
+  <!-- Main login card -->
+  <div class="login-card">
+    <!-- Header section -->
+    <div class="login-header">
+      <h1 class="login-title">Welcome Back</h1>
+      <p class="login-subtitle">Sign in to your account</p>
+    </div>
+
+    <!-- Error alert -->
+    <div *ngIf="errorMessage" class="alert-container">
+      <bio-alert 
+        type="error"
+        [dismissible]="true"
+        (close)="clearError()">
+        {{ errorMessage }}
+      </bio-alert>
+    </div>
+
+    <!-- Success alert -->
+    <div *ngIf="successMessage" class="alert-container">
+      <bio-alert 
+        type="success"
+        [dismissible]="true">
+        {{ successMessage }}
+      </bio-alert>
+    </div>
+
+    <!-- Login form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <!-- Email field -->
+      <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <bio-input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="you@example.com"
+          size="lg"
+          [validation]="isEmailInvalid() ? 'invalid' : 'normal'"
+          class="email-input">
+        </bio-input>
+        <div *ngIf="isEmailInvalid()" class="form-error">
+          {{ getEmailErrorMessage() }}
+        </div>
+      </div>
+
+      <!-- Password field -->
+      <div class="form-group">
+        <div class="password-header">
+          <label for="password" class="form-label">Password</label>
+          <a href="#forgot-password" class="forgot-password-link">Forgot?</a>
+        </div>
+        <bio-password-input
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          size="lg"
+          [showPassword]="showPassword"
+          (toggleVisibility)="togglePasswordVisibility()"
+          [validation]="isPasswordInvalid() ? 'invalid' : 'normal'"
+          class="password-input">
+        </bio-password-input>
+        <div *ngIf="isPasswordInvalid()" class="form-error">
+          {{ getPasswordErrorMessage() }}
+        </div>
+      </div>
+
+      <!-- Remember me checkbox -->
+      <div class="form-group form-group--inline">
+        <label class="checkbox-label">
+          <input 
+            type="checkbox" 
+            formControlName="rememberMe"
+            (change)="onRememberMeChange($event.target.checked)"
+            class="checkbox-input">
+          <span class="checkbox-text">Remember me</span>
+        </label>
+      </div>
+
+      <!-- Login button -->
+      <div class="form-group form-group--submit">
+        <bio-button
+          type="submit"
+          variant="primary"
+          size="lg"
+          [disabled]="isLoading"
+          class="submit-button">
+          <div class="button-content">
+            <bio-spinner 
+              *ngIf="isLoading"
+              size="sm"
+              class="button-spinner">
+            </bio-spinner>
+            <span *ngIf="!isLoading">Sign In</span>
+            <span *ngIf="isLoading">Signing in...</span>
+          </div>
+        </bio-button>
+      </div>
+    </form>
+
+    <!-- Divider -->
+    <div class="divider-section">
+      <div class="divider-line"></div>
+      <span class="divider-text">Or continue with</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Social login options -->
+    <div class="social-login">
+      <button type="button" class="social-button social-button--google" title="Sign in with Google">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="1"></circle>
+        </svg>
+        <span class="social-text">Google</span>
+      </button>
+      <button type="button" class="social-button social-button--github" title="Sign in with GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="1"></circle>
+        </svg>
+        <span class="social-text">GitHub</span>
+      </button>
+      <button type="button" class="social-button social-button--microsoft" title="Sign in with Microsoft">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="1"></circle>
+        </svg>
+        <span class="social-text">Microsoft</span>
+      </button>
+    </div>
+
+    <!-- Footer section -->
+    <div class="login-footer">
+      <p class="login-footer-text">
+        Don't have an account?
+        <a href="#sign-up" class="signup-link">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Mobile-friendly gradient background -->
+  <div class="login-page-background-mobile"></div>
+</div>

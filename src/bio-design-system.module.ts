@@ -28,6 +28,7 @@ import { SearchBoxComponent } from './components/atoms/search-box/search-box.com
 import { InputAddonComponent } from './components/atoms/input-addon/input-addon.component';
 import { InputAffixComponent } from './components/atoms/input-affix/input-affix.component';
 import { InputSeparatorComponent } from './components/atoms/input-separator/input-separator.component';
+import { LoginPageComponent } from './components/organisms/login-page/login-page.component';
 
 /**
  * Bio Design System Module
@@ -71,7 +72,8 @@ import { InputSeparatorComponent } from './components/atoms/input-separator/inpu
     SearchBoxComponent,
     InputAddonComponent,
     InputAffixComponent,
-    InputSeparatorComponent
+    InputSeparatorComponent,
+    LoginPageComponent
   ],
   exports: [
     // Export standalone components for module-based usage
@@ -102,7 +104,8 @@ import { InputSeparatorComponent } from './components/atoms/input-separator/inpu
     OffcanvasComponent,
     PaginationComponent,
     PopoverComponent,
-    ToastComponent
+    ToastComponent,
+    LoginPageComponent
   ]
 })
 export class BioDesignSystemModule {}

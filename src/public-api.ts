@@ -41,6 +41,9 @@ export * from './components/molecules/pagination';
 export * from './components/molecules/popover';
 export * from './components/molecules/toast';
 
+// Organisms
+export * from './components/organisms/login-page';
+
 // Main Module
 export * from './bio-design-system.module';
 

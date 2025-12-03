@@ -26,7 +26,7 @@
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
-          "options": {
+          "options":           open /Users/mader/bio-ds/preview.html          open /Users/mader/bio-ds/preview.html          open /Users/mader/bio-ds/preview.html{
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "polyfills": [
