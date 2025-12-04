@@ -215,6 +215,18 @@
                 "defaultValue": "{}"
             },
             {
+                "name": "MaterialSymbols",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 24px;\">\n        <div>\n          <h3 style=\"margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #666;\">With Text</h3>\n          <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n            <bio-button variant=\"primary\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\">\n              Add Item\n            </bio-button>\n            <bio-button variant=\"primary\" suffixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>arrow_forward</span>\">\n              Continue\n            </bio-button>\n            <bio-button variant=\"outline\" color=\"primary\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>edit</span>\">\n              Edit\n            </bio-button>\n            <bio-button variant=\"text\" color=\"primary\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>delete</span>\">\n              Delete\n            </bio-button>\n          </div>\n        </div>\n        <div>\n          <h3 style=\"margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #666;\">Icon Only (Fully Rounded)</h3>\n          <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n            <bio-button variant=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\"></bio-button>\n            <bio-button variant=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-rounded' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>favorite</span>\"></bio-button>\n            <bio-button variant=\"outline\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>edit</span>\"></bio-button>\n            <bio-button variant=\"outline\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-rounded' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>settings</span>\"></bio-button>\n            <bio-button variant=\"text\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>delete</span>\"></bio-button>\n            <bio-button variant=\"default\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>close</span>\"></bio-button>\n          </div>\n        </div>\n        <div>\n          <h3 style=\"margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #666;\">Different Sizes</h3>\n          <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n            <bio-button variant=\"primary\" size=\"sm\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\"></bio-button>\n            <bio-button variant=\"primary\" size=\"md\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\"></bio-button>\n            <bio-button variant=\"primary\" size=\"lg\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 24px; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\"></bio-button>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Buttons support Material Symbols icons (recommended) and Material Icons (legacy). Icon-only buttons are fully rounded (circular). Use the `getMaterialSymbol()` helper method in your component to generate icon HTML.',\n      },\n    },\n  },\n}",
+                "rawdescription": "Material Symbols Icons - Using Google's Material Symbols library.\nIcon-only buttons are fully rounded (circular).",
+                "description": "<p>Material Symbols Icons - Using Google&#39;s Material Symbols library.\nIcon-only buttons are fully rounded (circular).</p>\n"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -837,6 +849,18 @@
                     "description": "<p>Loading state - buttons can show a loading spinner.</p>\n"
                 },
                 {
+                    "name": "MaterialSymbols",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 24px;\">\n        <div>\n          <h3 style=\"margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #666;\">With Text</h3>\n          <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n            <bio-button variant=\"primary\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\">\n              Add Item\n            </bio-button>\n            <bio-button variant=\"primary\" suffixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>arrow_forward</span>\">\n              Continue\n            </bio-button>\n            <bio-button variant=\"outline\" color=\"primary\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>edit</span>\">\n              Edit\n            </bio-button>\n            <bio-button variant=\"text\" color=\"primary\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>delete</span>\">\n              Delete\n            </bio-button>\n          </div>\n        </div>\n        <div>\n          <h3 style=\"margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #666;\">Icon Only (Fully Rounded)</h3>\n          <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n            <bio-button variant=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\"></bio-button>\n            <bio-button variant=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-rounded' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>favorite</span>\"></bio-button>\n            <bio-button variant=\"outline\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>edit</span>\"></bio-button>\n            <bio-button variant=\"outline\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-rounded' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>settings</span>\"></bio-button>\n            <bio-button variant=\"text\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>delete</span>\"></bio-button>\n            <bio-button variant=\"default\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>close</span>\"></bio-button>\n          </div>\n        </div>\n        <div>\n          <h3 style=\"margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #666;\">Different Sizes</h3>\n          <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n            <bio-button variant=\"primary\" size=\"sm\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\"></bio-button>\n            <bio-button variant=\"primary\" size=\"md\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\"></bio-button>\n            <bio-button variant=\"primary\" size=\"lg\" [iconOnly]=\"true\" prefixIcon=\"<span class='material-symbols-outlined' style='font-size: 24px; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center;'>add</span>\"></bio-button>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Buttons support Material Symbols icons (recommended) and Material Icons (legacy). Icon-only buttons are fully rounded (circular). Use the `getMaterialSymbol()` helper method in your component to generate icon HTML.',\n      },\n    },\n  },\n}",
+                    "rawdescription": "Material Symbols Icons - Using Google's Material Symbols library.\nIcon-only buttons are fully rounded (circular).",
+                    "description": "<p>Material Symbols Icons - Using Google&#39;s Material Symbols library.\nIcon-only buttons are fully rounded (circular).</p>\n"
+                },
+                {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -1280,7 +1304,7 @@
         "children": []
     },
     "coverage": {
-        "count": 33,
+        "count": 35,
         "status": "medium",
         "files": [
             {
@@ -1499,6 +1523,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Loading",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MaterialSymbols",
                 "coveragePercent": 100,
                 "coverageCount": "1/1",
                 "status": "very-good"
