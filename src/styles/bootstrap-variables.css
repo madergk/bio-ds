@@ -1,0 +1,198 @@
+/**
+ * Bootstrap-Compatible CSS Variables
+ * 
+ * This file maps our design tokens to Bootstrap-compatible variable names.
+ * This allows us to replicate Bootstrap's structure while using our custom tokens.
+ * 
+ * All variables here reference our design tokens, so updating tokens automatically
+ * updates Bootstrap-compatible variables.
+ * 
+ * Usage: Import this file after variables.css to have Bootstrap-compatible variables available.
+ */
+
+:root {
+  /* ============================================
+     BOOTSTRAP COLOR SYSTEM
+     ============================================ */
+
+/* Primary Colors */
+--bs-primary: var(--color-primary-500);
+--bs-primary-rgb: 33, 150, 243; /* RGB values for rgba() usage */
+--bs-primary-50: var(--color-primary-50);
+--bs-primary-100: var(--color-primary-100);
+--bs-primary-200: var(--color-primary-200);
+--bs-primary-300: var(--color-primary-300);
+--bs-primary-400: var(--color-primary-400);
+--bs-primary-500: var(--color-primary-500);
+--bs-primary-600: var(--color-primary-600);
+--bs-primary-700: var(--color-primary-700);
+--bs-primary-800: var(--color-primary-800);
+--bs-primary-900: var(--color-primary-900);
+
+/* Semantic Colors (Success, Warning, Danger, Info) */
+--bs-success: var(--color-semantic-success-base);
+--bs-success-rgb: 40, 167, 69;
+--bs-success-light: var(--color-semantic-success-light);
+--bs-success-border: var(--color-semantic-success-border);
+--bs-success-text: var(--color-semantic-success-text);
+
+--bs-warning: var(--color-semantic-warning-base);
+--bs-warning-rgb: 255, 193, 7;
+--bs-warning-light: var(--color-semantic-warning-light);
+--bs-warning-border: var(--color-semantic-warning-border);
+--bs-warning-text: var(--color-semantic-warning-text);
+
+--bs-danger: var(--color-semantic-error-base);
+--bs-danger-rgb: 220, 53, 69;
+--bs-danger-light: var(--color-semantic-error-light);
+--bs-danger-border: var(--color-semantic-error-border);
+--bs-danger-text: var(--color-semantic-error-text);
+
+--bs-info: var(--color-semantic-info-base);
+--bs-info-rgb: 23, 162, 184;
+--bs-info-light: var(--color-semantic-info-light);
+--bs-info-border: var(--color-semantic-info-border);
+--bs-info-text: var(--color-semantic-info-text);
+
+/* Neutral/Gray Scale */
+--bs-gray-50: var(--color-neutral-50);
+--bs-gray-100: var(--color-neutral-100);
+--bs-gray-200: var(--color-neutral-200);
+--bs-gray-300: var(--color-neutral-300);
+--bs-gray-400: var(--color-neutral-400);
+--bs-gray-500: var(--color-neutral-500);
+--bs-gray-600: var(--color-neutral-600);
+--bs-gray-700: var(--color-neutral-700);
+--bs-gray-800: var(--color-neutral-800);
+--bs-gray-900: var(--color-neutral-900);
+
+/* Text Colors */
+--bs-body-color: var(--color-text-primary);
+--bs-body-bg: var(--color-background-default);
+--bs-text-muted: var(--color-text-muted);
+--bs-text-secondary: var(--color-text-secondary);
+
+/* Border Colors */
+--bs-border-color: var(--color-border-default);
+--bs-border-color-translucent: var(--color-border-light);
+
+/* ============================================
+   BOOTSTRAP SPACING SYSTEM
+   ============================================ */
+
+/* Bootstrap uses a 0.25rem (4px) base unit */
+--bs-spacer: var(--spacing-base); /* 8px base */
+--bs-spacer-0: var(--spacing-0);
+--bs-spacer-1: var(--spacing-1); /* 4px */
+--bs-spacer-2: var(--spacing-2); /* 8px */
+--bs-spacer-3: var(--spacing-3); /* 12px */
+--bs-spacer-4: var(--spacing-4); /* 16px */
+--bs-spacer-5: var(--spacing-5); /* 24px */
+--bs-spacer-6: var(--spacing-6); /* 32px */
+--bs-spacer-7: var(--spacing-7); /* 48px */
+--bs-spacer-8: var(--spacing-8); /* 64px */
+
+/* ============================================
+   BOOTSTRAP TYPOGRAPHY
+   ============================================ */
+
+--bs-font-family-sans-serif: var(--typography-font-family-primary);
+--bs-font-family-monospace: var(--typography-font-family-monospace);
+--bs-font-size-base: var(--typography-font-size-base);
+--bs-font-size-sm: var(--typography-font-size-sm);
+--bs-font-size-lg: var(--typography-font-size-lg);
+
+/* Heading Sizes */
+--bs-h1-font-size: var(--typography-font-size-h1);
+--bs-h2-font-size: var(--typography-font-size-h2);
+--bs-h3-font-size: var(--typography-font-size-h3);
+--bs-h4-font-size: var(--typography-font-size-h4);
+--bs-h5-font-size: var(--typography-font-size-h5);
+--bs-h6-font-size: var(--typography-font-size-h6);
+
+/* Font Weights */
+--bs-font-weight-light: var(--typography-font-weight-light);
+--bs-font-weight-normal: var(--typography-font-weight-normal);
+--bs-font-weight-medium: var(--typography-font-weight-medium);
+--bs-font-weight-semibold: var(--typography-font-weight-semibold);
+--bs-font-weight-bold: var(--typography-font-weight-bold);
+
+/* Line Heights */
+--bs-line-height-base: var(--typography-line-height-normal);
+--bs-line-height-sm: var(--typography-line-height-tight);
+--bs-line-height-lg: var(--typography-line-height-relaxed);
+
+/* ============================================
+   BOOTSTRAP BORDERS
+   ============================================ */
+
+--bs-border-width: var(--border-width-thin);
+--bs-border-width-2: var(--border-width-medium);
+--bs-border-width-3: var(--border-width-thick);
+--bs-border-radius: var(--border-radius-md);
+--bs-border-radius-sm: var(--border-radius-sm);
+--bs-border-radius-lg: var(--border-radius-lg);
+--bs-border-radius-pill: var(--border-radius-full);
+
+/* ============================================
+   BOOTSTRAP SHADOWS
+   ============================================ */
+
+--bs-box-shadow-sm: var(--shadow-sm);
+--bs-box-shadow: var(--shadow-md);
+--bs-box-shadow-lg: var(--shadow-lg);
+--bs-box-shadow-xl: var(--shadow-xl);
+
+/* ============================================
+   BOOTSTRAP TRANSITIONS
+   ============================================ */
+
+--bs-transition-base: all var(--transition-duration-normal) var(--transition-timing-ease);
+--bs-transition-fade: opacity var(--transition-duration-normal) var(--transition-timing-ease);
+--bs-transition-collapse: height var(--transition-duration-normal) var(--transition-timing-ease);
+
+/* ============================================
+   BOOTSTRAP Z-INDEX
+   ============================================ */
+
+--bs-zindex-dropdown: var(--z-index-dropdown);
+--bs-zindex-sticky: var(--z-index-sticky);
+--bs-zindex-fixed: var(--z-index-fixed);
+--bs-zindex-modal-backdrop: var(--z-index-modal-backdrop);
+--bs-zindex-modal: var(--z-index-modal);
+--bs-zindex-popover: var(--z-index-popover);
+--bs-zindex-tooltip: var(--z-index-tooltip);
+
+/* ============================================
+   BOOTSTRAP COMPONENT SPECIFIC
+   ============================================ */
+
+/* Buttons */
+--bs-btn-padding-y: var(--spacing-sm);
+--bs-btn-padding-x: var(--spacing-md);
+--bs-btn-font-size: var(--typography-font-size-base);
+--bs-btn-border-radius: var(--border-radius-md);
+--bs-btn-transition: var(--bs-transition-base);
+
+/* Inputs */
+--bs-input-padding-y: var(--spacing-sm);
+--bs-input-padding-x: var(--spacing-md);
+--bs-input-font-size: var(--typography-font-size-base);
+--bs-input-border-radius: var(--border-radius-md);
+--bs-input-border-color: var(--color-border-default);
+--bs-input-focus-border-color: var(--color-border-focus);
+--bs-input-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+
+/* Cards */
+--bs-card-spacer-y: var(--spacing-md);
+--bs-card-spacer-x: var(--spacing-md);
+--bs-card-border-radius: var(--border-radius-md);
+--bs-card-border-color: var(--color-border-lighter);
+--bs-card-box-shadow: var(--shadow-sm);
+
+/* Alerts */
+--bs-alert-padding-y: var(--spacing-md);
+--bs-alert-padding-x: var(--spacing-md);
+--bs-alert-border-radius: var(--border-radius-md);
+--bs-alert-border-width: var(--border-width-thin);
+}

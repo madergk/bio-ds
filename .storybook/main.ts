@@ -28,21 +28,41 @@ const config: StorybookConfig = {
     reactDocgen: false
   },
   webpackFinal: async (config: any) => {
-    // Add support for CSS files
+    // Ensure CSS files are handled properly
+    // Storybook already has CSS loaders, but we ensure @import works
     config.module = config.module || {};
     config.module.rules = config.module.rules || [];
 
-    // Ensure CSS is handled properly
-    const cssRule = config.module.rules.find((rule: any) =>
-      rule.test && rule.test.toString().includes('css')
-    );
-
-    if (!cssRule) {
-      config.module.rules.push({
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      });
-    }
+    // Find CSS rules and ensure they handle @import
+    config.module.rules.forEach((rule: any) => {
+      if (rule.test && rule.test.toString().includes('css')) {
+        // Ensure css-loader processes @import statements
+        if (rule.use) {
+          rule.use = rule.use.map((loader: any) => {
+            if (typeof loader === 'string' && loader.includes('css-loader')) {
+              return {
+                loader: 'css-loader',
+                options: {
+                  import: true, // Process @import statements
+                  esModule: false,
+                },
+              };
+            }
+            if (typeof loader === 'object' && loader.loader && loader.loader.includes('css-loader')) {
+              return {
+                ...loader,
+                options: {
+                  ...loader.options,
+                  import: true, // Process @import statements
+                  esModule: false,
+                },
+              };
+            }
+            return loader;
+          });
+        }
+      }
+    });
 
     return config;
   }

@@ -1,8 +1,15 @@
 import type { Preview } from '@storybook/angular';
 
-// Import design tokens CSS
-// TEMPORARILY DISABLED - May be causing webpack compilation error
-// import '../src/styles/index.css';
+// Import design tokens CSS and Bootstrap-compatible styles
+// Import order is critical - must match the order in index.css
+// 1. Design tokens (source of truth)
+import '../src/tokens/generated/variables.css';
+// 2. Bootstrap-compatible variables (maps tokens to Bootstrap names)
+import '../src/styles/bootstrap-variables.css';
+// 3. Bootstrap reboot (base styles)
+import '../src/styles/bootstrap-reboot.css';
+// 4. Bootstrap utilities (utility classes)
+import '../src/styles/bootstrap-utilities.css';
 
 // Set Compodoc JSON for Angular component documentation (optional)
 // Uncomment and run "npm run compodoc" to generate documentation.json

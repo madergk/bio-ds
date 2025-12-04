@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bio Design System - Cheatsheet</title>
+  
+  <!-- Google Fonts: Sora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Importar estilos del design system -->
+  <link rel="stylesheet" href="./src/tokens/generated/variables.css">
+  <link rel="stylesheet" href="./src/styles/bootstrap-variables.css">
+  <link rel="stylesheet" href="./src/styles/bootstrap-reboot.css">
+  <link rel="stylesheet" href="./src/styles/bootstrap-utilities.css">
+  
+  <style>
+    /* ============================================
+       CHEATSHEET STYLES
+       ============================================ */
+    
+    body {
+      font-family: var(--typography-font-family-primary);
+      padding: var(--spacing-4);
+      background-color: var(--color-background-default);
+      color: var(--color-text-primary);
+    }
+    
+    .cheatsheet-header {
+      margin-bottom: var(--spacing-6);
+      padding-bottom: var(--spacing-4);
+      border-bottom: 2px solid var(--color-primary-500);
+    }
+    
+    .cheatsheet-header h1 {
+      color: var(--color-primary-500);
+      margin-bottom: var(--spacing-2);
+    }
+    
+    .cheatsheet-section {
+      margin-bottom: var(--spacing-7);
+      padding: var(--spacing-4);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-background-default);
+    }
+    
+    .cheatsheet-section h2 {
+      color: var(--color-primary-500);
+      margin-bottom: var(--spacing-3);
+      font-size: var(--typography-font-size-2xl);
+      border-bottom: 1px solid var(--color-border-default);
+      padding-bottom: var(--spacing-2);
+    }
+    
+    .cheatsheet-section h3 {
+      color: var(--color-text-primary);
+      margin-top: var(--spacing-4);
+      margin-bottom: var(--spacing-3);
+      font-size: var(--typography-font-size-xl);
+    }
+    
+    .cheatsheet-item {
+      margin-bottom: var(--spacing-4);
+      padding: var(--spacing-3);
+      background-color: var(--color-background-secondary);
+      border-radius: var(--border-radius-sm);
+    }
+    
+    .cheatsheet-item-label {
+      font-size: var(--typography-font-size-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-2);
+      font-weight: var(--typography-font-weight-semibold);
+    }
+    
+    .code-snippet {
+      background-color: var(--color-background-tertiary);
+      padding: var(--spacing-2);
+      border-radius: var(--border-radius-sm);
+      font-family: var(--typography-font-family-monospace);
+      font-size: var(--typography-font-size-sm);
+      margin-top: var(--spacing-2);
+      overflow-x: auto;
+    }
+    
+    /* Button Styles (from demo.html) */
+    .bio-button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-family: var(--typography-font-family-primary);
+      font-weight: var(--typography-font-weight-medium);
+      text-align: center;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-3);
+      transition: all var(--transition-duration-normal) var(--transition-timing-ease);
+      user-select: none;
+      position: relative;
+      box-sizing: border-box;
+      font-size: var(--typography-font-size-base);
+      line-height: var(--typography-line-height-normal);
+      border-radius: 4px;
+    }
+    
+    .bio-button:focus-visible {
+      outline: 2px solid var(--color-primary-500);
+      outline-offset: 2px;
+    }
+    
+    .bio-button__label {
+      display: inline-block;
+    }
+    
+    .bio-button--sm {
+      padding: 6px 12px;
+      font-size: var(--typography-font-size-sm);
+      min-height: 32px;
+      gap: 8px;
+    }
+    
+    .bio-button--md {
+      padding: 8px 12px;
+      font-size: var(--typography-font-size-base);
+      min-height: 40px;
+      gap: var(--spacing-3);
+    }
+    
+    .bio-button--lg {
+      padding: 8px 16px;
+      font-size: 18px;
+      line-height: 28px;
+      min-height: 44px;
+      gap: var(--spacing-3);
+    }
+    
+    .bio-button--default {
+      background-color: var(--color-neutral-200);
+      color: var(--color-text-primary);
+    }
+    
+    .bio-button--default:hover:not(.bio-button--disabled) {
+      background-color: var(--color-neutral-300);
+    }
+    
+    .bio-button--primary {
+      background-color: var(--color-primary-500);
+      color: #ffffff;
+    }
+    
+    .bio-button--primary:hover:not(.bio-button--disabled) {
+      background-color: var(--color-primary-600);
+    }
+    
+    .bio-button--outline {
+      background-color: transparent;
+      border: 1px solid;
+      color: var(--color-text-primary);
+      border-color: var(--color-border-default);
+    }
+    
+    .bio-button--outline:hover:not(.bio-button--disabled) {
+      background-color: var(--color-background-secondary);
+    }
+    
+    .bio-button--outline.bio-button--primary-color {
+      color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+    }
+    
+    .bio-button--dashed {
+      background-color: transparent;
+      border: 1px dashed;
+      color: var(--color-text-primary);
+      border-color: var(--color-border-default);
+    }
+    
+    .bio-button--dashed.bio-button--primary-color {
+      color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+    }
+    
+    .bio-button--text {
+      background-color: transparent;
+      color: var(--color-text-primary);
+      padding-left: var(--spacing-sm);
+      padding-right: var(--spacing-sm);
+    }
+    
+    .bio-button--text.bio-button--primary-color {
+      color: var(--color-primary-500);
+    }
+    
+    .bio-button--link {
+      background-color: transparent;
+      color: var(--color-text-primary);
+      text-decoration: underline;
+      padding-left: var(--spacing-sm);
+      padding-right: var(--spacing-sm);
+    }
+    
+    .bio-button--link.bio-button--primary-color {
+      color: var(--color-primary-500);
+    }
+    
+    .bio-button--danger {
+      background-color: var(--color-semantic-error-base);
+      color: var(--color-base-white);
+    }
+    
+    .bio-button--danger:hover:not(.bio-button--disabled) {
+      background-color: var(--color-semantic-error-hover);
+    }
+    
+    .bio-button--disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    
+    /* Form Styles */
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-size: var(--typography-font-size-base);
+      font-weight: var(--typography-font-weight-normal);
+      line-height: var(--typography-line-height-normal);
+      color: var(--color-text-primary);
+      background-color: var(--color-background-default);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--border-radius-md);
+      transition: border-color var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+    }
+    
+    .form-control:focus {
+      border-color: var(--color-primary-500);
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba(226, 0, 57, 0.25);
+    }
+    
+    .form-control.is-valid {
+      border-color: var(--color-semantic-success-base);
+    }
+    
+    .form-control.is-invalid {
+      border-color: var(--color-semantic-error-base);
+    }
+    
+    .form-select {
+      display: block;
+      width: 100%;
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-size: var(--typography-font-size-base);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-background-default);
+    }
+    
+    .form-check {
+      display: block;
+      min-height: 1.5rem;
+      padding-left: 1.5em;
+      margin-bottom: var(--spacing-2);
+    }
+    
+    .form-check-input {
+      width: 1em;
+      height: 1em;
+      margin-top: 0.25em;
+      margin-left: -1.5em;
+      border: 1px solid var(--color-border-default);
+      border-radius: 0.25em;
+    }
+    
+    .form-check-input:checked {
+      background-color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+    }
+    
+    .form-check-label {
+      cursor: pointer;
+    }
+    
+    .form-label {
+      margin-bottom: var(--spacing-2);
+      font-weight: var(--typography-font-weight-medium);
+    }
+    
+    .valid-feedback {
+      display: block;
+      width: 100%;
+      margin-top: var(--spacing-1);
+      font-size: var(--typography-font-size-sm);
+      color: var(--color-semantic-success-text);
+    }
+    
+    .invalid-feedback {
+      display: block;
+      width: 100%;
+      margin-top: var(--spacing-1);
+      font-size: var(--typography-font-size-sm);
+      color: var(--color-semantic-error-text);
+    }
+    
+    /* Alert Styles */
+    .alert {
+      position: relative;
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-3);
+      border: 1px solid transparent;
+      border-radius: var(--border-radius-md);
+    }
+    
+    .alert-primary {
+      color: var(--bs-alert-primary-text);
+      background-color: var(--bs-alert-primary-background);
+      border-color: var(--bs-alert-primary-border);
+    }
+    
+    .alert-success {
+      color: var(--color-semantic-success-text);
+      background-color: var(--color-semantic-success-light);
+      border-color: var(--color-semantic-success-border);
+    }
+    
+    .alert-danger {
+      color: var(--color-semantic-error-text);
+      background-color: var(--color-semantic-error-light);
+      border-color: var(--color-semantic-error-border);
+    }
+    
+    .alert-warning {
+      color: var(--color-semantic-warning-text);
+      background-color: var(--color-semantic-warning-light);
+      border-color: var(--color-semantic-warning-border);
+    }
+    
+    .alert-info {
+      color: var(--color-semantic-info-text);
+      background-color: var(--color-semantic-info-light);
+      border-color: var(--color-semantic-info-border);
+    }
+    
+    /* Badge Styles */
+    .badge {
+      display: inline-block;
+      padding: 0.35em 0.65em;
+      font-size: 0.75em;
+      font-weight: var(--typography-font-weight-semibold);
+      line-height: 1;
+      color: #fff;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: var(--border-radius-full);
+    }
+    
+    .bg-primary { background-color: var(--color-primary-500) !important; }
+    .bg-secondary { background-color: var(--color-neutral-600) !important; }
+    .bg-success { background-color: var(--color-semantic-success-base) !important; }
+    .bg-danger { background-color: var(--color-semantic-error-base) !important; }
+    .bg-warning { background-color: var(--color-semantic-warning-base) !important; }
+    .bg-info { background-color: var(--color-semantic-info-base) !important; }
+    .bg-light { background-color: var(--color-neutral-100) !important; color: var(--color-text-primary) !important; }
+    .bg-dark { background-color: var(--color-neutral-900) !important; }
+    
+    /* Table Styles */
+    .table {
+      width: 100%;
+      margin-bottom: var(--spacing-3);
+      color: var(--color-text-primary);
+      border-collapse: collapse;
+    }
+    
+    .table th,
+    .table td {
+      padding: var(--spacing-2);
+      vertical-align: top;
+      border-top: 1px solid var(--color-border-default);
+    }
+    
+    .table thead th {
+      vertical-align: bottom;
+      border-bottom: 2px solid var(--color-border-default);
+      font-weight: var(--typography-font-weight-semibold);
+    }
+    
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: var(--color-background-secondary);
+    }
+    
+    .table-hover tbody tr:hover {
+      background-color: var(--color-background-tertiary);
+    }
+    
+    /* Progress Styles */
+    .progress {
+      display: flex;
+      height: 1rem;
+      overflow: hidden;
+      background-color: var(--color-background-tertiary);
+      border-radius: var(--border-radius-md);
+    }
+    
+    .progress-bar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      white-space: nowrap;
+      background-color: var(--color-primary-500);
+      transition: width var(--transition-duration-normal) var(--transition-timing-ease);
+    }
+    
+    /* Spinner Styles */
+    .spinner-border {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      vertical-align: text-bottom;
+      border: 0.25em solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spinner-border 0.75s linear infinite;
+    }
+    
+    @keyframes spinner-border {
+      to { transform: rotate(360deg); }
+    }
+    
+    .spinner-border-sm {
+      width: 1rem;
+      height: 1rem;
+      border-width: 0.2em;
+    }
+    
+    /* Breadcrumb Styles */
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin-bottom: var(--spacing-3);
+      list-style: none;
+    }
+    
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      padding: 0 var(--spacing-2);
+      color: var(--color-text-muted);
+    }
+    
+    .breadcrumb-item.active {
+      color: var(--color-text-muted);
+    }
+    
+    /* Pagination Styles */
+    .pagination {
+      display: flex;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .page-link {
+      position: relative;
+      display: block;
+      padding: var(--spacing-sm) var(--spacing-md);
+      color: var(--color-primary-500);
+      text-decoration: none;
+      background-color: var(--color-background-default);
+      border: 1px solid var(--color-border-default);
+      transition: color var(--transition-duration-normal) var(--transition-timing-ease);
+    }
+    
+    .page-link:hover {
+      color: var(--color-primary-600);
+      background-color: var(--color-background-secondary);
+    }
+    
+    .page-item.active .page-link {
+      background-color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+      color: #fff;
+    }
+    
+    /* List Group Styles */
+    .list-group {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    
+    .list-group-item {
+      position: relative;
+      display: block;
+      padding: var(--spacing-md) var(--spacing-md);
+      color: var(--color-text-primary);
+      text-decoration: none;
+      background-color: var(--color-background-default);
+      border: 1px solid var(--color-border-default);
+    }
+    
+    .list-group-item:first-child {
+      border-top-left-radius: var(--border-radius-md);
+      border-top-right-radius: var(--border-radius-md);
+    }
+    
+    .list-group-item:last-child {
+      border-bottom-left-radius: var(--border-radius-md);
+      border-bottom-right-radius: var(--border-radius-md);
+    }
+    
+    .list-group-item.disabled {
+      color: var(--color-text-disabled);
+      pointer-events: none;
+      background-color: var(--color-background-secondary);
+    }
+    
+    /* Input Group Styles */
+    .input-group {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      width: 100%;
+    }
+    
+    .input-group-text {
+      display: flex;
+      align-items: center;
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-size: var(--typography-font-size-base);
+      font-weight: var(--typography-font-weight-normal);
+      line-height: var(--typography-line-height-normal);
+      color: var(--color-text-primary);
+      text-align: center;
+      white-space: nowrap;
+      background-color: var(--color-background-secondary);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--border-radius-md);
+    }
+    
+    .input-group > .form-control {
+      position: relative;
+      flex: 1 1 auto;
+      width: 1%;
+      min-width: 0;
+    }
+    
+    .input-group > :not(:first-child):not(.dropdown-menu) {
+      margin-left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    .input-group > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    
+    /* Floating Labels */
+    .form-floating {
+      position: relative;
+    }
+    
+    .form-floating > .form-control {
+      height: calc(3.5rem + 2px);
+      padding: 1rem 0.75rem;
+    }
+    
+    .form-floating > label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      padding: 1rem 0.75rem;
+      pointer-events: none;
+      border: 1px solid transparent;
+      transform-origin: 0 0;
+      transition: opacity var(--transition-duration-normal) var(--transition-timing-ease-in-out),
+                  transform var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+    }
+    
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-control:not(:placeholder-shown) ~ label {
+      opacity: 0.65;
+      transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
+    
+    /* Range Styles */
+    .form-range {
+      width: 100%;
+      height: 1.5rem;
+      padding: 0;
+      background-color: transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    
+    .form-range::-webkit-slider-thumb {
+      width: 1rem;
+      height: 1rem;
+      background-color: var(--color-primary-500);
+      border: 0;
+      border-radius: 1rem;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    
+    .form-range::-moz-range-thumb {
+      width: 1rem;
+      height: 1rem;
+      background-color: var(--color-primary-500);
+      border: 0;
+      border-radius: 1rem;
+    }
+    
+    /* Accordion Styles */
+    .accordion {
+      --bs-accordion-color: var(--color-text-primary);
+      --bs-accordion-bg: var(--color-background-default);
+      --bs-accordion-border-color: var(--color-border-default);
+    }
+    
+    .accordion-item {
+      color: var(--bs-accordion-color);
+      background-color: var(--bs-accordion-bg);
+      border: 1px solid var(--bs-accordion-border-color);
+    }
+    
+    .accordion-header {
+      margin-bottom: 0;
+    }
+    
+    .accordion-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: var(--spacing-md);
+      font-size: var(--typography-font-size-base);
+      color: var(--color-text-primary);
+      text-align: left;
+      background-color: var(--color-background-default);
+      border: 0;
+      border-radius: 0;
+      overflow-anchor: none;
+      transition: background-color var(--transition-duration-normal) var(--transition-timing-ease);
+    }
+    
+    .accordion-button:not(.collapsed) {
+      color: var(--color-primary-500);
+      background-color: var(--color-background-secondary);
+    }
+    
+    .accordion-body {
+      padding: var(--spacing-md);
+    }
+    
+    /* Card Styles */
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: var(--color-background-default);
+      background-clip: border-box;
+      border: 1px solid var(--color-border-lighter);
+      border-radius: var(--border-radius-md);
+    }
+    
+    .card-body {
+      flex: 1 1 auto;
+      padding: var(--spacing-md);
+    }
+    
+    .card-title {
+      margin-bottom: var(--spacing-2);
+      font-size: var(--typography-font-size-xl);
+      font-weight: var(--typography-font-weight-semibold);
+    }
+    
+    .card-text {
+      margin-bottom: var(--spacing-2);
+    }
+    
+    /* Nav Styles */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: var(--spacing-sm) var(--spacing-md);
+      color: var(--color-text-primary);
+      text-decoration: none;
+      transition: color var(--transition-duration-normal) var(--transition-timing-ease);
+    }
+    
+    .nav-link:hover {
+      color: var(--color-primary-500);
+    }
+    
+    .nav-link.active {
+      color: var(--color-primary-500);
+      font-weight: var(--typography-font-weight-semibold);
+    }
+    
+    .nav-link.disabled {
+      color: var(--color-text-disabled);
+      pointer-events: none;
+    }
+    
+    /* Button Group */
+    .btn-group {
+      position: relative;
+      display: inline-flex;
+      vertical-align: middle;
+    }
+    
+    .btn-group > .bio-button:not(:first-child) {
+      margin-left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    .btn-group > .bio-button:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    
+    /* Toast Styles */
+    .toast {
+      max-width: 350px;
+      font-size: var(--typography-font-size-sm);
+      color: var(--color-text-primary);
+      pointer-events: auto;
+      background-color: var(--color-background-default);
+      background-clip: padding-box;
+      border: 1px solid var(--color-border-lighter);
+      box-shadow: var(--shadow-lg);
+      border-radius: var(--border-radius-md);
+    }
+    
+    .toast-header {
+      display: flex;
+      align-items: center;
+      padding: var(--spacing-sm) var(--spacing-md);
+      color: var(--color-text-muted);
+      background-color: var(--color-background-secondary);
+      background-clip: padding-box;
+      border-bottom: 1px solid var(--color-border-lighter);
+      border-top-left-radius: calc(var(--border-radius-md) - 1px);
+      border-top-right-radius: calc(var(--border-radius-md) - 1px);
+    }
+    
+    .toast-body {
+      padding: var(--spacing-md);
+    }
+    
+    .btn-close {
+      box-sizing: content-box;
+      width: 1em;
+      height: 1em;
+      padding: 0.25em 0.25em;
+      color: #000;
+      background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+      border: 0;
+      border-radius: var(--border-radius-sm);
+      opacity: 0.5;
+      cursor: pointer;
+    }
+    
+    .btn-close:hover {
+      opacity: 1;
+    }
+    
+    /* Tooltip Styles */
+    .tooltip {
+      position: absolute;
+      z-index: var(--z-index-tooltip);
+      display: block;
+      margin: 0;
+      font-family: var(--typography-font-family-primary);
+      font-style: normal;
+      font-weight: var(--typography-font-weight-normal);
+      line-height: var(--typography-line-height-normal);
+      text-align: left;
+      text-decoration: none;
+      text-shadow: none;
+      text-transform: none;
+      letter-spacing: normal;
+      word-break: normal;
+      word-spacing: normal;
+      white-space: normal;
+      line-break: auto;
+      font-size: var(--typography-font-size-sm);
+      word-wrap: break-word;
+      opacity: 0;
+    }
+    
+    .tooltip.show {
+      opacity: 0.9;
+    }
+    
+    .tooltip-inner {
+      max-width: 200px;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      color: #fff;
+      text-align: center;
+      background-color: var(--color-neutral-900);
+      border-radius: var(--border-radius-sm);
+    }
+    
+    /* Accordion Collapse */
+    .accordion-collapse {
+      border-top: 1px solid var(--color-border-default);
+    }
+    
+    .accordion-collapse:not(.show) {
+      display: none;
+    }
+    
+    .accordion-button::after {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-left: auto;
+      content: "";
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-size: 1.25rem;
+      transition: transform var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+    }
+    
+    .accordion-button:not(.collapsed)::after {
+      transform: rotate(-180deg);
+    }
+    
+    /* List Group Item Colors */
+    .list-group-item-primary {
+      color: var(--bs-alert-primary-text);
+      background-color: var(--bs-alert-primary-background);
+    }
+    
+    .list-group-item-secondary {
+      color: var(--color-text-primary);
+      background-color: var(--color-neutral-100);
+    }
+    
+    .list-group-item-success {
+      color: var(--color-semantic-success-text);
+      background-color: var(--color-semantic-success-light);
+    }
+    
+    .list-group-item-danger {
+      color: var(--color-semantic-error-text);
+      background-color: var(--color-semantic-error-light);
+    }
+    
+    /* Utilities */
+    .d-flex { display: flex !important; }
+    .gap-2 { gap: var(--spacing-2) !important; }
+    .gap-3 { gap: var(--spacing-3) !important; }
+    .mb-2 { margin-bottom: var(--spacing-2) !important; }
+    .mb-3 { margin-bottom: var(--spacing-3) !important; }
+    .mb-4 { margin-bottom: var(--spacing-4) !important; }
+    .mt-3 { margin-top: var(--spacing-3) !important; }
+    .mt-5 { margin-top: var(--spacing-5) !important; }
+    .pt-4 { padding-top: var(--spacing-4) !important; }
+    .text-center { text-align: center !important; }
+    .text-start { text-align: left !important; }
+    .text-end { text-align: right !important; }
+    .text-muted { color: var(--color-text-muted) !important; }
+    .fs-sm { font-size: var(--typography-font-size-sm) !important; }
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+    
+    /* Form Switch */
+    .form-switch {
+      padding-left: 2.5em;
+    }
+    
+    .form-switch .form-check-input {
+      width: 2em;
+      margin-left: -2.5em;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+      background-position: left center;
+      border-radius: 2em;
+      transition: background-position var(--transition-duration-normal) var(--transition-timing-ease-in-out);
+    }
+    
+    .form-switch .form-check-input:checked {
+      background-position: right center;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+      background-color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+    }
+    
+    /* Image Styles */
+    .img-fluid {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .rounded {
+      border-radius: var(--border-radius-md) !important;
+    }
+    
+    .rounded-sm {
+      border-radius: var(--border-radius-sm) !important;
+    }
+    
+    .rounded-lg {
+      border-radius: var(--border-radius-lg) !important;
+    }
+    
+    /* Border Top */
+    .border-top {
+      border-top: 1px solid var(--color-border-default) !important;
+    }
+    
+    /* Form Control Sizes */
+    .form-control-sm {
+      min-height: calc(1.5em + 0.5rem + 2px);
+      padding: 0.25rem 0.5rem;
+      font-size: var(--typography-font-size-sm);
+      border-radius: var(--border-radius-sm);
+    }
+    
+    .form-control-lg {
+      min-height: calc(1.5em + 1rem + 2px);
+      padding: 0.5rem 1rem;
+      font-size: var(--typography-font-size-lg);
+      border-radius: var(--border-radius-lg);
+    }
+    
+    .form-select-sm {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      padding-left: 0.5rem;
+      font-size: var(--typography-font-size-sm);
+    }
+    
+    .form-select-lg {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 1rem;
+      font-size: var(--typography-font-size-lg);
+    }
+    
+    /* Alert Link */
+    .alert-link {
+      font-weight: var(--typography-font-weight-semibold);
+      color: inherit;
+    }
+    
+    .alert-heading {
+      color: inherit;
+      margin-bottom: var(--spacing-2);
+    }
+    
+    /* Text Colors */
+    .text-primary { color: var(--color-primary-500) !important; }
+    .text-success { color: var(--color-semantic-success-base) !important; }
+    .text-danger { color: var(--color-semantic-error-base) !important; }
+    .text-warning { color: var(--color-semantic-warning-base) !important; }
+    .text-info { color: var(--color-semantic-info-base) !important; }
+    
+    /* Display */
+    .display-1 { font-size: 5rem; font-weight: var(--typography-font-weight-light); line-height: 1.2; }
+    .display-2 { font-size: 4.5rem; font-weight: var(--typography-font-weight-light); line-height: 1.2; }
+    .display-3 { font-size: 4rem; font-weight: var(--typography-font-weight-light); line-height: 1.2; }
+    .display-4 { font-size: 3.5rem; font-weight: var(--typography-font-weight-light); line-height: 1.2; }
+    .display-5 { font-size: 3rem; font-weight: var(--typography-font-weight-light); line-height: 1.2; }
+    .display-6 { font-size: 2.5rem; font-weight: var(--typography-font-weight-light); line-height: 1.2; }
+    
+    /* Lead */
+    .lead {
+      font-size: var(--typography-font-size-lg);
+      font-weight: var(--typography-font-weight-normal);
+    }
+    
+    /* Blockquote */
+    .blockquote {
+      margin-bottom: var(--spacing-3);
+      font-size: var(--typography-font-size-lg);
+    }
+    
+    .blockquote-footer {
+      margin-top: var(--spacing-2);
+      margin-bottom: 0;
+      font-size: var(--typography-font-size-sm);
+      color: var(--color-text-muted);
+    }
+    
+    .blockquote-footer::before {
+      content: "\2014\00A0";
+    }
+    
+    /* List Unstyled */
+    .list-unstyled {
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .list-unstyled ul {
+      padding-left: var(--spacing-4);
+      list-style: disc;
+    }
+    
+    /* List Inline */
+    .list-inline {
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .list-inline-item {
+      display: inline-block;
+    }
+    
+    .list-inline-item:not(:last-child) {
+      margin-right: var(--spacing-2);
+    }
+    
+    /* Form Text */
+    .form-text {
+      margin-top: var(--spacing-1);
+      font-size: var(--typography-font-size-sm);
+      color: var(--color-text-muted);
+    }
+    
+    /* Needs Validation */
+    .needs-validation .form-control:invalid,
+    .needs-validation .form-select:invalid {
+      border-color: var(--color-semantic-error-base);
+    }
+    
+    .needs-validation .form-control:valid,
+    .needs-validation .form-select:valid {
+      border-color: var(--color-semantic-success-base);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="cheatsheet-header">
+      <h1 class="display-4">Bio Design System Cheatsheet</h1>
+      <p class="lead text-muted">Una referencia rápida de todos los componentes y utilidades del Bio Design System</p>
+      <p class="text-muted">
+        <a href="https://getbootstrap.com/docs/5.3/examples/cheatsheet/" target="_blank" rel="noopener">Inspirado en Bootstrap Cheatsheet</a>
+      </p>
+    </div>
+
+    <!-- Contents -->
+    <section class="cheatsheet-section">
+      <h2>Contents</h2>
+      
+      <h3>Typography</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div>
+          <h1 class="display-1">Display 1</h1>
+          <h1 class="display-2">Display 2</h1>
+          <h1 class="display-3">Display 3</h1>
+          <h1 class="display-4">Display 4</h1>
+          <h1 class="display-5">Display 5</h1>
+          <h1 class="display-6">Display 6</h1>
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+          <p class="lead">This is a lead paragraph. It stands out from regular paragraphs.</p>
+          <p>You can use the <mark>mark tag</mark> to highlight text.</p>
+          <p><del>This line of text is meant to be treated as deleted text.</del></p>
+          <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+          <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+          <p><u>This line of text will render as underlined.</u></p>
+          <p><small>This line of text is meant to be treated as fine print.</small></p>
+          <p><strong>This line rendered as bold text.</strong></p>
+          <p><em>This line rendered as italicized text.</em></p>
+          <hr>
+          <blockquote class="blockquote">
+            <p>A well-known quote, contained in a blockquote element.</p>
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+          </blockquote>
+          <ul class="list-unstyled">
+            <li>This is a list.</li>
+            <li>It appears completely unstyled.</li>
+            <li>Structurally, it's still a list.</li>
+            <li>However, this style only applies to immediate child elements.</li>
+            <li>Nested lists:
+              <ul>
+                <li>are unaffected by this style</li>
+                <li>will still show a bullet</li>
+                <li>and have appropriate left margin</li>
+              </ul>
+            </li>
+            <li>This may still come in handy in some situations.</li>
+          </ul>
+          <ul class="list-inline">
+            <li class="list-inline-item">This is a list item.</li>
+            <li class="list-inline-item">And another one.</li>
+            <li class="list-inline-item">But they're displayed inline.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Images</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div>
+          <img src="https://via.placeholder.com/200x200" class="img-fluid rounded" alt="Responsive image">
+          <p class="mt-3"><small>A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera 200x200</small></p>
+        </div>
+      </div>
+
+      <h3>Tables</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>John</td>
+                <td>Doe</td>
+                <td>@social</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>John</td>
+                <td>Doe</td>
+                <td>@social</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>John</td>
+                <td>Doe</td>
+                <td>@social</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3>Figures</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div>
+          <figure class="figure">
+            <img src="https://via.placeholder.com/400x300" class="figure-img img-fluid rounded" alt="Placeholder">
+            <figcaption class="figure-caption">A caption for the above image.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section class="cheatsheet-section">
+      <h2>Forms</h2>
+      
+      <h3>Overview</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            <div class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password">
+          </div>
+          <div class="mb-3">
+            <label for="select" class="form-label">Select menu</label>
+            <select class="form-select" id="select">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="check">
+            <label class="form-check-label" for="check">Check me out</label>
+          </div>
+          <fieldset class="mb-3">
+            <legend>Radios buttons</legend>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="radio" id="radio1" checked>
+              <label class="form-check-label" for="radio1">Default radio</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="radio" id="radio2">
+              <label class="form-check-label" for="radio2">Another radio</label>
+            </div>
+          </fieldset>
+          <div class="mb-3">
+            <label for="file" class="form-label">Upload</label>
+            <input type="file" class="form-control" id="file">
+          </div>
+          <div class="mb-3 form-check form-switch">
+            <input type="checkbox" class="form-check-input" id="switch" checked>
+            <label class="form-check-label" for="switch">Checked switch checkbox input</label>
+          </div>
+          <div class="mb-3">
+            <label for="range" class="form-label">Example range</label>
+            <input type="range" class="form-range" id="range" min="0" max="100" value="50">
+          </div>
+          <button type="submit" class="bio-button bio-button--primary bio-button--md">
+            <span class="bio-button__label">Submit</span>
+          </button>
+        </form>
+      </div>
+
+      <h3>Disabled forms</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <form>
+          <div class="mb-3">
+            <label for="disabledInput" class="form-label">Disabled input</label>
+            <input type="text" class="form-control" id="disabledInput" placeholder="Disabled input" disabled>
+          </div>
+          <div class="mb-3">
+            <label for="disabledSelect" class="form-label">Disabled select menu</label>
+            <select class="form-select" id="disabledSelect" disabled>
+              <option>Disabled select</option>
+            </select>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="disabledCheck" disabled>
+            <label class="form-check-label" for="disabledCheck">Can't check this</label>
+          </div>
+          <fieldset class="mb-3" disabled>
+            <legend>Disabled radios buttons</legend>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="disabledRadio" id="disabledRadio1">
+              <label class="form-check-label" for="disabledRadio1">Disabled radio</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="disabledRadio" id="disabledRadio2">
+              <label class="form-check-label" for="disabledRadio2">Another radio</label>
+            </div>
+          </fieldset>
+          <div class="mb-3">
+            <label for="disabledFile" class="form-label">Upload</label>
+            <input type="file" class="form-control" id="disabledFile" disabled>
+          </div>
+          <div class="mb-3 form-check form-switch">
+            <input type="checkbox" class="form-check-input" id="disabledSwitch" checked disabled>
+            <label class="form-check-label" for="disabledSwitch">Disabled checked switch checkbox input</label>
+          </div>
+          <div class="mb-3">
+            <label for="disabledRange" class="form-label">Disabled range</label>
+            <input type="range" class="form-range" id="disabledRange" disabled>
+          </div>
+          <button type="submit" class="bio-button bio-button--primary bio-button--md bio-button--disabled" disabled>
+            <span class="bio-button__label">Submit</span>
+          </button>
+        </form>
+      </div>
+
+      <h3>Sizing</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Small input">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Default input">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-lg" placeholder="Large input">
+        </div>
+        <div class="mb-3">
+          <select class="form-select form-select-sm">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <select class="form-select">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <select class="form-select form-select-lg">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+
+      <h3>Input group</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">@</span>
+          <input type="text" class="form-control" placeholder="Username">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Recipient's username">
+          <span class="input-group-text">@example.com</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Your vanity URL</span>
+          <input type="text" class="form-control" placeholder="example">
+          <span class="input-group-text">https://example.com/users/</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input type="text" class="form-control" placeholder="Amount">
+          <span class="input-group-text">.00</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">With textarea</span>
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+      </div>
+
+      <h3>Floating labels</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+          <label for="floatingEmail">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+      </div>
+
+      <h3>Validation</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <form class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First name</label>
+            <input type="text" class="form-control is-valid" id="firstName" value="Mark" required>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last name</label>
+            <input type="text" class="form-control is-valid" id="lastName" value="Otto" required>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <div class="input-group">
+              <span class="input-group-text">@</span>
+              <input type="text" class="form-control is-invalid" id="username" required>
+              <div class="invalid-feedback">Please choose a username.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control is-invalid" id="city" required>
+            <div class="invalid-feedback">Please provide a valid city.</div>
+          </div>
+          <div class="mb-3">
+            <label for="state" class="form-label">State</label>
+            <select class="form-select is-invalid" id="state" required>
+              <option selected value="">Choose...</option>
+              <option>...</option>
+            </select>
+            <div class="invalid-feedback">Please select a valid state.</div>
+          </div>
+          <div class="mb-3">
+            <label for="zip" class="form-label">Zip</label>
+            <input type="text" class="form-control is-invalid" id="zip" required>
+            <div class="invalid-feedback">Please provide a valid zip.</div>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input is-invalid" id="agree" required>
+            <label class="form-check-label" for="agree">Agree to terms and conditions</label>
+            <div class="invalid-feedback">You must agree before submitting.</div>
+          </div>
+          <button type="submit" class="bio-button bio-button--primary bio-button--md">
+            <span class="bio-button__label">Submit form</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Components -->
+    <section class="cheatsheet-section">
+      <h2>Components</h2>
+      
+      <h3>Accordion</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                Accordion Item #1
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                Accordion Item #2
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Alerts</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div>
+          <div class="alert alert-primary" role="alert">A simple primary alert with an <a href="#" class="alert-link">example link</a>. Give it a click if you like.</div>
+          <div class="alert alert-success" role="alert">A simple success alert with an <a href="#" class="alert-link">example link</a>. Give it a click if you like.</div>
+          <div class="alert alert-danger" role="alert">A simple danger alert with an <a href="#" class="alert-link">example link</a>. Give it a click if you like.</div>
+          <div class="alert alert-warning" role="alert">A simple warning alert with an <a href="#" class="alert-link">example link</a>. Give it a click if you like.</div>
+          <div class="alert alert-info" role="alert">A simple info alert with an <a href="#" class="alert-link">example link</a>. Give it a click if you like.</div>
+          <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+            <hr>
+            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Badge</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div>
+          <h1>Example heading <span class="badge bg-primary">New</span></h1>
+          <h2>Example heading <span class="badge bg-secondary">New</span></h2>
+          <h3>Example heading <span class="badge bg-success">New</span></h3>
+          <h4>Example heading <span class="badge bg-danger">New</span></h4>
+          <h5>Example heading <span class="badge bg-warning">New</span></h5>
+          <h6>Example heading <span class="badge bg-info">New</span></h6>
+          <p class="mb-3">
+            <span class="badge bg-primary">Primary</span>
+            <span class="badge bg-secondary">Secondary</span>
+            <span class="badge bg-success">Success</span>
+            <span class="badge bg-danger">Danger</span>
+            <span class="badge bg-warning">Warning</span>
+            <span class="badge bg-info">Info</span>
+            <span class="badge bg-light">Light</span>
+            <span class="badge bg-dark">Dark</span>
+          </p>
+        </div>
+      </div>
+
+      <h3>Breadcrumb</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Data</li>
+          </ol>
+        </nav>
+      </div>
+
+      <h3>Buttons</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="d-flex gap-2 mb-3 flex-wrap">
+          <button class="bio-button bio-button--primary bio-button--md"><span class="bio-button__label">Primary</span></button>
+          <button class="bio-button bio-button--default bio-button--md"><span class="bio-button__label">Default</span></button>
+          <button class="bio-button bio-button--outline bio-button--primary-color bio-button--md"><span class="bio-button__label">Outline</span></button>
+          <button class="bio-button bio-button--dashed bio-button--primary-color bio-button--md"><span class="bio-button__label">Dashed</span></button>
+          <button class="bio-button bio-button--text bio-button--primary-color bio-button--md"><span class="bio-button__label">Text</span></button>
+          <button class="bio-button bio-button--link bio-button--primary-color bio-button--md"><span class="bio-button__label">Link</span></button>
+          <button class="bio-button bio-button--danger bio-button--md"><span class="bio-button__label">Danger</span></button>
+        </div>
+        <div class="d-flex gap-2 mb-3 flex-wrap">
+          <button class="bio-button bio-button--primary bio-button--sm"><span class="bio-button__label">Small button</span></button>
+          <button class="bio-button bio-button--primary bio-button--md"><span class="bio-button__label">Standard button</span></button>
+          <button class="bio-button bio-button--primary bio-button--lg"><span class="bio-button__label">Large button</span></button>
+        </div>
+      </div>
+
+      <h3>Button group</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="btn-group" role="group">
+          <button class="bio-button bio-button--primary bio-button--md"><span class="bio-button__label">1</span></button>
+          <button class="bio-button bio-button--primary bio-button--md"><span class="bio-button__label">2</span></button>
+          <button class="bio-button bio-button--primary bio-button--md"><span class="bio-button__label">3</span></button>
+          <button class="bio-button bio-button--primary bio-button--md"><span class="bio-button__label">4</span></button>
+        </div>
+      </div>
+
+      <h3>Card</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="card" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="bio-button bio-button--primary bio-button--md"><span class="bio-button__label">Go somewhere</span></a>
+          </div>
+        </div>
+      </div>
+
+      <h3>List group</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <ul class="list-group">
+          <li class="list-group-item disabled" aria-disabled="true">A disabled item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">And a fifth one</li>
+        </ul>
+        <ul class="list-group mt-3">
+          <li class="list-group-item">A simple default list group item</li>
+          <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+          <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+          <li class="list-group-item list-group-item-success">A simple success list group item</li>
+          <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+        </ul>
+      </div>
+
+      <h3>Pagination</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <h3>Progress</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="progress mb-2" style="height: 1rem;">
+          <div class="progress-bar" role="progressbar" style="width: 0%">0%</div>
+        </div>
+        <div class="progress mb-2" style="height: 1rem;">
+          <div class="progress-bar" role="progressbar" style="width: 25%">25%</div>
+        </div>
+        <div class="progress mb-2" style="height: 1rem;">
+          <div class="progress-bar" role="progressbar" style="width: 50%">50%</div>
+        </div>
+        <div class="progress mb-2" style="height: 1rem;">
+          <div class="progress-bar" role="progressbar" style="width: 75%">75%</div>
+        </div>
+        <div class="progress" style="height: 1rem;">
+          <div class="progress-bar" role="progressbar" style="width: 100%">100%</div>
+        </div>
+      </div>
+
+      <h3>Spinners</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="d-flex gap-3 flex-wrap">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-border text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-border text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-border text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>Navs</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <ul class="nav mt-3">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <h3>Toasts</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="toast show" role="alert" style="position: relative; min-width: 350px;">
+          <div class="toast-header">
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+          </div>
+          <div class="toast-body">
+            Hello, world! This is a toast message.
+          </div>
+        </div>
+      </div>
+
+      <h3>Tooltips</h3>
+      <div class="cheatsheet-item">
+        <div class="cheatsheet-item-label">Documentation</div>
+        <div class="d-flex gap-2 flex-wrap">
+          <button type="button" class="bio-button bio-button--primary bio-button--md" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+            <span class="bio-button__label">Tooltip on top</span>
+          </button>
+          <button type="button" class="bio-button bio-button--primary bio-button--md" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on end">
+            <span class="bio-button__label">Tooltip on end</span>
+          </button>
+          <button type="button" class="bio-button bio-button--primary bio-button--md" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+            <span class="bio-button__label">Tooltip on bottom</span>
+          </button>
+          <button type="button" class="bio-button bio-button--primary bio-button--md" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on start">
+            <span class="bio-button__label">Tooltip on start</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-muted mt-5 pt-4 border-top">
+      <p>Bio Design System - Cheatsheet</p>
+      <p class="fs-sm">
+        Inspirado en <a href="https://getbootstrap.com/docs/5.3/examples/cheatsheet/" target="_blank" rel="noopener">Bootstrap Cheatsheet</a> | 
+        Color Primary: <strong style="color: var(--color-primary-500);">#e20039</strong> | 
+        Fuente: <strong>Sora</strong>
+      </p>
+    </footer>
+  </div>
+  
+  <script>
+    // Simple accordion toggle (sin Bootstrap JS)
+    document.querySelectorAll('.accordion-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-bs-target');
+        const target = document.querySelector(targetId);
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle all accordion items
+        document.querySelectorAll('.accordion-collapse').forEach(collapse => {
+          collapse.classList.remove('show');
+        });
+        document.querySelectorAll('.accordion-button').forEach(btn => {
+          btn.classList.add('collapsed');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+        
+        if (!isExpanded && target) {
+          target.classList.add('show');
+          this.classList.remove('collapsed');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+

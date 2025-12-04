@@ -19,14 +19,18 @@ const meta: Meta<BadgeComponent> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
+    text: {
+      control: 'text',
+      description: 'Badge text content',
+    },
+    color: {
       control: 'select',
       options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],
       description: 'Color variant of the badge',
     },
     size: {
       control: 'select',
-      options: ['H6', 'H5', 'H4', 'H3', 'H2', 'H1'],
+      options: ['H6', 'H5', 'H4', 'H3', 'H2', 'H1', '-'],
       description: 'Size of the badge (matches heading sizes)',
     },
     type: {
@@ -42,13 +46,14 @@ type Story = StoryObj<BadgeComponent>;
 
 export const Primary: Story = {
   args: {
-    variant: 'primary',
+    text: 'Primary',
+    color: 'primary',
     size: 'H6',
     type: 'normal',
   },
   render: (args) => ({
     props: args,
-    template: `<bio-badge [variant]="variant" [size]="size" [type]="type">Badge</bio-badge>`,
+    template: `<bio-badge [text]="text" [color]="color" [size]="size" [type]="type"></bio-badge>`,
   }),
 };
 
@@ -56,14 +61,14 @@ export const AllVariants: Story = {
   render: () => ({
     template: `
       <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-        <bio-badge variant="primary">Primary</bio-badge>
-        <bio-badge variant="secondary">Secondary</bio-badge>
-        <bio-badge variant="success">Success</bio-badge>
-        <bio-badge variant="danger">Danger</bio-badge>
-        <bio-badge variant="warning">Warning</bio-badge>
-        <bio-badge variant="info">Info</bio-badge>
-        <bio-badge variant="light">Light</bio-badge>
-        <bio-badge variant="dark">Dark</bio-badge>
+        <bio-badge text="Primary" color="primary"></bio-badge>
+        <bio-badge text="Secondary" color="secondary"></bio-badge>
+        <bio-badge text="Success" color="success"></bio-badge>
+        <bio-badge text="Danger" color="danger"></bio-badge>
+        <bio-badge text="Warning" color="warning"></bio-badge>
+        <bio-badge text="Info" color="info"></bio-badge>
+        <bio-badge text="Light" color="light"></bio-badge>
+        <bio-badge text="Dark" color="dark"></bio-badge>
       </div>
     `,
   }),
@@ -73,12 +78,12 @@ export const Sizes: Story = {
   render: () => ({
     template: `
       <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-        <bio-badge variant="primary" size="H6">H6</bio-badge>
-        <bio-badge variant="primary" size="H5">H5</bio-badge>
-        <bio-badge variant="primary" size="H4">H4</bio-badge>
-        <bio-badge variant="primary" size="H3">H3</bio-badge>
-        <bio-badge variant="primary" size="H2">H2</bio-badge>
-        <bio-badge variant="primary" size="H1">H1</bio-badge>
+        <bio-badge text="H6" color="primary" size="H6"></bio-badge>
+        <bio-badge text="H5" color="primary" size="H5"></bio-badge>
+        <bio-badge text="H4" color="primary" size="H4"></bio-badge>
+        <bio-badge text="H3" color="primary" size="H3"></bio-badge>
+        <bio-badge text="H2" color="primary" size="H2"></bio-badge>
+        <bio-badge text="H1" color="primary" size="H1"></bio-badge>
       </div>
     `,
   }),
@@ -88,9 +93,9 @@ export const Types: Story = {
   render: () => ({
     template: `
       <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-        <bio-badge variant="primary" type="normal">Normal</bio-badge>
-        <bio-badge variant="primary" type="pill">Pill</bio-badge>
-        <bio-badge variant="primary" type="dot"></bio-badge>
+        <bio-badge text="Normal" color="primary" type="normal"></bio-badge>
+        <bio-badge text="Pill" color="primary" type="pill"></bio-badge>
+        <bio-badge color="primary" type="dot" size="-"></bio-badge>
       </div>
     `,
   }),

@@ -1,0 +1,138 @@
+/**
+ * Button Component - Bootstrap Variables Example
+ * 
+ * Este es un ejemplo de cómo el componente Button podría usar
+ * variables Bootstrap-compatibles en lugar de tokens directos.
+ * 
+ * NO reemplaza button.component.css - es solo un ejemplo de referencia.
+ */
+
+/* Base Button Styles usando Variables Bootstrap */
+.bio-button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--bs-font-family-sans-serif);
+  font-weight: var(--bs-font-weight-medium);
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  
+  /* Usar variables Bootstrap específicas del componente */
+  font-size: var(--bs-btn-font-size);
+  line-height: var(--bs-line-height-base);
+  border-radius: var(--bs-btn-border-radius);
+  transition: var(--bs-btn-transition);
+  
+  /* Focus styles */
+  &:focus-visible {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Size Variants usando Variables Bootstrap */
+.bio-button--sm {
+  padding: var(--bs-spacer-1) var(--bs-spacer-2);
+  font-size: var(--bs-font-size-sm);
+  min-height: 32px;
+}
+
+.bio-button--md {
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  font-size: var(--bs-btn-font-size);
+  min-height: 40px;
+}
+
+.bio-button--lg {
+  padding: var(--bs-spacer-3) var(--bs-spacer-4);
+  font-size: var(--bs-font-size-lg);
+  min-height: 48px;
+}
+
+/* Primary Variant usando Variables Bootstrap */
+.bio-button--primary {
+  background-color: var(--bs-primary);
+  color: var(--bs-body-bg);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--bs-primary-600);
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--bs-primary-700);
+  }
+}
+
+/* Secondary Variant */
+.bio-button--secondary {
+  background-color: var(--bs-primary-100);
+  color: var(--bs-primary-700);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--bs-primary-200);
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--bs-primary-300);
+  }
+}
+
+/* Outline Variant */
+.bio-button--outline {
+  background-color: transparent;
+  color: var(--bs-primary);
+  border: var(--bs-border-width) solid var(--bs-primary);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--bs-primary-50);
+    border-color: var(--bs-primary-600);
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--bs-primary-100);
+    border-color: var(--bs-primary-700);
+  }
+}
+
+/* Text Variant */
+.bio-button--text {
+  background-color: transparent;
+  color: var(--bs-primary);
+  padding-left: var(--bs-spacer-2);
+  padding-right: var(--bs-spacer-2);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--bs-primary-50);
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--bs-primary-100);
+  }
+}
+
+/* Danger Variant */
+.bio-button--danger {
+  background-color: var(--bs-danger);
+  color: var(--bs-body-bg);
+  
+  &:hover:not(.bio-button--disabled) {
+    background-color: var(--bs-danger); /* Usar hover del token si existe */
+  }
+  
+  &:active:not(.bio-button--disabled) {
+    background-color: var(--bs-danger); /* Usar active del token si existe */
+  }
+}
+
+/* Disabled State */
+.bio-button--disabled,
+.bio-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+

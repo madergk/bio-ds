@@ -1,25 +1,53 @@
 <!--
   Button Component Template
   
-  Uses content projection (<ng-content>) to allow flexible content:
-  - Can use label input: <bio-button label="Click me">
-  - Can use content projection: <bio-button>Click me</bio-button>
-  - Can include icons or other elements: <bio-button><icon>Click</icon></bio-button>
-  
-  Note: If both label and content are provided, content takes precedence
+  Implements Figma design with:
+  - Prefix and suffix icons
+  - Loading state with spinner
+  - Icon-only mode
+  - Multiple variants (filled, outlined, dashed, text, link)
 -->
 <button
   [type]="type"
   [class]="buttonClasses"
-  [disabled]="disabled"
-  [attr.aria-disabled]="disabled"
+  [disabled]="isDisabled"
+  [attr.aria-disabled]="isDisabled"
+  [attr.aria-busy]="loading"
   (click)="onClick($event)">
-  <!-- Content projection: allows flexible button content -->
-  <ng-content></ng-content>
   
-  <!-- Fallback to label if no content projected -->
-  @if (label) {
-    {{ label }}
+  <!-- Loading Spinner -->
+  @if (loading) {
+    <span class="bio-button__spinner" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="37.7" stroke-dashoffset="9.4"></circle>
+      </svg>
+    </span>
+  }
+
+  <!-- Prefix Icon -->
+  @if (prefixIcon && !loading && !iconOnly) {
+    <span class="bio-button__prefix-icon" [innerHTML]="prefixIcon" aria-hidden="true"></span>
+  }
+
+  <!-- Button Content -->
+  @if (!iconOnly) {
+    <!-- Content projection: allows flexible button content -->
+    <ng-content></ng-content>
+    
+    <!-- Fallback to label if no content projected -->
+    @if (label && !loading) {
+      <span class="bio-button__label">{{ label }}</span>
+    }
+  }
+
+  <!-- Icon Only Mode -->
+  @if (iconOnly && prefixIcon && !loading) {
+    <span class="bio-button__icon-only" [innerHTML]="prefixIcon" aria-hidden="true"></span>
+  }
+
+  <!-- Suffix Icon -->
+  @if (suffixIcon && !loading && !iconOnly) {
+    <span class="bio-button__suffix-icon" [innerHTML]="suffixIcon" aria-hidden="true"></span>
   }
 </button>
 

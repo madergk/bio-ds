@@ -28,7 +28,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\">Primary</bio-badge>\n        <bio-badge variant=\"secondary\">Secondary</bio-badge>\n        <bio-badge variant=\"success\">Success</bio-badge>\n        <bio-badge variant=\"danger\">Danger</bio-badge>\n        <bio-badge variant=\"warning\">Warning</bio-badge>\n        <bio-badge variant=\"info\">Info</bio-badge>\n        <bio-badge variant=\"light\">Light</bio-badge>\n        <bio-badge variant=\"dark\">Dark</bio-badge>\n      </div>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge text=\"Primary\" color=\"primary\"></bio-badge>\n        <bio-badge text=\"Secondary\" color=\"secondary\"></bio-badge>\n        <bio-badge text=\"Success\" color=\"success\"></bio-badge>\n        <bio-badge text=\"Danger\" color=\"danger\"></bio-badge>\n        <bio-badge text=\"Warning\" color=\"warning\"></bio-badge>\n        <bio-badge text=\"Info\" color=\"info\"></bio-badge>\n        <bio-badge text=\"Light\" color=\"light\"></bio-badge>\n        <bio-badge text=\"Dark\" color=\"dark\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "AllVariants",
@@ -38,7 +38,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\">Primary</bio-button>\n        <bio-button variant=\"secondary\">Secondary</bio-button>\n        <bio-button variant=\"outline\">Outline</bio-button>\n        <bio-button variant=\"text\">Text</bio-button>\n        <bio-button variant=\"danger\">Danger</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'All available button variants displayed together for easy comparison.',\n      },\n    },\n  },\n}",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"default\">Default</bio-button>\n        <bio-button variant=\"primary\">Primary</bio-button>\n        <bio-button variant=\"secondary\">Secondary</bio-button>\n        <bio-button variant=\"outline\">Outline</bio-button>\n        <bio-button variant=\"dashed\">Dashed</bio-button>\n        <bio-button variant=\"text\">Text</bio-button>\n        <bio-button variant=\"link\">Link</bio-button>\n        <bio-button variant=\"danger\">Danger</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'All available button variants displayed together for easy comparison.',\n      },\n    },\n  },\n}",
                 "rawdescription": "All variants - see all button variants side by side.",
                 "description": "<p>All variants - see all button variants side by side.</p>\n"
             },
@@ -65,14 +65,38 @@
                 "description": "<p>Danger button - use for destructive actions like delete or remove.\nThe red color signals caution to users.</p>\n"
             },
             {
-                "name": "Default",
+                "name": "Dashed",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/components/molecules/modal/modal.stories.ts",
+                "file": "src/components/atoms/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div class=\"bio-modal-backdrop\">\n        <div class=\"bio-modal\" style=\"width: 500px;\">\n          <div class=\"bio-modal__container\">\n            <div class=\"bio-modal__header\">\n              <div class=\"bio-modal__title\">\n                <h2>Modal Title</h2>\n              </div>\n            </div>\n            <div class=\"bio-modal__body\">\n              <p>This is the modal body content. You can put any content here.</p>\n            </div>\n            <div class=\"bio-modal__footer\">\n              <div class=\"bio-modal__footer-content\">\n                <bio-button variant=\"secondary\">Cancel</bio-button>\n                <bio-button variant=\"primary\">Save</bio-button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  args: {\n    variant: 'dashed',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n    color: 'default',\n  },\n}",
+                "rawdescription": "Dashed button - similar to outline but with dashed border.\nNew variant from Figma design.",
+                "description": "<p>Dashed button - similar to outline but with dashed border.\nNew variant from Figma design.</p>\n"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/cheatsheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'default',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                "rawdescription": "Default button - gray/neutral style.\nUse for default actions.",
+                "description": "<p>Default button - gray/neutral style.\nUse for default actions.</p>\n"
             },
             {
                 "name": "Default",
@@ -82,7 +106,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'md',\n    placeholder: 'Enter text...',\n    disabled: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-input-wrapper [size]=\"size\">\n        <bio-input-container>\n          <input \n            bio-input \n            [class]=\"'bio-input--' + size\"\n            [placeholder]=\"placeholder\"\n            [disabled]=\"disabled\"\n            type=\"text\"\n          />\n        </bio-input-container>\n      </bio-input-wrapper>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  args: {\n    size: 'md',\n    placeholder: 'Enter text...',\n    state: 'normal',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-input \n        [size]=\"size\"\n        [placeholder]=\"placeholder\"\n        [state]=\"state\"\n        [value]=\"value\">\n      </bio-input>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/molecules/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div class=\"bio-modal-backdrop\">\n        <div class=\"bio-modal\" style=\"width: 500px;\">\n          <div class=\"bio-modal__container\">\n            <div class=\"bio-modal__header\">\n              <div class=\"bio-modal__title\">\n                <h2>Modal Title</h2>\n              </div>\n            </div>\n            <div class=\"bio-modal__body\">\n              <p>This is the modal body content. You can put any content here.</p>\n            </div>\n            <div class=\"bio-modal__footer\">\n              <div class=\"bio-modal__footer-content\">\n                <bio-button variant=\"secondary\">Cancel</bio-button>\n                <bio-button variant=\"primary\">Save</bio-button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "Disabled",
@@ -115,6 +149,30 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Link",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'link',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n    color: 'default',\n  },\n}",
+                "rawdescription": "Link button - text button with underline.\nNew variant from Figma design.",
+                "description": "<p>Link button - text button with underline.\nNew variant from Figma design.</p>\n"
+            },
+            {
+                "name": "Loading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\" [loading]=\"true\">Loading</bio-button>\n        <bio-button variant=\"outline\" color=\"primary\" [loading]=\"true\">Loading</bio-button>\n        <bio-button variant=\"dashed\" color=\"primary\" [loading]=\"true\">Loading</bio-button>\n        <bio-button variant=\"text\" color=\"primary\" [loading]=\"true\">Loading</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Buttons can display a loading spinner. When loading, the button is automatically disabled.',\n      },\n    },\n  },\n}",
+                "rawdescription": "Loading state - buttons can show a loading spinner.",
+                "description": "<p>Loading state - buttons can show a loading spinner.</p>\n"
             },
             {
                 "name": "LoggedIn",
@@ -170,6 +228,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/cheatsheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CheatsheetComponent>",
+                "defaultValue": "{\n  title: 'Examples/Cheatsheet',\n  component: CheatsheetComponent,\n  parameters: {\n    layout: 'fullscreen',\n    docs: {\n      description: {\n        component: 'Una referencia rápida visual de todos los componentes y utilidades del Bio Design System, inspirada en el Bootstrap Cheatsheet.'\n      }\n    }\n  },\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -185,18 +253,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<PageComponent>",
                 "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/components/molecules/modal/modal.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ModalComponent>",
-                "defaultValue": "{\n  title: 'Molecules/Modal',\n  component: ModalComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Modals are dialog boxes that overlay the main content. They require user interaction before the user can return to the main content. Use modals sparingly for important information or actions.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n}",
-                "rawdescription": "Modal Component\n\nDialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.",
-                "description": "<p>Modal Component</p>\n<p>Dialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.</p>\n"
             },
             {
                 "name": "meta",
@@ -218,7 +274,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<BadgeComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Badge',\n  component: BadgeComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Badges are small status descriptors that can be attached to other components or used standalone to indicate counts, status, or new items.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],\n      description: 'Color variant of the badge',\n    },\n    size: {\n      control: 'select',\n      options: ['H6', 'H5', 'H4', 'H3', 'H2', 'H1'],\n      description: 'Size of the badge (matches heading sizes)',\n    },\n    type: {\n      control: 'select',\n      options: ['normal', 'pill', 'dot'],\n      description: 'Shape type of the badge',\n    },\n  },\n}",
+                "defaultValue": "{\n  title: 'Atoms/Badge',\n  component: BadgeComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Badges are small status descriptors that can be attached to other components or used standalone to indicate counts, status, or new items.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    text: {\n      control: 'text',\n      description: 'Badge text content',\n    },\n    color: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],\n      description: 'Color variant of the badge',\n    },\n    size: {\n      control: 'select',\n      options: ['H6', 'H5', 'H4', 'H3', 'H2', 'H1', '-'],\n      description: 'Size of the badge (matches heading sizes)',\n    },\n    type: {\n      control: 'select',\n      options: ['normal', 'pill', 'dot'],\n      description: 'Shape type of the badge',\n    },\n  },\n}",
                 "rawdescription": "Badge Component\n\nSmall status descriptors for UI elements.\nBadges can be used to highlight new items, counts, or status indicators.",
                 "description": "<p>Badge Component</p>\n<p>Small status descriptors for UI elements.\nBadges can be used to highlight new items, counts, or status indicators.</p>\n"
             },
@@ -230,7 +286,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Button component is a fundamental building block of the Bio Design System. It provides consistent styling and behavior across all applications.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'outline', 'text', 'danger'],\n      description: 'Visual variant of the button',\n      table: {\n        type: { summary: 'ButtonVariant' },\n        defaultValue: { summary: 'primary' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n      table: {\n        type: { summary: 'ButtonSize' },\n        defaultValue: { summary: 'md' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n      table: {\n        type: { summary: 'boolean' },\n        defaultValue: { summary: 'false' },\n      },\n    },\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'HTML button type attribute',\n      table: {\n        type: { summary: 'string' },\n        defaultValue: { summary: 'button' },\n      },\n    },\n    label: {\n      control: 'text',\n      description: 'Button text content',\n      table: {\n        type: { summary: 'string' },\n      },\n    },\n    click: {\n      action: 'clicked',\n      description: 'Click event emitter',\n    },\n  },\n}",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Button component is a fundamental building block of the Bio Design System. It provides consistent styling and behavior across all applications.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['default', 'primary', 'secondary', 'outline', 'dashed', 'text', 'link', 'danger'],\n      description: 'Visual variant of the button',\n      table: {\n        type: { summary: 'ButtonVariant' },\n        defaultValue: { summary: 'default' },\n      },\n    },\n    color: {\n      control: 'select',\n      options: ['default', 'primary'],\n      description: 'Color theme for outline, dashed, text, and link variants',\n      table: {\n        type: { summary: \"'default' | 'primary'\" },\n        defaultValue: { summary: 'default' },\n      },\n    },\n    prefixIcon: {\n      control: 'text',\n      description: 'Prefix icon (HTML string or SVG)',\n    },\n    suffixIcon: {\n      control: 'text',\n      description: 'Suffix icon (HTML string or SVG)',\n    },\n    iconOnly: {\n      control: 'boolean',\n      description: 'Show only icon (no text)',\n    },\n    loading: {\n      control: 'boolean',\n      description: 'Show loading spinner',\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n      table: {\n        type: { summary: 'ButtonSize' },\n        defaultValue: { summary: 'md' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n      table: {\n        type: { summary: 'boolean' },\n        defaultValue: { summary: 'false' },\n      },\n    },\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'HTML button type attribute',\n      table: {\n        type: { summary: 'string' },\n        defaultValue: { summary: 'button' },\n      },\n    },\n    label: {\n      control: 'text',\n      description: 'Button text content',\n      table: {\n        type: { summary: 'string' },\n      },\n    },\n    click: {\n      action: 'clicked',\n      description: 'Click event emitter',\n    },\n  },\n}",
                 "rawdescription": "Button Component\n\nA reusable button component following atomic design principles.\nThis is an \"atom\" - a basic building block of the design system.\n\n## Features\n- Multiple variants (primary, secondary, outline, text, danger)\n- Three sizes (sm, md, lg)\n- Disabled state\n- Type safety with TypeScript\n- Uses design tokens for consistent styling",
                 "description": "<p>Button Component</p>\n<p>A reusable button component following atomic design principles.\nThis is an &quot;atom&quot; - a basic building block of the design system.</p>\n<h2>Features</h2>\n<ul>\n<li>Multiple variants (primary, secondary, outline, text, danger)</li>\n<li>Three sizes (sm, md, lg)</li>\n<li>Disabled state</li>\n<li>Type safety with TypeScript</li>\n<li>Uses design tokens for consistent styling</li>\n</ul>\n"
             },
@@ -242,9 +298,21 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<InputComponent>",
-                "defaultValue": "{\n  title: 'Atoms/Input',\n  component: InputComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Input component provides a text input field with consistent styling and validation states. It supports prefixes, suffixes, and addons for enhanced functionality.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the input',\n    },\n    placeholder: {\n      control: 'text',\n      description: 'Placeholder text',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the input is disabled',\n    },\n  },\n}",
+                "defaultValue": "{\n  title: 'Atoms/Input',\n  component: InputComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Input component provides a text input field with consistent styling and validation states. It supports prefixes, suffixes, and addons for enhanced functionality.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the input',\n    },\n    placeholder: {\n      control: 'text',\n      description: 'Placeholder text',\n    },\n    state: {\n      control: 'select',\n      options: ['normal', 'focused', 'disabled'],\n      description: 'State of the input',\n    },\n    value: {\n      control: 'text',\n      description: 'Input value',\n    },\n  },\n}",
                 "rawdescription": "Input Component\n\nText input field for user data entry.\nSupports various sizes, validation states, and addons.",
                 "description": "<p>Input Component</p>\n<p>Text input field for user data entry.\nSupports various sizes, validation states, and addons.</p>\n"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/molecules/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ModalComponent>",
+                "defaultValue": "{\n  title: 'Molecules/Modal',\n  component: ModalComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Modals are dialog boxes that overlay the main content. They require user interaction before the user can return to the main content. Use modals sparingly for important information or actions.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n}",
+                "rawdescription": "Modal Component\n\nDialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.",
+                "description": "<p>Modal Component</p>\n<p>Dialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.</p>\n"
             },
             {
                 "name": "Outline",
@@ -254,7 +322,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    variant: 'outline',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                "defaultValue": "{\n  args: {\n    variant: 'outline',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n    color: 'default',\n  },\n}",
                 "rawdescription": "Outline button - use when you want a button with a border but no background.\nGood for less prominent actions or when you want to reduce visual weight.",
                 "description": "<p>Outline button - use when you want a button with a border but no background.\nGood for less prominent actions or when you want to reduce visual weight.</p>\n"
             },
@@ -296,7 +364,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'H6',\n    type: 'normal',\n  },\n  render: (args) => ({\n    props: args,\n    template: `<bio-badge [variant]=\"variant\" [size]=\"size\" [type]=\"type\">Badge</bio-badge>`,\n  }),\n}"
+                "defaultValue": "{\n  args: {\n    text: 'Primary',\n    color: 'primary',\n    size: 'H6',\n    type: 'normal',\n  },\n  render: (args) => ({\n    props: args,\n    template: `<bio-badge [text]=\"text\" [color]=\"color\" [size]=\"size\" [type]=\"type\"></bio-badge>`,\n  }),\n}"
             },
             {
                 "name": "Primary",
@@ -307,8 +375,8 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
-                "rawdescription": "Primary button - the default and most commonly used variant.\nUse for primary actions in your application.",
-                "description": "<p>Primary button - the default and most commonly used variant.\nUse for primary actions in your application.</p>\n"
+                "rawdescription": "Primary button - the main action button with brand color.\nUse for primary actions in your application.",
+                "description": "<p>Primary button - the main action button with brand color.\nUse for primary actions in your application.</p>\n"
             },
             {
                 "name": "Secondary",
@@ -340,7 +408,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\" size=\"H6\">H6</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H5\">H5</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H4\">H4</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H3\">H3</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H2\">H2</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H1\">H1</bio-badge>\n      </div>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge text=\"H6\" color=\"primary\" size=\"H6\"></bio-badge>\n        <bio-badge text=\"H5\" color=\"primary\" size=\"H5\"></bio-badge>\n        <bio-badge text=\"H4\" color=\"primary\" size=\"H4\"></bio-badge>\n        <bio-badge text=\"H3\" color=\"primary\" size=\"H3\"></bio-badge>\n        <bio-badge text=\"H2\" color=\"primary\" size=\"H2\"></bio-badge>\n        <bio-badge text=\"H1\" color=\"primary\" size=\"H1\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "Sizes",
@@ -362,7 +430,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input-wrapper size=\"sm\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--sm\" placeholder=\"Small input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper size=\"md\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Medium input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper size=\"lg\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--lg\" placeholder=\"Large input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n      </div>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input size=\"sm\" placeholder=\"Small input\"></bio-input>\n        <bio-input size=\"md\" placeholder=\"Medium input\"></bio-input>\n        <bio-input size=\"lg\" placeholder=\"Large input\"></bio-input>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "Small",
@@ -382,7 +450,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input-wrapper>\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Normal state\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper class=\"bio-input-wrapper--focused\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Focused state\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper class=\"bio-input-wrapper--disabled\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Disabled state\" type=\"text\" disabled />\n          </bio-input-container>\n        </bio-input-wrapper>\n      </div>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input state=\"normal\" placeholder=\"Normal state\"></bio-input>\n        <bio-input state=\"focused\" placeholder=\"Focused state\"></bio-input>\n        <bio-input state=\"disabled\" placeholder=\"Disabled state\"></bio-input>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "Success",
@@ -402,7 +470,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    variant: 'text',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                "defaultValue": "{\n  args: {\n    variant: 'text',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n    color: 'default',\n  },\n}",
                 "rawdescription": "Text button - the most minimal button style.\nUse for tertiary actions or when space is limited.",
                 "description": "<p>Text button - the most minimal button style.\nUse for tertiary actions or when space is limited.</p>\n"
             },
@@ -414,7 +482,19 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\" type=\"normal\">Normal</bio-badge>\n        <bio-badge variant=\"primary\" type=\"pill\">Pill</bio-badge>\n        <bio-badge variant=\"primary\" type=\"dot\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge text=\"Normal\" color=\"primary\" type=\"normal\"></bio-badge>\n        <bio-badge text=\"Pill\" color=\"primary\" type=\"pill\"></bio-badge>\n        <bio-badge color=\"primary\" type=\"dot\" size=\"-\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "VariantsWithPrimaryColor",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"outline\" color=\"default\">Outline Default</bio-button>\n          <bio-button variant=\"outline\" color=\"primary\">Outline Primary</bio-button>\n        </div>\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"dashed\" color=\"default\">Dashed Default</bio-button>\n          <bio-button variant=\"dashed\" color=\"primary\">Dashed Primary</bio-button>\n        </div>\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"text\" color=\"default\">Text Default</bio-button>\n          <bio-button variant=\"text\" color=\"primary\">Text Primary</bio-button>\n        </div>\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"link\" color=\"default\">Link Default</bio-button>\n          <bio-button variant=\"link\" color=\"primary\">Link Primary</bio-button>\n        </div>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Outline, dashed, text, and link variants can use either default (gray) or primary (red) color theme.',\n      },\n    },\n  },\n}",
+                "rawdescription": "Variants with Primary Color - outline, dashed, text, and link can use primary color.",
+                "description": "<p>Variants with Primary Color - outline, dashed, text, and link can use primary color.</p>\n"
             },
             {
                 "name": "Warning",
@@ -425,6 +505,18 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    variant: 'warning',\n    dismissible: false,\n    showIcon: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-alert [variant]=\"variant\" [dismissible]=\"dismissible\" [showIcon]=\"showIcon\">\n        <p>Warning: Please review this information carefully.</p>\n      </bio-alert>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "WithIcons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"primary\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\">\n            Prefix Icon\n          </bio-button>\n          <bio-button variant=\"primary\" suffixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\">\n            Suffix Icon\n          </bio-button>\n          <bio-button variant=\"primary\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\" suffixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\">\n            Both Icons\n          </bio-button>\n        </div>\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\"></bio-button>\n          <bio-button variant=\"outline\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\"></bio-button>\n          <bio-button variant=\"text\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\"></bio-button>\n        </div>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Buttons can have prefix icons, suffix icons, or be icon-only. Icons are passed as HTML strings (typically SVG).',\n      },\n    },\n  },\n}",
+                "rawdescription": "Buttons with Icons - prefix, suffix, and icon-only modes.",
+                "description": "<p>Buttons with Icons - prefix, suffix, and icon-only modes.</p>\n"
             }
         ],
         "functions": [],
@@ -435,6 +527,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CheatsheetComponent>",
+                "file": "src/stories/cheatsheet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -457,17 +560,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<PageComponent>",
                 "file": "src/stories/page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ModalComponent>",
-                "file": "src/components/molecules/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -512,6 +604,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<InputComponent>",
                 "file": "src/components/atoms/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ModalComponent>",
+                "file": "src/components/molecules/modal/modal.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -603,7 +706,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\">Primary</bio-badge>\n        <bio-badge variant=\"secondary\">Secondary</bio-badge>\n        <bio-badge variant=\"success\">Success</bio-badge>\n        <bio-badge variant=\"danger\">Danger</bio-badge>\n        <bio-badge variant=\"warning\">Warning</bio-badge>\n        <bio-badge variant=\"info\">Info</bio-badge>\n        <bio-badge variant=\"light\">Light</bio-badge>\n        <bio-badge variant=\"dark\">Dark</bio-badge>\n      </div>\n    `,\n  }),\n}"
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge text=\"Primary\" color=\"primary\"></bio-badge>\n        <bio-badge text=\"Secondary\" color=\"secondary\"></bio-badge>\n        <bio-badge text=\"Success\" color=\"success\"></bio-badge>\n        <bio-badge text=\"Danger\" color=\"danger\"></bio-badge>\n        <bio-badge text=\"Warning\" color=\"warning\"></bio-badge>\n        <bio-badge text=\"Info\" color=\"info\"></bio-badge>\n        <bio-badge text=\"Light\" color=\"light\"></bio-badge>\n        <bio-badge text=\"Dark\" color=\"dark\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
                 },
                 {
                     "name": "meta",
@@ -613,7 +716,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<BadgeComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Badge',\n  component: BadgeComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Badges are small status descriptors that can be attached to other components or used standalone to indicate counts, status, or new items.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],\n      description: 'Color variant of the badge',\n    },\n    size: {\n      control: 'select',\n      options: ['H6', 'H5', 'H4', 'H3', 'H2', 'H1'],\n      description: 'Size of the badge (matches heading sizes)',\n    },\n    type: {\n      control: 'select',\n      options: ['normal', 'pill', 'dot'],\n      description: 'Shape type of the badge',\n    },\n  },\n}",
+                    "defaultValue": "{\n  title: 'Atoms/Badge',\n  component: BadgeComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Badges are small status descriptors that can be attached to other components or used standalone to indicate counts, status, or new items.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    text: {\n      control: 'text',\n      description: 'Badge text content',\n    },\n    color: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],\n      description: 'Color variant of the badge',\n    },\n    size: {\n      control: 'select',\n      options: ['H6', 'H5', 'H4', 'H3', 'H2', 'H1', '-'],\n      description: 'Size of the badge (matches heading sizes)',\n    },\n    type: {\n      control: 'select',\n      options: ['normal', 'pill', 'dot'],\n      description: 'Shape type of the badge',\n    },\n  },\n}",
                     "rawdescription": "Badge Component\n\nSmall status descriptors for UI elements.\nBadges can be used to highlight new items, counts, or status indicators.",
                     "description": "<p>Badge Component</p>\n<p>Small status descriptors for UI elements.\nBadges can be used to highlight new items, counts, or status indicators.</p>\n"
                 },
@@ -625,7 +728,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'H6',\n    type: 'normal',\n  },\n  render: (args) => ({\n    props: args,\n    template: `<bio-badge [variant]=\"variant\" [size]=\"size\" [type]=\"type\">Badge</bio-badge>`,\n  }),\n}"
+                    "defaultValue": "{\n  args: {\n    text: 'Primary',\n    color: 'primary',\n    size: 'H6',\n    type: 'normal',\n  },\n  render: (args) => ({\n    props: args,\n    template: `<bio-badge [text]=\"text\" [color]=\"color\" [size]=\"size\" [type]=\"type\"></bio-badge>`,\n  }),\n}"
                 },
                 {
                     "name": "Sizes",
@@ -635,7 +738,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\" size=\"H6\">H6</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H5\">H5</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H4\">H4</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H3\">H3</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H2\">H2</bio-badge>\n        <bio-badge variant=\"primary\" size=\"H1\">H1</bio-badge>\n      </div>\n    `,\n  }),\n}"
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge text=\"H6\" color=\"primary\" size=\"H6\"></bio-badge>\n        <bio-badge text=\"H5\" color=\"primary\" size=\"H5\"></bio-badge>\n        <bio-badge text=\"H4\" color=\"primary\" size=\"H4\"></bio-badge>\n        <bio-badge text=\"H3\" color=\"primary\" size=\"H3\"></bio-badge>\n        <bio-badge text=\"H2\" color=\"primary\" size=\"H2\"></bio-badge>\n        <bio-badge text=\"H1\" color=\"primary\" size=\"H1\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
                 },
                 {
                     "name": "Types",
@@ -645,7 +748,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge variant=\"primary\" type=\"normal\">Normal</bio-badge>\n        <bio-badge variant=\"primary\" type=\"pill\">Pill</bio-badge>\n        <bio-badge variant=\"primary\" type=\"dot\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-badge text=\"Normal\" color=\"primary\" type=\"normal\"></bio-badge>\n        <bio-badge text=\"Pill\" color=\"primary\" type=\"pill\"></bio-badge>\n        <bio-badge color=\"primary\" type=\"dot\" size=\"-\"></bio-badge>\n      </div>\n    `,\n  }),\n}"
                 }
             ],
             "src/components/atoms/button/button.stories.ts": [
@@ -657,7 +760,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\">Primary</bio-button>\n        <bio-button variant=\"secondary\">Secondary</bio-button>\n        <bio-button variant=\"outline\">Outline</bio-button>\n        <bio-button variant=\"text\">Text</bio-button>\n        <bio-button variant=\"danger\">Danger</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'All available button variants displayed together for easy comparison.',\n      },\n    },\n  },\n}",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"default\">Default</bio-button>\n        <bio-button variant=\"primary\">Primary</bio-button>\n        <bio-button variant=\"secondary\">Secondary</bio-button>\n        <bio-button variant=\"outline\">Outline</bio-button>\n        <bio-button variant=\"dashed\">Dashed</bio-button>\n        <bio-button variant=\"text\">Text</bio-button>\n        <bio-button variant=\"link\">Link</bio-button>\n        <bio-button variant=\"danger\">Danger</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'All available button variants displayed together for easy comparison.',\n      },\n    },\n  },\n}",
                     "rawdescription": "All variants - see all button variants side by side.",
                     "description": "<p>All variants - see all button variants side by side.</p>\n"
                 },
@@ -674,6 +777,30 @@
                     "description": "<p>Danger button - use for destructive actions like delete or remove.\nThe red color signals caution to users.</p>\n"
                 },
                 {
+                    "name": "Dashed",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'dashed',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n    color: 'default',\n  },\n}",
+                    "rawdescription": "Dashed button - similar to outline but with dashed border.\nNew variant from Figma design.",
+                    "description": "<p>Dashed button - similar to outline but with dashed border.\nNew variant from Figma design.</p>\n"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'default',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                    "rawdescription": "Default button - gray/neutral style.\nUse for default actions.",
+                    "description": "<p>Default button - gray/neutral style.\nUse for default actions.</p>\n"
+                },
+                {
                     "name": "Disabled",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -686,6 +813,30 @@
                     "description": "<p>Disabled state - buttons can be disabled to prevent interaction.\nDisabled buttons have reduced opacity and cannot be clicked.</p>\n"
                 },
                 {
+                    "name": "Link",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'link',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n    color: 'default',\n  },\n}",
+                    "rawdescription": "Link button - text button with underline.\nNew variant from Figma design.",
+                    "description": "<p>Link button - text button with underline.\nNew variant from Figma design.</p>\n"
+                },
+                {
+                    "name": "Loading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n        <bio-button variant=\"primary\" [loading]=\"true\">Loading</bio-button>\n        <bio-button variant=\"outline\" color=\"primary\" [loading]=\"true\">Loading</bio-button>\n        <bio-button variant=\"dashed\" color=\"primary\" [loading]=\"true\">Loading</bio-button>\n        <bio-button variant=\"text\" color=\"primary\" [loading]=\"true\">Loading</bio-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Buttons can display a loading spinner. When loading, the button is automatically disabled.',\n      },\n    },\n  },\n}",
+                    "rawdescription": "Loading state - buttons can show a loading spinner.",
+                    "description": "<p>Loading state - buttons can show a loading spinner.</p>\n"
+                },
+                {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -693,7 +844,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Button component is a fundamental building block of the Bio Design System. It provides consistent styling and behavior across all applications.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'outline', 'text', 'danger'],\n      description: 'Visual variant of the button',\n      table: {\n        type: { summary: 'ButtonVariant' },\n        defaultValue: { summary: 'primary' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n      table: {\n        type: { summary: 'ButtonSize' },\n        defaultValue: { summary: 'md' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n      table: {\n        type: { summary: 'boolean' },\n        defaultValue: { summary: 'false' },\n      },\n    },\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'HTML button type attribute',\n      table: {\n        type: { summary: 'string' },\n        defaultValue: { summary: 'button' },\n      },\n    },\n    label: {\n      control: 'text',\n      description: 'Button text content',\n      table: {\n        type: { summary: 'string' },\n      },\n    },\n    click: {\n      action: 'clicked',\n      description: 'Click event emitter',\n    },\n  },\n}",
+                    "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Button component is a fundamental building block of the Bio Design System. It provides consistent styling and behavior across all applications.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['default', 'primary', 'secondary', 'outline', 'dashed', 'text', 'link', 'danger'],\n      description: 'Visual variant of the button',\n      table: {\n        type: { summary: 'ButtonVariant' },\n        defaultValue: { summary: 'default' },\n      },\n    },\n    color: {\n      control: 'select',\n      options: ['default', 'primary'],\n      description: 'Color theme for outline, dashed, text, and link variants',\n      table: {\n        type: { summary: \"'default' | 'primary'\" },\n        defaultValue: { summary: 'default' },\n      },\n    },\n    prefixIcon: {\n      control: 'text',\n      description: 'Prefix icon (HTML string or SVG)',\n    },\n    suffixIcon: {\n      control: 'text',\n      description: 'Suffix icon (HTML string or SVG)',\n    },\n    iconOnly: {\n      control: 'boolean',\n      description: 'Show only icon (no text)',\n    },\n    loading: {\n      control: 'boolean',\n      description: 'Show loading spinner',\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n      table: {\n        type: { summary: 'ButtonSize' },\n        defaultValue: { summary: 'md' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n      table: {\n        type: { summary: 'boolean' },\n        defaultValue: { summary: 'false' },\n      },\n    },\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'HTML button type attribute',\n      table: {\n        type: { summary: 'string' },\n        defaultValue: { summary: 'button' },\n      },\n    },\n    label: {\n      control: 'text',\n      description: 'Button text content',\n      table: {\n        type: { summary: 'string' },\n      },\n    },\n    click: {\n      action: 'clicked',\n      description: 'Click event emitter',\n    },\n  },\n}",
                     "rawdescription": "Button Component\n\nA reusable button component following atomic design principles.\nThis is an \"atom\" - a basic building block of the design system.\n\n## Features\n- Multiple variants (primary, secondary, outline, text, danger)\n- Three sizes (sm, md, lg)\n- Disabled state\n- Type safety with TypeScript\n- Uses design tokens for consistent styling",
                     "description": "<p>Button Component</p>\n<p>A reusable button component following atomic design principles.\nThis is an &quot;atom&quot; - a basic building block of the design system.</p>\n<h2>Features</h2>\n<ul>\n<li>Multiple variants (primary, secondary, outline, text, danger)</li>\n<li>Three sizes (sm, md, lg)</li>\n<li>Disabled state</li>\n<li>Type safety with TypeScript</li>\n<li>Uses design tokens for consistent styling</li>\n</ul>\n"
                 },
@@ -705,7 +856,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    variant: 'outline',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                    "defaultValue": "{\n  args: {\n    variant: 'outline',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n    color: 'default',\n  },\n}",
                     "rawdescription": "Outline button - use when you want a button with a border but no background.\nGood for less prominent actions or when you want to reduce visual weight.",
                     "description": "<p>Outline button - use when you want a button with a border but no background.\nGood for less prominent actions or when you want to reduce visual weight.</p>\n"
                 },
@@ -718,8 +869,8 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
-                    "rawdescription": "Primary button - the default and most commonly used variant.\nUse for primary actions in your application.",
-                    "description": "<p>Primary button - the default and most commonly used variant.\nUse for primary actions in your application.</p>\n"
+                    "rawdescription": "Primary button - the main action button with brand color.\nUse for primary actions in your application.",
+                    "description": "<p>Primary button - the main action button with brand color.\nUse for primary actions in your application.</p>\n"
                 },
                 {
                     "name": "Secondary",
@@ -753,9 +904,99 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    variant: 'text',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n  },\n}",
+                    "defaultValue": "{\n  args: {\n    variant: 'text',\n    size: 'md',\n    label: 'Button',\n    disabled: false,\n    color: 'default',\n  },\n}",
                     "rawdescription": "Text button - the most minimal button style.\nUse for tertiary actions or when space is limited.",
                     "description": "<p>Text button - the most minimal button style.\nUse for tertiary actions or when space is limited.</p>\n"
+                },
+                {
+                    "name": "VariantsWithPrimaryColor",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"outline\" color=\"default\">Outline Default</bio-button>\n          <bio-button variant=\"outline\" color=\"primary\">Outline Primary</bio-button>\n        </div>\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"dashed\" color=\"default\">Dashed Default</bio-button>\n          <bio-button variant=\"dashed\" color=\"primary\">Dashed Primary</bio-button>\n        </div>\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"text\" color=\"default\">Text Default</bio-button>\n          <bio-button variant=\"text\" color=\"primary\">Text Primary</bio-button>\n        </div>\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"link\" color=\"default\">Link Default</bio-button>\n          <bio-button variant=\"link\" color=\"primary\">Link Primary</bio-button>\n        </div>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Outline, dashed, text, and link variants can use either default (gray) or primary (red) color theme.',\n      },\n    },\n  },\n}",
+                    "rawdescription": "Variants with Primary Color - outline, dashed, text, and link can use primary color.",
+                    "description": "<p>Variants with Primary Color - outline, dashed, text, and link can use primary color.</p>\n"
+                },
+                {
+                    "name": "WithIcons",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px;\">\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"primary\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\">\n            Prefix Icon\n          </bio-button>\n          <bio-button variant=\"primary\" suffixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\">\n            Suffix Icon\n          </bio-button>\n          <bio-button variant=\"primary\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\" suffixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\">\n            Both Icons\n          </bio-button>\n        </div>\n        <div style=\"display: flex; gap: 16px; align-items: center; flex-wrap: wrap;\">\n          <bio-button variant=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\"></bio-button>\n          <bio-button variant=\"outline\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\"></bio-button>\n          <bio-button variant=\"text\" color=\"primary\" [iconOnly]=\"true\" prefixIcon=\"<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>\"></bio-button>\n        </div>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: 'Buttons can have prefix icons, suffix icons, or be icon-only. Icons are passed as HTML strings (typically SVG).',\n      },\n    },\n  },\n}",
+                    "rawdescription": "Buttons with Icons - prefix, suffix, and icon-only modes.",
+                    "description": "<p>Buttons with Icons - prefix, suffix, and icon-only modes.</p>\n"
+                }
+            ],
+            "src/stories/cheatsheet.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/cheatsheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/cheatsheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CheatsheetComponent>",
+                    "defaultValue": "{\n  title: 'Examples/Cheatsheet',\n  component: CheatsheetComponent,\n  parameters: {\n    layout: 'fullscreen',\n    docs: {\n      description: {\n        component: 'Una referencia rápida visual de todos los componentes y utilidades del Bio Design System, inspirada en el Bootstrap Cheatsheet.'\n      }\n    }\n  },\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "src/components/atoms/input/input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'md',\n    placeholder: 'Enter text...',\n    state: 'normal',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-input \n        [size]=\"size\"\n        [placeholder]=\"placeholder\"\n        [state]=\"state\"\n        [value]=\"value\">\n      </bio-input>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Input',\n  component: InputComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Input component provides a text input field with consistent styling and validation states. It supports prefixes, suffixes, and addons for enhanced functionality.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the input',\n    },\n    placeholder: {\n      control: 'text',\n      description: 'Placeholder text',\n    },\n    state: {\n      control: 'select',\n      options: ['normal', 'focused', 'disabled'],\n      description: 'State of the input',\n    },\n    value: {\n      control: 'text',\n      description: 'Input value',\n    },\n  },\n}",
+                    "rawdescription": "Input Component\n\nText input field for user data entry.\nSupports various sizes, validation states, and addons.",
+                    "description": "<p>Input Component</p>\n<p>Text input field for user data entry.\nSupports various sizes, validation states, and addons.</p>\n"
+                },
+                {
+                    "name": "Sizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input size=\"sm\" placeholder=\"Small input\"></bio-input>\n        <bio-input size=\"md\" placeholder=\"Medium input\"></bio-input>\n        <bio-input size=\"lg\" placeholder=\"Large input\"></bio-input>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "States",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/atoms/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input state=\"normal\" placeholder=\"Normal state\"></bio-input>\n        <bio-input state=\"focused\" placeholder=\"Focused state\"></bio-input>\n        <bio-input state=\"disabled\" placeholder=\"Disabled state\"></bio-input>\n      </div>\n    `,\n  }),\n}"
                 }
             ],
             "src/components/molecules/modal/modal.stories.ts": [
@@ -780,50 +1021,6 @@
                     "defaultValue": "{\n  title: 'Molecules/Modal',\n  component: ModalComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'Modals are dialog boxes that overlay the main content. They require user interaction before the user can return to the main content. Use modals sparingly for important information or actions.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n}",
                     "rawdescription": "Modal Component\n\nDialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.",
                     "description": "<p>Modal Component</p>\n<p>Dialog box that appears on top of the main content.\nUse modals to focus user attention on a specific task or information.</p>\n"
-                }
-            ],
-            "src/components/atoms/input/input.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/components/atoms/input/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'md',\n    placeholder: 'Enter text...',\n    disabled: false,\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <bio-input-wrapper [size]=\"size\">\n        <bio-input-container>\n          <input \n            bio-input \n            [class]=\"'bio-input--' + size\"\n            [placeholder]=\"placeholder\"\n            [disabled]=\"disabled\"\n            type=\"text\"\n          />\n        </bio-input-container>\n      </bio-input-wrapper>\n    `,\n  }),\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/components/atoms/input/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<InputComponent>",
-                    "defaultValue": "{\n  title: 'Atoms/Input',\n  component: InputComponent,\n  parameters: {\n    docs: {\n      description: {\n        component: 'The Input component provides a text input field with consistent styling and validation states. It supports prefixes, suffixes, and addons for enhanced functionality.',\n      },\n    },\n  },\n  tags: ['autodocs'],\n  argTypes: {\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the input',\n    },\n    placeholder: {\n      control: 'text',\n      description: 'Placeholder text',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the input is disabled',\n    },\n  },\n}",
-                    "rawdescription": "Input Component\n\nText input field for user data entry.\nSupports various sizes, validation states, and addons.",
-                    "description": "<p>Input Component</p>\n<p>Text input field for user data entry.\nSupports various sizes, validation states, and addons.</p>\n"
-                },
-                {
-                    "name": "Sizes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/components/atoms/input/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input-wrapper size=\"sm\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--sm\" placeholder=\"Small input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper size=\"md\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Medium input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper size=\"lg\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--lg\" placeholder=\"Large input\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n      </div>\n    `,\n  }),\n}"
-                },
-                {
-                    "name": "States",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/components/atoms/input/input.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 16px; max-width: 400px;\">\n        <bio-input-wrapper>\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Normal state\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper class=\"bio-input-wrapper--focused\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Focused state\" type=\"text\" />\n          </bio-input-container>\n        </bio-input-wrapper>\n        <bio-input-wrapper class=\"bio-input-wrapper--disabled\">\n          <bio-input-container>\n            <input bio-input class=\"bio-input--md\" placeholder=\"Disabled state\" type=\"text\" disabled />\n          </bio-input-container>\n        </bio-input-wrapper>\n      </div>\n    `,\n  }),\n}"
                 }
             ],
             "src/stories/button.stories.ts": [
@@ -971,6 +1168,19 @@
                     "kind": 184
                 }
             ],
+            "src/stories/cheatsheet.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CheatsheetComponent>",
+                    "file": "src/stories/cheatsheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "src/stories/header.stories.ts": [
                 {
                     "name": "Story",
@@ -991,19 +1201,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<PageComponent>",
                     "file": "src/stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "src/components/molecules/modal/modal.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ModalComponent>",
-                    "file": "src/components/molecules/modal/modal.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1061,6 +1258,19 @@
                     "description": "",
                     "kind": 184
                 }
+            ],
+            "src/components/molecules/modal/modal.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ModalComponent>",
+                    "file": "src/components/molecules/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
             ]
         }
     },
@@ -1070,7 +1280,7 @@
         "children": []
     },
     "coverage": {
-        "count": 27,
+        "count": 33,
         "status": "medium",
         "files": [
             {
@@ -1248,7 +1458,47 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Dashed",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Disabled",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Link",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Loading",
                 "coveragePercent": 100,
                 "coverageCount": "1/1",
                 "status": "very-good"
@@ -1309,6 +1559,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Text",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VariantsWithPrimaryColor",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/components/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithIcons",
                 "coveragePercent": 100,
                 "coverageCount": "1/1",
                 "status": "very-good"
@@ -1455,6 +1725,36 @@
             },
             {
                 "filePath": "src/stories/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/cheatsheet.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/cheatsheet.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/cheatsheet.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

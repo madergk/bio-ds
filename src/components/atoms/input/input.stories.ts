@@ -28,9 +28,14 @@ const meta: Meta<InputComponent> = {
       control: 'text',
       description: 'Placeholder text',
     },
-    disabled: {
-      control: 'boolean',
-      description: 'Whether the input is disabled',
+    state: {
+      control: 'select',
+      options: ['normal', 'focused', 'disabled'],
+      description: 'State of the input',
+    },
+    value: {
+      control: 'text',
+      description: 'Input value',
     },
   },
 };
@@ -42,22 +47,18 @@ export const Default: Story = {
   args: {
     size: 'md',
     placeholder: 'Enter text...',
-    disabled: false,
+    state: 'normal',
+    value: '',
   },
   render: (args) => ({
     props: args,
     template: `
-      <bio-input-wrapper [size]="size">
-        <bio-input-container>
-          <input 
-            bio-input 
-            [class]="'bio-input--' + size"
-            [placeholder]="placeholder"
-            [disabled]="disabled"
-            type="text"
-          />
-        </bio-input-container>
-      </bio-input-wrapper>
+      <bio-input 
+        [size]="size"
+        [placeholder]="placeholder"
+        [state]="state"
+        [value]="value">
+      </bio-input>
     `,
   }),
 };
@@ -66,21 +67,9 @@ export const Sizes: Story = {
   render: () => ({
     template: `
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
-        <bio-input-wrapper size="sm">
-          <bio-input-container>
-            <input bio-input class="bio-input--sm" placeholder="Small input" type="text" />
-          </bio-input-container>
-        </bio-input-wrapper>
-        <bio-input-wrapper size="md">
-          <bio-input-container>
-            <input bio-input class="bio-input--md" placeholder="Medium input" type="text" />
-          </bio-input-container>
-        </bio-input-wrapper>
-        <bio-input-wrapper size="lg">
-          <bio-input-container>
-            <input bio-input class="bio-input--lg" placeholder="Large input" type="text" />
-          </bio-input-container>
-        </bio-input-wrapper>
+        <bio-input size="sm" placeholder="Small input"></bio-input>
+        <bio-input size="md" placeholder="Medium input"></bio-input>
+        <bio-input size="lg" placeholder="Large input"></bio-input>
       </div>
     `,
   }),
@@ -90,21 +79,9 @@ export const States: Story = {
   render: () => ({
     template: `
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
-        <bio-input-wrapper>
-          <bio-input-container>
-            <input bio-input class="bio-input--md" placeholder="Normal state" type="text" />
-          </bio-input-container>
-        </bio-input-wrapper>
-        <bio-input-wrapper class="bio-input-wrapper--focused">
-          <bio-input-container>
-            <input bio-input class="bio-input--md" placeholder="Focused state" type="text" />
-          </bio-input-container>
-        </bio-input-wrapper>
-        <bio-input-wrapper class="bio-input-wrapper--disabled">
-          <bio-input-container>
-            <input bio-input class="bio-input--md" placeholder="Disabled state" type="text" disabled />
-          </bio-input-container>
-        </bio-input-wrapper>
+        <bio-input state="normal" placeholder="Normal state"></bio-input>
+        <bio-input state="focused" placeholder="Focused state"></bio-input>
+        <bio-input state="disabled" placeholder="Disabled state"></bio-input>
       </div>
     `,
   }),

@@ -28,12 +28,37 @@ const meta: Meta<ButtonComponent> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'outline', 'text', 'danger'],
+      options: ['default', 'primary', 'secondary', 'outline', 'dashed', 'text', 'link', 'danger'],
       description: 'Visual variant of the button',
       table: {
         type: { summary: 'ButtonVariant' },
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary: 'default' },
       },
+    },
+    color: {
+      control: 'select',
+      options: ['default', 'primary'],
+      description: 'Color theme for outline, dashed, text, and link variants',
+      table: {
+        type: { summary: "'default' | 'primary'" },
+        defaultValue: { summary: 'default' },
+      },
+    },
+    prefixIcon: {
+      control: 'text',
+      description: 'Prefix icon (HTML string or SVG)',
+    },
+    suffixIcon: {
+      control: 'text',
+      description: 'Suffix icon (HTML string or SVG)',
+    },
+    iconOnly: {
+      control: 'boolean',
+      description: 'Show only icon (no text)',
+    },
+    loading: {
+      control: 'boolean',
+      description: 'Show loading spinner',
     },
     size: {
       control: 'select',
@@ -79,7 +104,20 @@ export default meta;
 type Story = StoryObj<ButtonComponent>;
 
 /**
- * Primary button - the default and most commonly used variant.
+ * Default button - gray/neutral style.
+ * Use for default actions.
+ */
+export const Default: Story = {
+  args: {
+    variant: 'default',
+    size: 'md',
+    label: 'Button',
+    disabled: false,
+  },
+};
+
+/**
+ * Primary button - the main action button with brand color.
  * Use for primary actions in your application.
  */
 export const Primary: Story = {
@@ -114,6 +152,21 @@ export const Outline: Story = {
     size: 'md',
     label: 'Button',
     disabled: false,
+    color: 'default',
+  },
+};
+
+/**
+ * Dashed button - similar to outline but with dashed border.
+ * New variant from Figma design.
+ */
+export const Dashed: Story = {
+  args: {
+    variant: 'dashed',
+    size: 'md',
+    label: 'Button',
+    disabled: false,
+    color: 'default',
   },
 };
 
@@ -127,6 +180,21 @@ export const Text: Story = {
     size: 'md',
     label: 'Button',
     disabled: false,
+    color: 'default',
+  },
+};
+
+/**
+ * Link button - text button with underline.
+ * New variant from Figma design.
+ */
+export const Link: Story = {
+  args: {
+    variant: 'link',
+    size: 'md',
+    label: 'Button',
+    disabled: false,
+    color: 'default',
   },
 };
 
@@ -198,10 +266,13 @@ export const AllVariants: Story = {
   render: () => ({
     template: `
       <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <bio-button variant="default">Default</bio-button>
         <bio-button variant="primary">Primary</bio-button>
         <bio-button variant="secondary">Secondary</bio-button>
         <bio-button variant="outline">Outline</bio-button>
+        <bio-button variant="dashed">Dashed</bio-button>
         <bio-button variant="text">Text</bio-button>
+        <bio-button variant="link">Link</bio-button>
         <bio-button variant="danger">Danger</bio-button>
       </div>
     `,
@@ -210,6 +281,155 @@ export const AllVariants: Story = {
     docs: {
       description: {
         story: 'All available button variants displayed together for easy comparison.',
+      },
+    },
+  },
+};
+
+/**
+ * Variants with Primary Color - outline, dashed, text, and link can use primary color.
+ */
+export const VariantsWithPrimaryColor: Story = {
+  render: () => ({
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <bio-button variant="outline" color="default">Outline Default</bio-button>
+          <bio-button variant="outline" color="primary">Outline Primary</bio-button>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <bio-button variant="dashed" color="default">Dashed Default</bio-button>
+          <bio-button variant="dashed" color="primary">Dashed Primary</bio-button>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <bio-button variant="text" color="default">Text Default</bio-button>
+          <bio-button variant="text" color="primary">Text Primary</bio-button>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <bio-button variant="link" color="default">Link Default</bio-button>
+          <bio-button variant="link" color="primary">Link Primary</bio-button>
+        </div>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Outline, dashed, text, and link variants can use either default (gray) or primary (red) color theme.',
+      },
+    },
+  },
+};
+
+/**
+ * Buttons with Icons - prefix, suffix, and icon-only modes.
+ */
+export const WithIcons: Story = {
+  render: () => ({
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <bio-button variant="primary" prefixIcon="<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>">
+            Prefix Icon
+          </bio-button>
+          <bio-button variant="primary" suffixIcon="<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>">
+            Suffix Icon
+          </bio-button>
+          <bio-button variant="primary" prefixIcon="<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>" suffixIcon="<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>">
+            Both Icons
+          </bio-button>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <bio-button variant="primary" [iconOnly]="true" prefixIcon="<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>"></bio-button>
+          <bio-button variant="outline" color="primary" [iconOnly]="true" prefixIcon="<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>"></bio-button>
+          <bio-button variant="text" color="primary" [iconOnly]="true" prefixIcon="<svg width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M8 2V14M2 8H14' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>"></bio-button>
+        </div>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Buttons can have prefix icons, suffix icons, or be icon-only. Icons are passed as HTML strings (typically SVG).',
+      },
+    },
+  },
+};
+
+/**
+ * Material Symbols Icons - Using Google's Material Symbols library.
+ * Icon-only buttons are fully rounded (circular).
+ */
+export const MaterialSymbols: Story = {
+  render: () => ({
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div>
+          <h3 style="margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #666;">With Text</h3>
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <bio-button variant="primary" prefixIcon="<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>add</span>">
+              Add Item
+            </bio-button>
+            <bio-button variant="primary" suffixIcon="<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>arrow_forward</span>">
+              Continue
+            </bio-button>
+            <bio-button variant="outline" color="primary" prefixIcon="<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>edit</span>">
+              Edit
+            </bio-button>
+            <bio-button variant="text" color="primary" prefixIcon="<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>delete</span>">
+              Delete
+            </bio-button>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #666;">Icon Only (Fully Rounded)</h3>
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <bio-button variant="primary" [iconOnly]="true" prefixIcon="<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>add</span>"></bio-button>
+            <bio-button variant="primary" [iconOnly]="true" prefixIcon="<span class='material-symbols-rounded' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>favorite</span>"></bio-button>
+            <bio-button variant="outline" color="primary" [iconOnly]="true" prefixIcon="<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>edit</span>"></bio-button>
+            <bio-button variant="outline" color="primary" [iconOnly]="true" prefixIcon="<span class='material-symbols-rounded' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>settings</span>"></bio-button>
+            <bio-button variant="text" color="primary" [iconOnly]="true" prefixIcon="<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>delete</span>"></bio-button>
+            <bio-button variant="default" [iconOnly]="true" prefixIcon="<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>close</span>"></bio-button>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #666;">Different Sizes</h3>
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <bio-button variant="primary" size="sm" [iconOnly]="true" prefixIcon="<span class='material-symbols-outlined' style='font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;'>add</span>"></bio-button>
+            <bio-button variant="primary" size="md" [iconOnly]="true" prefixIcon="<span class='material-symbols-outlined' style='font-size: 20px; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;'>add</span>"></bio-button>
+            <bio-button variant="primary" size="lg" [iconOnly]="true" prefixIcon="<span class='material-symbols-outlined' style='font-size: 24px; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center;'>add</span>"></bio-button>
+          </div>
+        </div>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Buttons support Material Symbols icons (recommended) and Material Icons (legacy). Icon-only buttons are fully rounded (circular). Use the `getMaterialSymbol()` helper method in your component to generate icon HTML.',
+      },
+    },
+  },
+};
+
+/**
+ * Loading state - buttons can show a loading spinner.
+ */
+export const Loading: Story = {
+  render: () => ({
+    template: `
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <bio-button variant="primary" [loading]="true">Loading</bio-button>
+        <bio-button variant="outline" color="primary" [loading]="true">Loading</bio-button>
+        <bio-button variant="dashed" color="primary" [loading]="true">Loading</bio-button>
+        <bio-button variant="text" color="primary" [loading]="true">Loading</bio-button>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Buttons can display a loading spinner. When loading, the button is automatically disabled.',
       },
     },
   },

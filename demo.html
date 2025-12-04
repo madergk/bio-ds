@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bio Design System - Demo HTML</title>
+  
+  <!-- Google Fonts: Sora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Importar estilos del design system -->
+  <link rel="stylesheet" href="./src/tokens/generated/variables.css">
+  <link rel="stylesheet" href="./src/styles/bootstrap-variables.css">
+  <link rel="stylesheet" href="./src/styles/bootstrap-reboot.css">
+  <link rel="stylesheet" href="./src/styles/bootstrap-utilities.css">
+  
+  <style>
+    /* ============================================
+       BUTTON COMPONENT STYLES
+       Replicando estilos del componente Angular
+       ============================================ */
+    
+    /* Base Button Styles */
+    .bio-button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-family: var(--typography-font-family-primary);
+      font-weight: var(--typography-font-weight-medium);
+      text-align: center;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-3);
+      transition: all var(--transition-duration-normal) var(--transition-timing-ease);
+      user-select: none;
+      position: relative;
+      box-sizing: border-box;
+      font-size: var(--typography-font-size-base);
+      line-height: var(--typography-line-height-normal);
+      border-radius: 4px;
+    }
+    
+    .bio-button:focus-visible {
+      outline: 2px solid var(--color-primary-500);
+      outline-offset: 2px;
+    }
+    
+    .bio-button__label {
+      display: inline-block;
+    }
+    
+    .bio-button__prefix-icon,
+    .bio-button__suffix-icon,
+    .bio-button__icon-only {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      line-height: 0;
+    }
+    
+    .bio-button__prefix-icon svg,
+    .bio-button__suffix-icon svg,
+    .bio-button__icon-only svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    
+    .bio-button__spinner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+    }
+    
+    .bio-button__spinner svg {
+      animation: button-spin 0.75s linear infinite;
+    }
+    
+    @keyframes button-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Sizes */
+    .bio-button--sm {
+      padding: 6px 12px;
+      font-size: var(--typography-font-size-sm);
+      min-height: 32px;
+      gap: 8px;
+    }
+    
+    .bio-button--md {
+      padding: 8px 12px;
+      font-size: var(--typography-font-size-base);
+      min-height: 40px;
+      gap: var(--spacing-3);
+    }
+    
+    .bio-button--lg {
+      padding: 8px 16px;
+      font-size: 18px;
+      line-height: 28px;
+      min-height: 44px;
+      gap: var(--spacing-3);
+    }
+    
+    /* Icon Only */
+    .bio-button--icon-only {
+      aspect-ratio: 1;
+      padding: 0 !important;
+    }
+    
+    .bio-button--icon-only.bio-button--sm {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .bio-button--icon-only.bio-button--md {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .bio-button--icon-only.bio-button--lg {
+      width: 44px;
+      height: 44px;
+    }
+    
+    /* Variants */
+    .bio-button--default {
+      background-color: var(--color-neutral-200);
+      color: var(--color-text-primary);
+    }
+    
+    .bio-button--default:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-neutral-300);
+    }
+    
+    .bio-button--default:active:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-neutral-400);
+    }
+    
+    .bio-button--primary {
+      background-color: var(--color-primary-500);
+      color: #ffffff;
+    }
+    
+    .bio-button--primary:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-primary-600);
+    }
+    
+    .bio-button--primary:active:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-primary-700);
+    }
+    
+    .bio-button--outline {
+      background-color: transparent;
+      border: 1px solid;
+      color: var(--color-text-primary);
+      border-color: var(--color-border-default);
+    }
+    
+    .bio-button--outline:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-background-secondary);
+      border-color: var(--color-border-light);
+    }
+    
+    .bio-button--outline.bio-button--primary-color {
+      color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+    }
+    
+    .bio-button--outline.bio-button--primary-color:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-primary-50);
+      border-color: var(--color-primary-600);
+    }
+    
+    .bio-button--dashed {
+      background-color: transparent;
+      border: 1px dashed;
+      color: var(--color-text-primary);
+      border-color: var(--color-border-default);
+    }
+    
+    .bio-button--dashed:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-background-secondary);
+      border-color: var(--color-border-light);
+    }
+    
+    .bio-button--dashed.bio-button--primary-color {
+      color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+    }
+    
+    .bio-button--dashed.bio-button--primary-color:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-primary-50);
+      border-color: var(--color-primary-600);
+    }
+    
+    .bio-button--text {
+      background-color: transparent;
+      color: var(--color-text-primary);
+      padding-left: var(--spacing-sm);
+      padding-right: var(--spacing-sm);
+    }
+    
+    .bio-button--text:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-background-secondary);
+    }
+    
+    .bio-button--text.bio-button--primary-color {
+      color: var(--color-primary-500);
+    }
+    
+    .bio-button--text.bio-button--primary-color:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-primary-50);
+    }
+    
+    .bio-button--link {
+      background-color: transparent;
+      color: var(--color-text-primary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      padding-left: var(--spacing-sm);
+      padding-right: var(--spacing-sm);
+    }
+    
+    .bio-button--link:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      color: var(--color-text-secondary);
+      text-decoration-color: var(--color-text-secondary);
+    }
+    
+    .bio-button--link.bio-button--primary-color {
+      color: var(--color-primary-500);
+      text-decoration-color: var(--color-primary-500);
+    }
+    
+    .bio-button--link.bio-button--primary-color:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      color: var(--color-primary-600);
+      text-decoration-color: var(--color-primary-600);
+    }
+    
+    .bio-button--danger {
+      background-color: var(--color-semantic-error-base);
+      color: var(--color-base-white);
+    }
+    
+    .bio-button--danger:hover:not(.bio-button--disabled):not(.bio-button--loading) {
+      background-color: var(--color-semantic-error-hover);
+    }
+    
+    /* Loading State */
+    .bio-button--loading {
+      cursor: wait;
+      position: relative;
+    }
+    
+    .bio-button--loading .bio-button__label,
+    .bio-button--loading .bio-button__prefix-icon,
+    .bio-button--loading .bio-button__suffix-icon {
+      opacity: 0;
+    }
+    
+    /* Disabled State */
+    .bio-button--disabled,
+    .bio-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    
+    /* Button Group Styles */
+    .button-group {
+      display: flex;
+      gap: var(--spacing-2);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .button-group-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2);
+      align-items: flex-start;
+    }
+    body {
+      font-family: var(--bs-font-family-sans-serif);
+      padding: var(--bs-spacer-4);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .demo-section {
+      margin-bottom: var(--bs-spacer-6);
+      padding: var(--bs-spacer-4);
+      border: var(--bs-border-width) solid var(--bs-border-color);
+      border-radius: var(--bs-border-radius);
+      background: var(--bs-body-bg);
+    }
+    
+    .demo-section h2 {
+      margin-top: 0;
+      color: var(--bs-primary);
+      border-bottom: 2px solid var(--bs-primary);
+      padding-bottom: var(--bs-spacer-2);
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--bs-spacer-4);
+      margin-top: var(--bs-spacer-3);
+    }
+    
+    .demo-item {
+      padding: var(--bs-spacer-3);
+      border-radius: var(--bs-border-radius-sm);
+      text-align: center;
+    }
+    
+    .code-block {
+      background: var(--bs-gray-100);
+      padding: var(--bs-spacer-3);
+      border-radius: var(--bs-border-radius-sm);
+      font-family: var(--bs-font-family-monospace);
+      font-size: var(--bs-font-size-sm);
+      overflow-x: auto;
+      margin-top: var(--bs-spacer-2);
+    }
+  </style>
+</head>
+<body>
+  <header class="mb-5">
+    <h1 class="fs-1 text-primary mb-3">Bio Design System</h1>
+    <p class="text-muted fs-lg">Demostración de estilos Bootstrap-compatibles con Design Tokens</p>
+  </header>
+
+  <!-- Sección: Colores -->
+  <section class="demo-section">
+    <h2>🎨 Colores</h2>
+    <p class="text-muted mb-4">Variables de color disponibles usando tokens personalizados</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item bg-primary text-white">
+        <strong>Primary</strong>
+        <div class="code-block mt-2" style="background: rgba(255,255,255,0.2);">
+          var(--bs-primary)
+        </div>
+      </div>
+      <div class="demo-item bg-success text-white">
+        <strong>Success</strong>
+        <div class="code-block mt-2" style="background: rgba(255,255,255,0.2);">
+          var(--bs-success)
+        </div>
+      </div>
+      <div class="demo-item bg-danger text-white">
+        <strong>Danger</strong>
+        <div class="code-block mt-2" style="background: rgba(255,255,255,0.2);">
+          var(--bs-danger)
+        </div>
+      </div>
+      <div class="demo-item bg-warning text-dark">
+        <strong>Warning</strong>
+        <div class="code-block mt-2" style="background: rgba(0,0,0,0.1);">
+          var(--bs-warning)
+        </div>
+      </div>
+      <div class="demo-item bg-info text-white">
+        <strong>Info</strong>
+        <div class="code-block mt-2" style="background: rgba(255,255,255,0.2);">
+          var(--bs-info)
+        </div>
+      </div>
+      <div class="demo-item bg-light border">
+        <strong>Light</strong>
+        <div class="code-block mt-2">
+          var(--bs-gray-100)
+        </div>
+      </div>
+      <div class="demo-item bg-dark text-white">
+        <strong>Dark</strong>
+        <div class="code-block mt-2" style="background: rgba(255,255,255,0.2);">
+          var(--bs-gray-900)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Espaciado -->
+  <section class="demo-section">
+    <h2>📏 Espaciado</h2>
+    <p class="text-muted mb-4">Sistema de espaciado usando tokens (0-8)</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item border" style="padding: var(--bs-spacer-0);">
+        <strong>Spacer 0</strong>
+        <div class="code-block mt-2">var(--bs-spacer-0)</div>
+      </div>
+      <div class="demo-item border" style="padding: var(--bs-spacer-1);">
+        <strong>Spacer 1</strong>
+        <div class="code-block mt-2">var(--bs-spacer-1)</div>
+      </div>
+      <div class="demo-item border" style="padding: var(--bs-spacer-2);">
+        <strong>Spacer 2</strong>
+        <div class="code-block mt-2">var(--bs-spacer-2)</div>
+      </div>
+      <div class="demo-item border" style="padding: var(--bs-spacer-3);">
+        <strong>Spacer 3</strong>
+        <div class="code-block mt-2">var(--bs-spacer-3)</div>
+      </div>
+      <div class="demo-item border" style="padding: var(--bs-spacer-4);">
+        <strong>Spacer 4</strong>
+        <div class="code-block mt-2">var(--bs-spacer-4)</div>
+      </div>
+      <div class="demo-item border" style="padding: var(--bs-spacer-5);">
+        <strong>Spacer 5</strong>
+        <div class="code-block mt-2">var(--bs-spacer-5)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Utilidades de Espaciado -->
+  <section class="demo-section">
+    <h2>🔧 Utilidades de Espaciado</h2>
+    <p class="text-muted mb-4">Clases de utilidad Bootstrap-compatibles</p>
+    
+    <div class="border rounded p-4 mb-3">
+      <p class="mb-2"><strong>Padding:</strong> <code>.p-4</code></p>
+      <p class="mb-2"><strong>Margin:</strong> <code>.m-3</code></p>
+      <p class="mb-0"><strong>Horizontal:</strong> <code>.px-4</code> <code>.mx-auto</code></p>
+    </div>
+    
+    <div class="border rounded p-4 mb-3 bg-light">
+      <p class="mb-2">Ejemplo con <code>.p-4</code> y <code>.bg-light</code></p>
+    </div>
+    
+    <div class="border rounded p-3 mb-3">
+      <p class="mb-2">Ejemplo con <code>.p-3</code></p>
+    </div>
+  </section>
+
+  <!-- Sección: Tipografía -->
+  <section class="demo-section">
+    <h2>✍️ Tipografía</h2>
+    <p class="text-muted mb-4">Estilos de texto y tamaños de fuente</p>
+    
+    <div class="mb-4">
+      <h1 class="fs-1">Heading 1 (fs-1)</h1>
+      <h2 class="fs-2">Heading 2 (fs-2)</h2>
+      <h3 class="fs-3">Heading 3 (fs-3)</h3>
+      <h4 class="fs-4">Heading 4 (fs-4)</h4>
+      <h5 class="fs-5">Heading 5 (fs-5)</h5>
+      <h6 class="fs-6">Heading 6 (fs-6)</h6>
+    </div>
+    
+    <div class="mb-4">
+      <p class="fs-sm">Texto pequeño (fs-sm)</p>
+      <p class="fs-base">Texto base (fs-base)</p>
+      <p class="fs-lg">Texto grande (fs-lg)</p>
+    </div>
+    
+    <div class="mb-4">
+      <p class="fw-light">Font weight light</p>
+      <p class="fw-normal">Font weight normal</p>
+      <p class="fw-medium">Font weight medium</p>
+      <p class="fw-semibold">Font weight semibold</p>
+      <p class="fw-bold">Font weight bold</p>
+    </div>
+    
+    <div>
+      <p class="text-primary">Texto primario</p>
+      <p class="text-success">Texto éxito</p>
+      <p class="text-danger">Texto error</p>
+      <p class="text-warning">Texto advertencia</p>
+      <p class="text-muted">Texto muted</p>
+    </div>
+  </section>
+
+  <!-- Sección: Bordes y Sombras -->
+  <section class="demo-section">
+    <h2>🖼️ Bordes y Sombras</h2>
+    <p class="text-muted mb-4">Estilos de bordes y sombras</p>
+    
+    <div class="demo-grid">
+      <div class="demo-item border rounded">
+        <strong>Border + Rounded</strong>
+        <div class="code-block mt-2">.border .rounded</div>
+      </div>
+      <div class="demo-item border rounded-sm">
+        <strong>Rounded Small</strong>
+        <div class="code-block mt-2">.rounded-sm</div>
+      </div>
+      <div class="demo-item border rounded-lg">
+        <strong>Rounded Large</strong>
+        <div class="code-block mt-2">.rounded-lg</div>
+      </div>
+      <div class="demo-item border rounded-pill bg-primary text-white">
+        <strong>Rounded Pill</strong>
+        <div class="code-block mt-2" style="background: rgba(255,255,255,0.2);">.rounded-pill</div>
+      </div>
+    </div>
+    
+    <div class="demo-grid mt-4">
+      <div class="demo-item shadow-sm">
+        <strong>Shadow Small</strong>
+        <div class="code-block mt-2">.shadow-sm</div>
+      </div>
+      <div class="demo-item shadow">
+        <strong>Shadow</strong>
+        <div class="code-block mt-2">.shadow</div>
+      </div>
+      <div class="demo-item shadow-lg">
+        <strong>Shadow Large</strong>
+        <div class="code-block mt-2">.shadow-lg</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Flexbox -->
+  <section class="demo-section">
+    <h2>📐 Flexbox Utilities</h2>
+    <p class="text-muted mb-4">Utilidades de flexbox Bootstrap-compatibles</p>
+    
+    <div class="d-flex justify-content-between align-items-center p-3 border rounded mb-3">
+      <span>Item 1</span>
+      <span>Item 2</span>
+      <span>Item 3</span>
+    </div>
+    
+    <div class="d-flex justify-content-center align-items-center p-3 border rounded mb-3">
+      <span class="mx-2">Centrado</span>
+    </div>
+    
+    <div class="d-flex flex-column gap-3 p-3 border rounded">
+      <div class="p-2 bg-primary text-white rounded">Flex Column Item 1</div>
+      <div class="p-2 bg-success text-white rounded">Flex Column Item 2</div>
+      <div class="p-2 bg-info text-white rounded">Flex Column Item 3</div>
+    </div>
+  </section>
+
+  <!-- Sección: Botones -->
+  <section class="demo-section">
+    <h2>🔘 Botones - Implementación desde Figma</h2>
+    <p class="text-muted mb-4">Componente Button con todas las variantes, tamaños y estados según diseño de Figma</p>
+    
+    <!-- Iconos SVG de ejemplo -->
+    <script type="text/template" id="plus-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </script>
+    <script type="text/template" id="arrow-right-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 14L14 8L8 2M14 8H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </script>
+    <script type="text/template" id="spinner-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="37.7" stroke-dashoffset="9.4"></circle>
+      </svg>
+    </script>
+    
+    <!-- Variantes Básicas -->
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Variantes</h3>
+      <div class="button-group">
+        <button class="bio-button bio-button--default bio-button--md">
+          <span class="bio-button__label">Default</span>
+        </button>
+        <button class="bio-button bio-button--primary bio-button--md">
+          <span class="bio-button__label">Primary</span>
+        </button>
+        <button class="bio-button bio-button--outline bio-button--md">
+          <span class="bio-button__label">Outline</span>
+        </button>
+        <button class="bio-button bio-button--outline bio-button--primary-color bio-button--md">
+          <span class="bio-button__label">Outline Primary</span>
+        </button>
+        <button class="bio-button bio-button--dashed bio-button--md">
+          <span class="bio-button__label">Dashed</span>
+        </button>
+        <button class="bio-button bio-button--dashed bio-button--primary-color bio-button--md">
+          <span class="bio-button__label">Dashed Primary</span>
+        </button>
+        <button class="bio-button bio-button--text bio-button--md">
+          <span class="bio-button__label">Text</span>
+        </button>
+        <button class="bio-button bio-button--text bio-button--primary-color bio-button--md">
+          <span class="bio-button__label">Text Primary</span>
+        </button>
+        <button class="bio-button bio-button--link bio-button--md">
+          <span class="bio-button__label">Link</span>
+        </button>
+        <button class="bio-button bio-button--link bio-button--primary-color bio-button--md">
+          <span class="bio-button__label">Link Primary</span>
+        </button>
+        <button class="bio-button bio-button--danger bio-button--md">
+          <span class="bio-button__label">Danger</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Tamaños -->
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Tamaños</h3>
+      <div class="button-group">
+        <button class="bio-button bio-button--primary bio-button--sm">
+          <span class="bio-button__label">Small</span>
+        </button>
+        <button class="bio-button bio-button--primary bio-button--md">
+          <span class="bio-button__label">Medium</span>
+        </button>
+        <button class="bio-button bio-button--primary bio-button--lg">
+          <span class="bio-button__label">Large</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Botones con Iconos -->
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Botones con Iconos</h3>
+      <div class="button-group">
+        <button class="bio-button bio-button--primary bio-button--md">
+          <span class="bio-button__prefix-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="bio-button__label">Prefix Icon</span>
+        </button>
+        <button class="bio-button bio-button--outline bio-button--primary-color bio-button--md">
+          <span class="bio-button__label">Suffix Icon</span>
+          <span class="bio-button__suffix-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 14L14 8L8 2M14 8H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <button class="bio-button bio-button--text bio-button--primary-color bio-button--md">
+          <span class="bio-button__prefix-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="bio-button__label">Both Icons</span>
+          <span class="bio-button__suffix-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 14L14 8L8 2M14 8H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Icon Only -->
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Icon Only</h3>
+      <div class="button-group">
+        <button class="bio-button bio-button--primary bio-button--icon-only bio-button--sm">
+          <span class="bio-button__icon-only">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <button class="bio-button bio-button--primary bio-button--icon-only bio-button--md">
+          <span class="bio-button__icon-only">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <button class="bio-button bio-button--primary bio-button--icon-only bio-button--lg">
+          <span class="bio-button__icon-only">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <button class="bio-button bio-button--outline bio-button--primary-color bio-button--icon-only bio-button--md">
+          <span class="bio-button__icon-only">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 14L14 8L8 2M14 8H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <button class="bio-button bio-button--text bio-button--primary-color bio-button--icon-only bio-button--md">
+          <span class="bio-button__icon-only">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Loading State -->
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Loading State</h3>
+      <div class="button-group">
+        <button class="bio-button bio-button--primary bio-button--md bio-button--loading" disabled>
+          <span class="bio-button__spinner">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="37.7" stroke-dashoffset="9.4"></circle>
+            </svg>
+          </span>
+          <span class="bio-button__label">Loading...</span>
+        </button>
+        <button class="bio-button bio-button--outline bio-button--primary-color bio-button--md bio-button--loading" disabled>
+          <span class="bio-button__spinner">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="37.7" stroke-dashoffset="9.4"></circle>
+            </svg>
+          </span>
+          <span class="bio-button__label">Loading...</span>
+        </button>
+        <button class="bio-button bio-button--primary bio-button--icon-only bio-button--md bio-button--loading" disabled>
+          <span class="bio-button__spinner">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="37.7" stroke-dashoffset="9.4"></circle>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Disabled State -->
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Disabled State</h3>
+      <div class="button-group">
+        <button class="bio-button bio-button--default bio-button--md bio-button--disabled" disabled>
+          <span class="bio-button__label">Disabled Default</span>
+        </button>
+        <button class="bio-button bio-button--primary bio-button--md bio-button--disabled" disabled>
+          <span class="bio-button__label">Disabled Primary</span>
+        </button>
+        <button class="bio-button bio-button--outline bio-button--primary-color bio-button--md bio-button--disabled" disabled>
+          <span class="bio-button__label">Disabled Outline</span>
+        </button>
+        <button class="bio-button bio-button--dashed bio-button--primary-color bio-button--md bio-button--disabled" disabled>
+          <span class="bio-button__label">Disabled Dashed</span>
+        </button>
+        <button class="bio-button bio-button--text bio-button--primary-color bio-button--md bio-button--disabled" disabled>
+          <span class="bio-button__label">Disabled Text</span>
+        </button>
+        <button class="bio-button bio-button--link bio-button--primary-color bio-button--md bio-button--disabled" disabled>
+          <span class="bio-button__label">Disabled Link</span>
+        </button>
+        <button class="bio-button bio-button--danger bio-button--md bio-button--disabled" disabled>
+          <span class="bio-button__label">Disabled Danger</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Ejemplo de Uso -->
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Ejemplo de Uso en Código</h3>
+      <div class="code-block">
+        <pre><code>&lt;!-- Variante Primary --&gt;
+&lt;button class="bio-button bio-button--primary bio-button--md"&gt;
+  &lt;span class="bio-button__label"&gt;Button&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Con Icono Prefix --&gt;
+&lt;button class="bio-button bio-button--primary bio-button--md"&gt;
+  &lt;span class="bio-button__prefix-icon"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;span class="bio-button__label"&gt;Add Item&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Loading State --&gt;
+&lt;button class="bio-button bio-button--primary bio-button--md bio-button--loading" disabled&gt;
+  &lt;span class="bio-button__spinner"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;span class="bio-button__label"&gt;Loading...&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Icon Only --&gt;
+&lt;button class="bio-button bio-button--primary bio-button--icon-only bio-button--md"&gt;
+  &lt;span class="bio-button__icon-only"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+  &lt;/span&gt;
+&lt;/button&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Variables CSS Directas -->
+  <section class="demo-section">
+    <h2>🎯 Variables CSS Directas</h2>
+    <p class="text-muted mb-4">Uso directo de variables CSS en estilos personalizados</p>
+    
+    <div style="
+      background-color: var(--color-primary-500);
+      color: var(--color-base-white);
+      padding: var(--spacing-md);
+      border-radius: var(--border-radius-md);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--spacing-3);
+    ">
+      <strong>Estilo usando tokens directos</strong>
+      <div class="code-block mt-2" style="background: rgba(255,255,255,0.2);">
+        background-color: var(--color-primary-500);<br>
+        padding: var(--spacing-md);<br>
+        border-radius: var(--border-radius-md);
+      </div>
+    </div>
+    
+    <div style="
+      background-color: var(--bs-primary);
+      color: var(--bs-body-bg);
+      padding: var(--bs-spacer-4);
+      border-radius: var(--bs-border-radius);
+      box-shadow: var(--bs-box-shadow);
+    ">
+      <strong>Estilo usando variables Bootstrap-compatibles</strong>
+      <div class="code-block mt-2" style="background: rgba(0,0,0,0.1);">
+        background-color: var(--bs-primary);<br>
+        padding: var(--bs-spacer-4);<br>
+        border-radius: var(--bs-border-radius);
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Tipografía Sora -->
+  <section class="demo-section">
+    <h2>✍️ Tipografía Sora</h2>
+    <p class="text-muted mb-4">Fuente principal del design system: <strong>Sora</strong> de Google Fonts</p>
+    
+    <div class="mb-4">
+      <h1 class="fs-1 mb-2">Heading 1 con Sora</h1>
+      <h2 class="fs-2 mb-2">Heading 2 con Sora</h2>
+      <h3 class="fs-3 mb-2">Heading 3 con Sora</h3>
+      <p class="fs-base mb-2">Texto base con fuente Sora. Esta es la fuente principal del design system.</p>
+      <p class="fs-sm mb-2">Texto pequeño con fuente Sora.</p>
+    </div>
+    
+    <div class="mb-4">
+      <p class="fw-light">Font weight light (300)</p>
+      <p class="fw-normal">Font weight normal (400)</p>
+      <p class="fw-medium">Font weight medium (500)</p>
+      <p class="fw-semibold">Font weight semibold (600)</p>
+      <p class="fw-bold">Font weight bold (700)</p>
+    </div>
+    
+    <div class="code-block">
+      <strong>CSS Variable:</strong> <code>var(--typography-font-family-primary)</code><br>
+      <strong>Valor:</strong> <code>'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif</code>
+    </div>
+  </section>
+
+  <!-- Sección: Material Icons -->
+  <section class="demo-section">
+    <h2>🎨 Material Icons</h2>
+    <p class="text-muted mb-4">Iconos de Material Design de Google Fonts</p>
+    
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Iconos de Acción</h3>
+      <div class="button-group">
+        <span class="material-icons" style="font-size: 24px;">add</span>
+        <span class="material-icons" style="font-size: 24px;">delete</span>
+        <span class="material-icons" style="font-size: 24px;">edit</span>
+        <span class="material-icons" style="font-size: 24px;">save</span>
+        <span class="material-icons" style="font-size: 24px;">close</span>
+        <span class="material-icons" style="font-size: 24px;">check</span>
+        <span class="material-icons" style="font-size: 24px;">check_circle</span>
+      </div>
+    </div>
+    
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Iconos de Navegación</h3>
+      <div class="button-group">
+        <span class="material-icons" style="font-size: 24px;">arrow_back</span>
+        <span class="material-icons" style="font-size: 24px;">arrow_forward</span>
+        <span class="material-icons" style="font-size: 24px;">arrow_upward</span>
+        <span class="material-icons" style="font-size: 24px;">arrow_downward</span>
+        <span class="material-icons" style="font-size: 24px;">menu</span>
+        <span class="material-icons" style="font-size: 24px;">home</span>
+      </div>
+    </div>
+    
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Tamaños de Iconos</h3>
+      <div class="button-group align-items-center">
+        <span class="material-icons" style="font-size: 16px;">star</span>
+        <span class="material-icons" style="font-size: 24px;">star</span>
+        <span class="material-icons" style="font-size: 32px;">star</span>
+        <span class="material-icons" style="font-size: 48px;">star</span>
+      </div>
+    </div>
+    
+    <div class="mb-4">
+      <h3 class="fs-5 mb-3">Iconos en Botones</h3>
+      <div class="button-group">
+        <button class="bio-button bio-button--primary bio-button--md">
+          <span class="bio-button__prefix-icon">
+            <i class="material-icons" style="font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;">add</i>
+          </span>
+          <span class="bio-button__label">Add Item</span>
+        </button>
+        <button class="bio-button bio-button--outline bio-button--primary-color bio-button--md">
+          <span class="bio-button__label">Delete</span>
+          <span class="bio-button__suffix-icon">
+            <i class="material-icons" style="font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;">delete</i>
+          </span>
+        </button>
+        <button class="bio-button bio-button--primary bio-button--icon-only bio-button--md">
+          <span class="bio-button__icon-only">
+            <i class="material-icons" style="font-size: 16px; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;">edit</i>
+          </span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="code-block">
+      <strong>Uso básico:</strong><br>
+      <code>&lt;span class="material-icons"&gt;add&lt;/span&gt;</code><br><br>
+      <strong>Con tamaño personalizado:</strong><br>
+      <code>&lt;span class="material-icons" style="font-size: 16px;"&gt;add&lt;/span&gt;</code><br><br>
+      <strong>En botones:</strong><br>
+      <code>&lt;i class="material-icons" style="font-size: 16px;"&gt;add&lt;/i&gt;</code>
+    </div>
+  </section>
+
+  <!-- Sección: Resumen -->
+  <section class="demo-section bg-light">
+    <h2>✅ Verificación Completa</h2>
+    <div class="mb-3">
+      <p class="mb-2"><strong>✓</strong> Variables CSS cargadas correctamente</p>
+      <p class="mb-2"><strong>✓</strong> Variables Bootstrap-compatibles funcionando</p>
+      <p class="mb-2"><strong>✓</strong> Estilos base (reboot) aplicados</p>
+      <p class="mb-2"><strong>✓</strong> Utilidades Bootstrap disponibles</p>
+      <p class="mb-2"><strong>✓</strong> Tokens personalizados funcionando</p>
+      <p class="mb-2"><strong>✓</strong> Tipografía Sora cargada</p>
+      <p class="mb-2"><strong>✓</strong> Material Icons disponible</p>
+      <p class="mb-0"><strong>✓</strong> Sistema listo para usar en producción</p>
+    </div>
+  </section>
+
+  <footer class="mt-5 pt-4 border-top text-center text-muted">
+    <p>Bio Design System - Sistema de estilos Bootstrap-compatible con Design Tokens</p>
+    <p class="fs-sm">Todos los estilos se generan desde <code>tokens/tokens.json</code></p>
+  </footer>
+</body>
+</html>
+
